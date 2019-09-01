@@ -11,5 +11,7 @@ public:
 	JtanPanels(QWidget *parent = Q_NULLPTR);
 
 private:
+	void loadImages();
+
 	Ui::JtanPanelsClass ui;
 };

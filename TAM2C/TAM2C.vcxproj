@@ -157,7 +157,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Definitions.cpp" />
     <ClCompile Include="TAM2C.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Definitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

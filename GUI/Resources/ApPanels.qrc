@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="ApPanels">
-    </qresource>
+  <qresource prefix="ApPanels">
+    <file>../../Multimedia/GUI/ApPanels.png</file>
+  </qresource>
 </RCC>

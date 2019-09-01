@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,12 +19,16 @@ QT_BEGIN_NAMESPACE
 class Ui_ApPanelsClass
 {
 public:
+    QLabel *AP_Background;
 
     void setupUi(QWidget *ApPanelsClass)
     {
         if (ApPanelsClass->objectName().isEmpty())
             ApPanelsClass->setObjectName(QString::fromUtf8("ApPanelsClass"));
-        ApPanelsClass->resize(600, 400);
+        ApPanelsClass->resize(1920, 1080);
+        AP_Background = new QLabel(ApPanelsClass);
+        AP_Background->setObjectName(QString::fromUtf8("AP_Background"));
+        AP_Background->setGeometry(QRect(0, 0, 1920, 1080));
 
         retranslateUi(ApPanelsClass);
 
@@ -33,6 +38,7 @@ public:
     void retranslateUi(QWidget *ApPanelsClass)
     {
         ApPanelsClass->setWindowTitle(QApplication::translate("ApPanelsClass", "ApPanels", nullptr));
+        AP_Background->setText(QString());
     } // retranslateUi
 
 };

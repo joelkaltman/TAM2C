@@ -11,5 +11,7 @@ public:
 	ApPanels(QWidget *parent = Q_NULLPTR);
 
 private:
+	void loadImages();
+
 	Ui::ApPanelsClass ui;
 };

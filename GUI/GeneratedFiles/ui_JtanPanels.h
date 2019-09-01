@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,12 +19,16 @@ QT_BEGIN_NAMESPACE
 class Ui_JtanPanelsClass
 {
 public:
+    QLabel *JTAN_Background;
 
     void setupUi(QWidget *JtanPanelsClass)
     {
         if (JtanPanelsClass->objectName().isEmpty())
             JtanPanelsClass->setObjectName(QString::fromUtf8("JtanPanelsClass"));
-        JtanPanelsClass->resize(600, 400);
+        JtanPanelsClass->resize(1920, 1080);
+        JTAN_Background = new QLabel(JtanPanelsClass);
+        JTAN_Background->setObjectName(QString::fromUtf8("JTAN_Background"));
+        JTAN_Background->setGeometry(QRect(0, 0, 1920, 1080));
 
         retranslateUi(JtanPanelsClass);
 
@@ -33,6 +38,7 @@ public:
     void retranslateUi(QWidget *JtanPanelsClass)
     {
         JtanPanelsClass->setWindowTitle(QApplication::translate("JtanPanelsClass", "JtanPanels", nullptr));
+        JTAN_Background->setText(QString());
     } // retranslateUi
 
 };
