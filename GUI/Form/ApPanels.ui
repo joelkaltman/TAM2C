@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>ApPanels</string>
   </property>
-  <widget class="QLabel" name="AP_Background">
+  <widget class="QLabel" name="AP_background">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -24,6 +24,1039 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/ApPanels.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>290</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>382</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>473</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>662</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_5">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>756</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_6">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>570</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_7">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>382</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_8">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>473</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_9">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>662</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_10">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>757</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_11">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>290</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_12">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>570</y>
+     <width>39</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>39</width>
+     <height>54</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_vertical_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_13">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>208</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_14">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>318</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_15">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_16">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_17">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_18">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>754</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_19">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>864</x>
+     <y>902</y>
+     <width>59</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>34</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_horizontal_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_minus">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>37</x>
+     <y>902</y>
+     <width>53</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>53</width>
+     <height>36</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_minus_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_plus">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>101</x>
+     <y>902</y>
+     <width>53</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>53</width>
+     <height>36</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_plus_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_circle">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>959</x>
+     <y>901</y>
+     <width>40</width>
+     <height>38</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>38</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/GDSU_button_circle_pressed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_switch_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1300</x>
+     <y>348</y>
+     <width>75</width>
+     <height>74</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>75</width>
+     <height>74</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel1_switch1_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_switch_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1329</x>
+     <y>427</y>
+     <width>68</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>68</width>
+     <height>71</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel1_switch2_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_switch_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1307</x>
+     <y>509</y>
+     <width>68</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>68</width>
+     <height>71</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel1_switch3_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_button">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1369</x>
+     <y>525</y>
+     <width>76</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>76</width>
+     <height>66</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel1_red.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_2_switch_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1236</x>
+     <y>820</y>
+     <width>85</width>
+     <height>67</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>85</width>
+     <height>67</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_switch1_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_2_switch_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1513</x>
+     <y>831</y>
+     <width>86</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>86</width>
+     <height>88</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_switch2_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_2_switch_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1642</x>
+     <y>840</y>
+     <width>86</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>86</width>
+     <height>88</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_switch3_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_2_switch_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1770</x>
+     <y>850</y>
+     <width>86</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>86</width>
+     <height>88</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_switch4_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1254</x>
+     <y>658</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1211</x>
+     <y>734</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led2.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1294</x>
+     <y>738</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led3.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1398</x>
+     <y>663</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led4.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_5">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1398</x>
+     <y>743</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led5.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_6">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1507</x>
+     <y>667</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led6.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_7">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1573</x>
+     <y>669</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led7.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_8">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1640</x>
+     <y>671</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led8.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_9">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1710</x>
+     <y>674</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led9.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_2_led_10">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1781</x>
+     <y>676</y>
+     <width>64</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/ApPanels.qrc">:/ApPanels/Multimedia/GUI/AP_panel2_led10.png</pixmap>
    </property>
   </widget>
  </widget>
