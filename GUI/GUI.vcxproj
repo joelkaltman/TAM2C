@@ -130,6 +130,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Source\ApPanels.cpp" />
+    <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\JtanPanels.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,8 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Definitions.h" />
+    <QtMoc Include="Include\Button.h" />
     <QtMoc Include="Include\JtanPanels.h" />
     <QtMoc Include="Include\ApPanels.h" />
     <ClInclude Include="GeneratedFiles\ui_ApPanels.h" />
