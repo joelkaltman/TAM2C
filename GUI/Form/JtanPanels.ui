@@ -25,6 +25,678 @@
    <property name="text">
     <string/>
    </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/JtanPanels.qrc">:/JtanPanels/Multimedia/GUI/JtanPanels.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_1">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>293</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_2">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>384</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_3">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>474</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_4">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>569</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_5">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>660</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_6">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>753</y>
+     <width>42</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_7">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>293</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_8">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>384</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_9">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>474</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_10">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>569</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_11">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>660</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_12">
+   <property name="geometry">
+    <rect>
+     <x>1059</x>
+     <y>753</y>
+     <width>38</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>38</width>
+     <height>53</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_13">
+   <property name="geometry">
+    <rect>
+     <x>228</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_14">
+   <property name="geometry">
+    <rect>
+     <x>336</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_15">
+   <property name="geometry">
+    <rect>
+     <x>447</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_16">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_17">
+   <property name="geometry">
+    <rect>
+     <x>663</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_18">
+   <property name="geometry">
+    <rect>
+     <x>766</x>
+     <y>897</y>
+     <width>60</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_19">
+   <property name="geometry">
+    <rect>
+     <x>873</x>
+     <y>897</y>
+     <width>61</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>59</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_minus">
+   <property name="geometry">
+    <rect>
+     <x>59</x>
+     <y>896</y>
+     <width>54</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_minus_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_minus_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>54</width>
+     <height>37</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_plus">
+   <property name="geometry">
+    <rect>
+     <x>122</x>
+     <y>896</y>
+     <width>54</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_plus_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_plus_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>54</width>
+     <height>37</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_btn_circle">
+   <property name="geometry">
+    <rect>
+     <x>969</x>
+     <y>896</y>
+     <width>42</width>
+     <height>39</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_circle_pressed.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_GDSU_button_circle_pressed.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>42</width>
+     <height>39</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_switch_1">
+   <property name="geometry">
+    <rect>
+     <x>1298</x>
+     <y>578</y>
+     <width>86</width>
+     <height>96</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_switch1_1.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_switch1_1.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>86</width>
+     <height>96</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_knob">
+   <property name="geometry">
+    <rect>
+     <x>1432</x>
+     <y>620</y>
+     <width>65</width>
+     <height>63</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_knob_1.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_knob_1.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>65</width>
+     <height>63</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_1_led_1">
+   <property name="geometry">
+    <rect>
+     <x>1311</x>
+     <y>475</y>
+     <width>67</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Resources/JtanPanels.qrc">:/JtanPanels/Multimedia/GUI/JTAN_panel1_led1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_1_switch_2">
+   <property name="geometry">
+    <rect>
+     <x>1504</x>
+     <y>605</y>
+     <width>104</width>
+     <height>104</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resources/JtanPanels.qrc">
+     <normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_switch2_1.png</normaloff>:/JtanPanels/Multimedia/GUI/JTAN_panel1_switch2_1.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>104</width>
+     <height>104</height>
+    </size>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

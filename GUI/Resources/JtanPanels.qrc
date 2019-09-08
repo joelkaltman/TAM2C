@@ -1,4 +1,19 @@
 <RCC>
-    <qresource prefix="JtanPanels">
-    </qresource>
+  <qresource prefix="JtanPanels">
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_circle_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_horizontal_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_minus_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_plus_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_vertical1_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_GDSU_button_vertical2_pressed.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_knob_1.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_knob_2.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_knob_3.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_led1.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_switch1_1.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_switch1_2.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_switch2_1.png</file>
+    <file>../../Multimedia/GUI/JTAN_panel1_switch2_2.png</file>
+    <file>../../Multimedia/GUI/JtanPanels.png</file>
+  </qresource>
 </RCC>

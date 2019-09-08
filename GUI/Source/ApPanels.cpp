@@ -25,7 +25,7 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[GDSU_BUTTON_10] = new Button(ui.GDSU_btn_10, "AP_GDSU_button_vertical_pressed.png");
 	uiElem[GDSU_BUTTON_11] = new Button(ui.GDSU_btn_11, "AP_GDSU_button_vertical_pressed.png");
 	uiElem[GDSU_BUTTON_12] = new Button(ui.GDSU_btn_12, "AP_GDSU_button_vertical_pressed.png");
-	uiElem[GDSU_BUTTON_13] = new Button(ui.GDSU_btn_13, "AP_GDSU_button_vertical_pressed.png");
+	uiElem[GDSU_BUTTON_13] = new Button(ui.GDSU_btn_13, "AP_GDSU_button_horizontal_pressed.png");
 	uiElem[GDSU_BUTTON_14] = new Button(ui.GDSU_btn_14, "AP_GDSU_button_horizontal_pressed.png");
 	uiElem[GDSU_BUTTON_15] = new Button(ui.GDSU_btn_15, "AP_GDSU_button_horizontal_pressed.png");
 	uiElem[GDSU_BUTTON_16] = new Button(ui.GDSU_btn_16, "AP_GDSU_button_horizontal_pressed.png");
