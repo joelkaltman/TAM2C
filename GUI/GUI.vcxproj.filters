@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Form">
       <UniqueIdentifier>{6857e3d9-3d95-4ee0-a1e2-813008f7ce92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UIelements">
+      <UniqueIdentifier>{246c3d27-fb4c-4656-8cfc-39ba26eab2e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UIelements">
+      <UniqueIdentifier>{9fcb9624-3d13-4239-a8c4-90bf48434874}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\qrc_ApPanels.cpp">
@@ -51,14 +57,17 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_JtanPanels.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\JtanPanels.cpp">
       <Filter>Source Files\Form</Filter>
     </ClCompile>
     <ClCompile Include="Source\ApPanels.cpp">
       <Filter>Source Files\Form</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Button.cpp">
+      <Filter>Source Files\UIelements</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Switch.cpp">
+      <Filter>Source Files\UIelements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,14 +98,20 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Include\Button.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="Include\JtanPanels.h">
       <Filter>Header Files\Form</Filter>
     </QtMoc>
     <QtMoc Include="Include\ApPanels.h">
       <Filter>Header Files\Form</Filter>
+    </QtMoc>
+    <QtMoc Include="Include\Button.h">
+      <Filter>Header Files\UIelements</Filter>
+    </QtMoc>
+    <QtMoc Include="Include\Switch.h">
+      <Filter>Header Files\UIelements</Filter>
+    </QtMoc>
+    <QtMoc Include="Include\UIElement.h">
+      <Filter>Header Files\UIelements</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

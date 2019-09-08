@@ -5,7 +5,7 @@
 
 #include <GUI/Include/Definitions.h>
 
-class Button;
+class UIElement;
 
 class ApPanels : public QWidget
 {
@@ -19,7 +19,5 @@ private:
 
 	Ui::ApPanelsClass ui;
 
-	std::map<GDSU_ELEM, Button*> gdsu;
-	std::map<AP_PANEL_1, Button*> panel1;
-	std::map<AP_PANEL_2, Button*> panel2;
+	std::map<ELEM_ID, UIElement*> uiElem;
 };

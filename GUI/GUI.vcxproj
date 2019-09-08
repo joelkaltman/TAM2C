@@ -132,6 +132,7 @@
     <ClCompile Include="Source\ApPanels.cpp" />
     <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\JtanPanels.cpp" />
+    <ClCompile Include="Source\Switch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resources\ApPanels.qrc" />
@@ -147,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Definitions.h" />
+    <QtMoc Include="Include\UIElement.h" />
+    <QtMoc Include="Include\Switch.h" />
     <QtMoc Include="Include\Button.h" />
     <QtMoc Include="Include\JtanPanels.h" />
     <QtMoc Include="Include\ApPanels.h" />

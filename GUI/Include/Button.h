@@ -1,29 +1,21 @@
 #pragma once
 
-#include <QtWidgets/QWidget>
-#include <GUI/GeneratedFiles/ui_ApPanels.h>
+#include <GUI/Include/UIElement.h>
 
-#include <GUI/Include/Definitions.h>
-
-class Button : public QWidget
+class Button : public UIElement
 {
 	Q_OBJECT
 public:
-	enum State
-	{
-		RELESED,
-		PRESSED,
-		PRESSED_2,
-	};
+	Button(QPushButton* uiButton, const std::string& nameImage);
 
-	Button(QPushButton* uiButton, std::string nameImage);
+	void setState(int state) override;
 
 private slots:
 	void Pressed();
 	void Released();
 
 private:
-	State state;
+	ButtonState state;
 	std::string nameImage;
 	QPushButton* uiButton;
 };
