@@ -48,7 +48,7 @@ ApPanels::ApPanels(QWidget *parent)
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
-	this->pgs_qt_widget->setGeometry(QRect(140, 290, 860, 560));
+	this->pgs_qt_widget->setGeometry(QRect(142, 290, 860, 560));
 
 	loadImages();
 }

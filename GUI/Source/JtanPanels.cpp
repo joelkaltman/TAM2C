@@ -41,7 +41,7 @@ JtanPanels::JtanPanels(QWidget *parent)
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
-	this->pgs_qt_widget->setGeometry(QRect(162, 300, 850, 540));
+	this->pgs_qt_widget->setGeometry(QRect(162, 290, 850, 560));
 
 	loadImages();
 }
