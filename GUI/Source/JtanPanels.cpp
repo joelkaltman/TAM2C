@@ -39,10 +39,19 @@ JtanPanels::JtanPanels(QWidget *parent)
 	uiElem[JTAN_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "JTAN_panel1_switch2_1.png", "JTAN_panel1_switch2_2.png");
 	uiElem[JTAN_P1_KNOB] = new Switch(ui.Panel_1_knob, "JTAN_panel1_knob_1.png", "JTAN_panel1_knob_2.png", "JTAN_panel1_knob_3");
 
+	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
+	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
+	this->pgs_qt_widget->setGeometry(QRect(162, 300, 850, 540));
+
 	loadImages();
 }
 
 void JtanPanels::loadImages()
 {
 	ui.JTAN_Background->setPixmap(QPixmap(Definitions::getGUIPath("JtanPanels.png").c_str()));
+}
+
+PGSQtWidget::PGSWidget* JtanPanels::getPGSWidget() const
+{
+	return this->pgs_qt_widget;
 }

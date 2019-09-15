@@ -5,6 +5,8 @@
 
 #include <GUI/Include/Definitions.h>
 
+#include <PGSWidget/Include/PGSWidget.h>
+
 class UIElement;
 
 class JtanPanels : public QWidget
@@ -14,10 +16,14 @@ class JtanPanels : public QWidget
 public:
 	JtanPanels(QWidget *parent = Q_NULLPTR);
 
+	PGSQtWidget::PGSWidget* getPGSWidget() const;
+
 private:
 	void loadImages();
 
 	Ui::JtanPanelsClass ui;
+
+	PGSQtWidget::PGSWidget* pgs_qt_widget;
 
 	std::map<ELEM_ID, UIElement*> uiElem;
 };

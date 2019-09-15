@@ -46,9 +46,18 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P2_SWITCH_3] = new Switch(ui.Panel_2_switch_3, "AP_panel2_switch3_1.png", "AP_panel2_switch3_2.png");
 	uiElem[AP_P2_SWITCH_4] = new Switch(ui.Panel_2_switch_4, "AP_panel2_switch4_1.png", "AP_panel2_switch4_2.png");
 
+	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
+	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
+	this->pgs_qt_widget->setGeometry(QRect(140, 290, 860, 560));
+
 	loadImages();
 }
 
 void ApPanels::loadImages() {
 	ui.AP_background->setPixmap(QPixmap(Definitions::getGUIPath("ApPanels.png").c_str()));
+}
+
+PGSQtWidget::PGSWidget* ApPanels::getPGSWidget() const
+{
+	return this->pgs_qt_widget;
 }
