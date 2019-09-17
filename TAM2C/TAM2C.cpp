@@ -12,6 +12,21 @@
 
 #include <math/Include/Vector4.h>
 
+// TaskLib
+#include <TaskLib/Include/PeriodicTask.h>
+#include <TaskLib/Include/TaskManager.h>
+#include <TaskLib/Include/StdTaskManager.h>
+
+#include <UtilsLib/Include/Semaphore.h>
+
+// SDL
+#include <SDL.h>
+#include <SDL_Wrapper/Include/SDLWrapper.h>
+#include <SDL_Wrapper/Include/SDLJoystickManager.h>
+
+FILE _iob[] = { *stdin, *stdout, *stderr };
+extern "C" FILE * __cdecl __iob_func(void) { return _iob; }
+
 #pragma comment(lib, "Ws2_32.lib")
 
 std::map<std::string, p3d::Resource*> resources;
@@ -101,9 +116,67 @@ void createGDSUui(p3d::Scene2D* escena2d)
 	escena2d->installSprite(btn1.getX() + 250 + 120 * 4, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_NextAlt"]);
 }
 
+bool AbrirJoysticks()
+{
+	std::cout << "Joystick Task is running" << std::endl;
+	//Init Joystick
+
+	SDLWrapper* sdl_wrapper = SDLWrapper::getInstance();
+
+
+	sdl_wrapper->initJoysticksManagers(1);
+
+	SDLJoystickManager* joystickManager = sdl_wrapper->getJoystickManager(0);
+
+	std::cout << "todo bien con el joystick del jtan y del ap" << std::endl;
+
+	return true;
+}
+
+void HandleJoysticksEvent(SDL_Event &joystick_event)
+{
+	//determino que joystick cambió
+	if (joystick_event.type == SDL_JOYAXISMOTION)
+	{
+		std::cout << "AXIS" << std::endl;
+	}
+	else if ((joystick_event.type == SDL_JOYBUTTONDOWN) || (joystick_event.type == SDL_JOYBUTTONUP) || (joystick_event.type == SDL_JOYHATMOTION))
+	{
+		std::cout << "BUTTON" << std::endl;
+	}
+}
+
+static void joystick_listener_function(const double_t& delta_time, void* instance)
+{
+	SDLWrapper* sdl_wrapper = SDLWrapper::getInstance();
+	SDL_Event joystick_event;
+
+	while (sdl_wrapper->pollSDLEvent(&joystick_event))
+		// Polls for currently pending events, and returns 1 if there are any pending events, or 0 if there are none available. https://www.libsdl.org/release/SDL-1.2.15/docs/html/sdlpollevent.html
+	{
+		HandleJoysticksEvent(joystick_event);
+		//		printCambiosJoystick(estado_anterior,estado_nuevo,p_param->p_canal);
+		//		estado_anterior = estado_nuevo;
+	}
+}
+
+task::PeriodicTask* joystick_listener;
+utils::Semaphore* end_sem_joystick_listener_task;
+
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
+
+	AbrirJoysticks();
+	
+	task::TaskManager::initialize(new task::StdTaskManager());
+	task::TaskManager* task_man = task::TaskManager::getInstance();
+	end_sem_joystick_listener_task = new utils::Semaphore();
+	joystick_listener = task_man->createPeriodicTask(100, joystick_listener_function, nullptr);
+	joystick_listener->start();
+
+	return a.exec();
+	// ================
 	ApPanels uiAP;
 	uiAP.show();
 
