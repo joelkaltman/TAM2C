@@ -21,9 +21,15 @@
     <ClCompile Include="Source\Definitions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cabin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Definitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Cabin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
