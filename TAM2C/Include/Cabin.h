@@ -16,7 +16,6 @@
 namespace p3d
 {
 	class Scene3D;
-	class Scene2D;
 	class Camera;
 	class Window;
 	class Context;
@@ -26,39 +25,26 @@ namespace p3d
 class Cabin
 {
 public:
-	enum JoystickAxis
+	enum ID
 	{
-		EJE_X = 1,
-		EJE_Y = 2,
-		EJE_Z = 3,
-		ROTACION_Z = 4
+		AP,
+		JTAN
 	};
 
 	Cabin();
 
-	void createCameraAp(p3d::Scene3D* scene);
-	void createCameraJtan(p3d::Scene3D* scene);
+	void createCamera(ID id, p3d::Scene3D* scene);
+	void createGDSU(ID id, p3d::Context* context, std::map<std::string, p3d::Resource*> resources);
 
-	void createGDSUAp(p3d::Context* context, std::map<std::string, p3d::Resource*> resources);
-	void createGDSUJtan(p3d::Context* context, std::map<std::string, p3d::Resource*> resources);
+	p3d::Camera* getCamera(ID id) const;
 
-	p3d::Camera* getCameraAp();
-	p3d::Camera* getCameraJtan();
+	void axisModified(int id, float deriva, float alza);
 
 private:
-	bool openJoysticks();
-	void handleJoysticksEvent(SDL_Event &joystick_event);
-	static void joystickListenerFunction(const double_t& delta_time, void* instance);
-
-	task::PeriodicTask* joystick_listener;
-	utils::Semaphore* end_sem_joystick_listener_task;
-
-	p3d::Camera* camera_ap;
-	p3d::Camera* camera_jtan;
+	std::map<ID, p3d::Camera*> cameras;
+	std::map<ID, p3d::Window*> windows;
+	std::map<int, ID> joysticks;
 
 	ApPanels uiAp;
 	JtanPanels uiJtan;
-
-	p3d::Window* win_ap;
-	p3d::Window* win_jtan;
 };

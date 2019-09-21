@@ -165,11 +165,15 @@
   <ItemGroup>
     <ClCompile Include="Source\Cabin.cpp" />
     <ClCompile Include="Source\Definitions.cpp" />
+    <ClCompile Include="Source\JoysticksManager.cpp" />
+    <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="TAM2C.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Cabin.h" />
     <ClInclude Include="Include\Definitions.h" />
+    <ClInclude Include="Include\JoysticksManager.h" />
+    <ClInclude Include="Include\Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
