@@ -43,6 +43,8 @@ void Scene::loadResources(p3d::ResourceManager* resource_manager)
 	resources["GDSU_NightCam"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("NightCam.rpgs"));
 	resources["GDSU_RDY"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("RDY.rpgs"));
 	resources["GDSU_Zm_Rt_Fc_Ir"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("Zm Rt Fc Ir.rpgs"));
+	resources["Cabin"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("Cabin.rpgs"));
+	resources["CabinAt"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("CabinAt.rpgs"));
 
 	for (auto& res : resources)
 	{

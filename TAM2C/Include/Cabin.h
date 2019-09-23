@@ -20,6 +20,7 @@ namespace p3d
 	class Window;
 	class Context;
 	class Resource;
+	class Sprite;
 }
 
 class Cabin
@@ -28,7 +29,16 @@ public:
 	enum ID
 	{
 		AP,
-		JTAN
+		JTAN,
+		INVALID
+	};
+
+	struct Member
+	{
+		int joystick;
+		p3d::Camera* camera;
+		p3d::Window* window;
+		std::map<std::string, p3d::Sprite*> sprites;
 	};
 
 	Cabin();
@@ -41,9 +51,7 @@ public:
 	void axisModified(int id, float deriva, float alza);
 
 private:
-	std::map<ID, p3d::Camera*> cameras;
-	std::map<ID, p3d::Window*> windows;
-	std::map<int, ID> joysticks;
+	std::map<ID, Member> members;
 
 	ApPanels uiAp;
 	JtanPanels uiJtan;
