@@ -1,0 +1,20 @@
+{
+	"paths":
+	{
+		"MultimediaResources": 	"C:/repos/RecursosMultimedia/trunk",
+		"GUI": 					"C:/repos/TAM2C/Multimedia/GUI",
+		"GDSUSprites": 			"C:/repos/TAM2C/Multimedia/ScreenSprites",
+		"Scenes": 				"C:/repos/TAM2C/Multimedia/Scenes"
+	},
+	"cabin":
+	{
+		"joystickAP": 0,
+		"joystickJTAN": 1
+	},
+	"scene":
+	{
+		"pgsscene": "ValleSerrano.pgsscene",
+		"cabinPosX": 5000.0,
+		"cabinPosY": 5000.0
+	}
+}

@@ -1,5 +1,8 @@
 #pragma once
 
+// math
+#include <math/Include/Vector3.h>
+
 // TAM2C
 #include <TAM2C/Include/Definitions.h>
 #include <TAM2C/Include/Cabin.h>
@@ -15,14 +18,27 @@ namespace p3d
 class Scene
 {
 public:
+	struct InitData
+	{
+		std::string scene = "";
+		int idJoyAp;
+		int idJoyJTAN;
+		float cabinX;
+		float cabinY;
+	};
+
 	Scene() = default;
 
 	void init(p3d::P3D* p3d);
 
 private:
+	friend class Definitions;
+
 	void loadResources(p3d::ResourceManager* resource_manager);
 
 	std::map<std::string, p3d::Resource*> resources;
+
+	InitData initData;
 
 	Cabin* cabin;
 	JoysticksManager* joystickMng;

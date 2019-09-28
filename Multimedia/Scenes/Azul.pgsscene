@@ -1,0 +1,80 @@
+<Escenario>
+    <DirectorioBase>C:/repos/RecursosMultimedia</DirectorioBase>
+    <Terreno>
+        <ArchivoTopografia>Terrenos/Topografias/AzulNahuel/AzulNahuel_con_heightmap.rpgs</ArchivoTopografia>
+        <ArchivoSkybox>Skyboxs/Dia/Dia.rpgs</ArchivoSkybox>
+    </Terreno>
+    <Camaras>
+        <Camara id="1">
+            <Nombre>Nueva Camara</Nombre>
+            <Posicion>
+                <X>2.34375e-005</X>
+                <Y>0</Y>
+                <Z>100</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-101.655</X>
+                <Y>97.3959</Y>
+                <Z>97.2197</Z>
+            </AtPoint>
+            <Up>
+                <X>-0.0142572</X>
+                <Y>0.0136599</Y>
+                <Z>0.999805</Z>
+            </Up>
+            <Zoom>1</Zoom>
+            <Proyeccion tipo="perspectiva_fov">
+                <Fov_Y>22.6481</Fov_Y>
+                <Aspect>2.6667</Aspect>
+                <Z_Near>1</Z_Near>
+                <Z_Far>100000</Z_Far>
+            </Proyeccion>
+            <Tags />
+        </Camara>
+    </Camaras>
+    <CondicionesIluminacion>
+        <Luz oculta="false" id="2">
+            <Tipo>DIRECCIONAL</Tipo>
+            <Nombre>Nueva Luz</Nombre>
+            <ColorDifuso>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorDifuso>
+            <ColorAmbiente>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorAmbiente>
+            <ColorEspecular>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorEspecular>
+            <Direccion>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </Direccion>
+            <Tags />
+        </Luz>
+    </CondicionesIluminacion>
+    <!--<Objetos>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>Nuevo Scatter</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/ArboledasDeValle/ArboledaAmpliada4.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-0.000976563</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>20</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+    </Objetos>-->
+</Escenario>

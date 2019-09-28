@@ -1,0 +1,81 @@
+<Escenario>
+    <DirectorioBase>C:/repos/RecursosMultimedia</DirectorioBase>
+    <Terreno>
+        <ArchivoTopografia>Terrenos/Topografias/ValleSerrano/ValleSerranoPaso100res100fin_con_heightmap.rpgs</ArchivoTopografia>
+        <ArchivoSkybox>Skyboxs/Dia/Dia.rpgs</ArchivoSkybox>
+    </Terreno>
+    <Camaras />
+    <CondicionesIluminacion>
+        <Luz oculta="false" id="1">
+            <Tipo>DIRECCIONAL</Tipo>
+            <Nombre>Nueva Luz</Nombre>
+            <ColorDifuso>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorDifuso>
+            <ColorAmbiente>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorAmbiente>
+            <ColorEspecular>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorEspecular>
+            <Direccion>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </Direccion>
+        </Luz>
+    </CondicionesIluminacion>
+    <Objetos>
+        <Objeto oculto="false" id="2">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Silo</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/silo/Silo.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>5000</X>
+                <Y>5500</Y>
+                <Z>3.88692</Z>
+            </Posicion>
+            <AtPoint>
+                <X>9998.43</X>
+                <Y>1.56836</Y>
+                <Z>3.88692</Z>
+            </AtPoint>
+        </Objeto>
+        <Objeto oculto="false" id="3">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_TorreDeControl</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/TorreDeControl/TorreDeControl.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>5500</X>
+                <Y>5500</Y>
+                <Z>3.8402</Z>
+            </Posicion>
+            <AtPoint>
+                <X>6000.62</X>
+                <Y>4999.27</Y>
+                <Z>3.8402</Z>
+            </AtPoint>
+        </Objeto>
+        <Objeto oculto="false" id="4">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_nuevo</Nombre>
+            <ArchivoObjeto>Videos/GeneradorEolico/GeneradorEolico.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>2000</X>
+                <Y>5000</Y>
+                <Z>3.8402</Z>
+            </Posicion>
+            <AtPoint>
+                <X>6000.62</X>
+                <Y>4999.27</Y>
+                <Z>3.8402</Z>
+            </AtPoint>
+        </Objeto>
+    </Objetos>
+</Escenario>

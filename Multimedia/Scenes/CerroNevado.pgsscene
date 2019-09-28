@@ -1,0 +1,160 @@
+<Escenario>
+    <DirectorioBase>C:/repos/RecursosMultimedia</DirectorioBase>
+    <Terreno>
+        <ArchivoTopografia>Terrenos/Topografias/MontaniaNevada/MontaniaNevada_con_heightmap.rpgs</ArchivoTopografia>
+        <ArchivoSkybox>Skyboxs/Dia/Dia.rpgs</ArchivoSkybox>
+    </Terreno>
+    <Camaras>
+        <Camara id="1">
+            <Nombre>Nueva Camara</Nombre>
+            <Posicion>
+                <X>8.05273</X>
+                <Y>0</Y>
+                <Z>10.8999</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-144.204</X>
+                <Y>-43.9932</Y>
+                <Z>19.2396</Z>
+            </AtPoint>
+            <Up>
+                <X>0.042895</X>
+                <Y>0.0407788</Y>
+                <Z>0.998247</Z>
+            </Up>
+            <Zoom>1</Zoom>
+            <Proyeccion tipo="perspectiva_fov">
+                <Fov_Y>22.6481</Fov_Y>
+                <Aspect>2.6667</Aspect>
+                <Z_Near>1</Z_Near>
+                <Z_Far>100000</Z_Far>
+            </Proyeccion>
+            <Tags />
+        </Camara>
+    </Camaras>
+    <CondicionesIluminacion>
+        <Luz oculta="false" id="2">
+            <Tipo>DIRECCIONAL</Tipo>
+            <Nombre>Nueva Luz</Nombre>
+            <ColorDifuso>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorDifuso>
+            <ColorAmbiente>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorAmbiente>
+            <ColorEspecular>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorEspecular>
+            <Direccion>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </Direccion>
+            <Tags />
+        </Luz>
+    </CondicionesIluminacion>
+    <Objetos>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Arbol Nevado</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/Arbol_nevado/Arbol_nevado.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>2508.05</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>1000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Arbol Nevado</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/Arbol_nevado/Arbol_nevado.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2491.95</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>1000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Arbol Nevado</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/Arbol_nevado/Arbol_nevado.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>8.05273</X>
+                <Y>2500</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>1000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Arbol Nevado</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/Arbol_nevado/Arbol_nevado.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>8.05273</X>
+                <Y>-3000</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>1000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>Pasto</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/E_pasto_arboleda/E_pasto_arboleda.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>8.05273</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>2000</Ancho>
+                <Alto>2000</Alto>
+            </Dimensiones>
+            <Repeticiones>50</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Carpa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Carpa/Tent.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>8.05273</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>2000</Ancho>
+                <Alto>2000</Alto>
+            </Dimensiones>
+            <Repeticiones>5</Repeticiones>
+            <Semilla>244856</Semilla>
+            <Tags />
+        </Scatter>
+    </Objetos>
+</Escenario>

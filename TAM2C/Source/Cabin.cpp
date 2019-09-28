@@ -9,10 +9,9 @@
 #include <p3d/Include/Resource.h>
 #include <p3d/Include/Context.h>
 
-Cabin::Cabin()
+void Cabin::setJoystick(ID id, int joystickId)
 {
-	members[AP].joystick = 0;
-	members[JTAN].joystick = 1;
+	members[id].joystick = joystickId;
 }
 
 p3d::Camera* Cabin::getCamera(ID id) const
@@ -25,7 +24,7 @@ p3d::Camera* Cabin::getCamera(ID id) const
 
 void Cabin::createCamera(ID id, p3d::Scene3D* scene)
 {
-	members[id].camera = scene->installCamera("cameraAP", 5000.0, 5000.0, 10, 5001, 5001, 10, 0, 0, 1);
+	members[id].camera = scene->installCamera("cameraAP", spawnX, spawnY, 10, spawnX + 1, spawnY + 1, 10, 0, 0, 1);
 
 	uint32_t winId;
 	if (id == AP)
@@ -56,7 +55,7 @@ void Cabin::createGDSU(ID id, p3d::Context* context, std::map<std::string, p3d::
 	p3d::math::Vector4 image2(2 / 2, 160 / 2, 2, 160);
 
 	members[id].sprites["Cabin"] = scene->installSprite(image1.getX() + 210, image1.getY() + 80, image1.getZ(), image1.getW(), resources["Cabin"]);
-	members[id].sprites["CabinAt"] = scene->installSprite(image2.getX() + image1.getX() + 210, image2.getY() + 110, image2.getZ(), image2.getW(), resources["CabinAt"]);
+	members[id].sprites["CabinAt"] = scene->installSprite(image2.getX() + image1.getX() + 210, image1.getY() / 2 + 110, image2.getZ(), image2.getW(), resources["CabinAt"]);
 
 	p3d::math::Vector4 btn1(100 / 2, 20 / 2, 100, 20);
 	p3d::math::Vector4 btn2(80 / 2, 15 / 2, 80, 15);
@@ -126,6 +125,6 @@ void Cabin::axisModified(int id, float deriva, float alza)
 	}
 
 	// sprite
-	members[mId].sprites["CabinAt"]->rotateFrame(deriva);
+	members[mId].sprites["CabinAt"]->rotateFrame(-deriva);
 
 }

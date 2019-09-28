@@ -2,25 +2,39 @@
 
 #include <string>
 
+class Scene;
+
 struct Definitions
 {
-	static const std::string getGUIPath(const std::string& path = "")
+	static std::string getGUIPath(std::string path = "")
 	{
-		return GUIPath + path;
+		if (!path.empty()) path.insert(0, "/");
+		return Definitions::GUIPath + path;
 	}
 
-	static const std::string getScreenSpritesPath(const std::string& path = "")
+	static std::string getScreenSpritesPath(std::string path = "")
 	{
-		return ScreenSpritesPath + path;
+		if (!path.empty()) path.insert(0, "/");
+		return Definitions::ScreenSpritesPath + path;
 	}
 
-	static const std::string getMultimediaResourcesPath(const std::string& path = "")
+	static std::string getMultimediaResourcesPath(std::string path = "")
 	{
-		return MultimediaResourcesPath + path;
+		if (!path.empty()) path.insert(0, "/");
+		return Definitions::MultimediaResourcesPath + path;
 	}
+
+	static std::string getScenePath(std::string path = "")
+	{
+		if (!path.empty()) path.insert(0, "/");
+		return Definitions::Scenes + path;
+	}
+
+	Definitions(const std::string& pathConfig, Scene* scene);
 
  private:
-	static const std::string GUIPath;
-	static const std::string ScreenSpritesPath;
-	static const std::string MultimediaResourcesPath;
+	static std::string GUIPath;
+	static std::string ScreenSpritesPath;
+	static std::string MultimediaResourcesPath;
+	static std::string Scenes;
 };

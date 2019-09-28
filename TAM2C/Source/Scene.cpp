@@ -8,6 +8,48 @@
 // PGSWidget
 #include <PGSWidget/Include/PGSWidget.h>
 
+void Scene::init(p3d::P3D* p3d)
+{
+	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
+
+	p3d::SceneDescription* scene_description = p3d->loadSceneDescription(Definitions::getScenePath(initData.scene), Definitions::getMultimediaResourcesPath());
+
+	resource_manager->loadResources(scene_description);
+
+	loadResources(resource_manager);
+
+	p3d::Context* context = p3d->createExecutionContext();
+
+	p3d::Scene3D* scene = context->createScene3D();
+	scene->installSceneDescription(scene_description);
+
+	p3d::DirectionalLight* directional_light = scene->installDirectionalLight("luz direccional", 0, 1, -1, 255, 255, 255);
+
+	p3d::Billboard* billboard = scene->installBillboard("fire", 5010.0, 5010.0, 8, 5000.0, 5000.0, 8, 0, 0, 1, resources["Fire"], false);
+	billboard->scale(5.0, 5.0, 5.0);
+	billboard->playLoop();
+
+	p3d::AnimatedObject3D* object_1 = scene->installAnimatedObject("terrorist", 5005.0, 5006.0, 8, 5005.0 - 1, 5006.0 - 1, 8, 0, 0, 1, resources["Terrorist"], true, p3d::Object3D::FillMode::SOLID);
+
+	cabin = new Cabin(initData.cabinX, initData.cabinY);
+
+	cabin->setJoystick(Cabin::ID::AP, initData.idJoyAp);
+	cabin->setJoystick(Cabin::ID::JTAN, initData.idJoyJTAN);
+
+	cabin->createCamera(Cabin::AP, scene);
+	cabin->createGDSU(Cabin::AP, context, resources);
+
+	cabin->createCamera(Cabin::JTAN, scene);
+	cabin->createGDSU(Cabin::JTAN, context, resources);
+
+	joystickMng = new JoysticksManager(cabin);
+
+	p3d->initRendering();
+
+	object_1->startAnimation(0, true);
+	billboard->start();
+}
+
 void Scene::loadResources(p3d::ResourceManager* resource_manager)
 {
 	resources["Terrorist"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Objetos/Animados/Terrorist/Terrorist.rpgs"));
@@ -50,41 +92,4 @@ void Scene::loadResources(p3d::ResourceManager* resource_manager)
 	{
 		res.second->waitTillLoaded();
 	}
-}
-
-void Scene::init(p3d::P3D* p3d)
-{
-	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
-
-	p3d::SceneDescription* scene_description = p3d->createBasicSceneDescription(Definitions::getMultimediaResourcesPath(), "Terrenos/Topografias/ValleSerrano/ValleSerranoPaso100res100fin_con_heightmap.rpgs", "Skyboxs/DiaRosado/DiaRosado.rpgs");
-	resource_manager->loadResources(scene_description);
-
-	loadResources(resource_manager);
-
-	p3d::Context* context = p3d->createExecutionContext();
-
-	p3d::Scene3D* scene = context->createScene3D();
-	scene->installSceneDescription(scene_description);
-
-	p3d::DirectionalLight* directional_light = scene->installDirectionalLight("luz direccional", 0, 1, -1, 255, 255, 255);
-
-	p3d::Billboard* billboard = scene->installBillboard("fire", 5010.0, 5010.0, 8, 5000.0, 5000.0, 8, 0, 0, 1, resources["Fire"], false);
-	billboard->scale(5.0, 5.0, 5.0);
-	billboard->playLoop();
-
-	p3d::AnimatedObject3D* object_1 = scene->installAnimatedObject("terrorist", 5005.0, 5006.0, 8, 5005.0 - 1, 5006.0 - 1, 8, 0, 0, 1, resources["Terrorist"], true, p3d::Object3D::FillMode::SOLID);
-
-	cabin = new Cabin();
-	cabin->createCamera(Cabin::AP, scene);
-	cabin->createGDSU(Cabin::AP, context, resources);
-
-	cabin->createCamera(Cabin::JTAN, scene);
-	cabin->createGDSU(Cabin::JTAN, context, resources);
-
-	joystickMng = new JoysticksManager(cabin);
-
-	p3d->initRendering();
-
-	object_1->startAnimation(0, true);
-	billboard->start();
 }

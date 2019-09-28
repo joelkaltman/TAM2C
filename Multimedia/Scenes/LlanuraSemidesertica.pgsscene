@@ -1,0 +1,800 @@
+<Escenario>
+    <DirectorioBase>C:/repos/RecursosMultimedia</DirectorioBase>
+    <Terreno>
+        <ArchivoTopografia>Terrenos/Topografias/TerrenoPlano10Kx10K/TerrenoPlano10Kx10K_con_heightmap.rpgs</ArchivoTopografia>
+        <ArchivoSkybox>Skyboxs/Dia/Dia.rpgs</ArchivoSkybox>
+    </Terreno>
+    <Camaras>
+        <Camara id="1">
+            <Nombre>Nueva Camara</Nombre>
+            <Posicion>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>2</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-0.998541</X>
+                <Y>0.0204182</Y>
+                <Z>1.95002</Z>
+            </AtPoint>
+            <Up>
+                <X>-0.0499683</X>
+                <Y>0.00102174</Y>
+                <Z>0.99875</Z>
+            </Up>
+            <Zoom>1</Zoom>
+            <Proyeccion tipo="perspectiva_fov">
+                <Fov_Y>22.6481</Fov_Y>
+                <Aspect>2.6667</Aspect>
+                <Z_Near>1</Z_Near>
+                <Z_Far>100000</Z_Far>
+            </Proyeccion>
+            <Tags />
+        </Camara>
+    </Camaras>
+    <CondicionesIluminacion>
+        <Luz oculta="false" id="2">
+            <Tipo>DIRECCIONAL</Tipo>
+            <Nombre>Nueva Luz</Nombre>
+            <ColorDifuso>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorDifuso>
+            <ColorAmbiente>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorAmbiente>
+            <ColorEspecular>
+                <R>255</R>
+                <G>255</G>
+                <B>255</B>
+            </ColorEspecular>
+            <Direccion>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </Direccion>
+            <Tags />
+        </Luz>
+    </CondicionesIluminacion>
+    <Objetos>
+        <Objeto oculto="false" id="3">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1583.19</X>
+                <Y>-2209.84</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1583.19</X>
+                <Y>-2208.84</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="4">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>197.273</X>
+                <Y>-1350.68</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>197.273</X>
+                <Y>-1349.68</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="5">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1203.79</X>
+                <Y>2271.68</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1203.79</X>
+                <Y>2272.68</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="6">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1664.52</X>
+                <Y>942.131</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1664.52</X>
+                <Y>943.131</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="7">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-53.3375</X>
+                <Y>1163.21</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-53.3375</X>
+                <Y>1164.21</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="8">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>683.416</X>
+                <Y>-1117.28</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>683.416</X>
+                <Y>-1116.28</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="9">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-718.049</X>
+                <Y>1373.7</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-718.049</X>
+                <Y>1374.7</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="10">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>535.378</X>
+                <Y>-1639.98</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>535.378</X>
+                <Y>-1638.98</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="11">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1084.88</X>
+                <Y>281.7</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1084.88</X>
+                <Y>282.7</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="12">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1835.01</X>
+                <Y>-1536.97</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1835.01</X>
+                <Y>-1535.97</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="13">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1583.19</X>
+                <Y>-2209.84</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1583.19</X>
+                <Y>-2208.84</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="14">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>197.273</X>
+                <Y>-1350.68</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>197.273</X>
+                <Y>-1349.68</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="15">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1203.79</X>
+                <Y>2271.68</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1203.79</X>
+                <Y>2272.68</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="16">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1664.52</X>
+                <Y>942.131</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1664.52</X>
+                <Y>943.131</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="17">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-53.3375</X>
+                <Y>1163.21</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-53.3375</X>
+                <Y>1164.21</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="18">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>683.416</X>
+                <Y>-1117.28</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>683.416</X>
+                <Y>-1116.28</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="19">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-718.049</X>
+                <Y>1373.7</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-718.049</X>
+                <Y>1374.7</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="20">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>535.378</X>
+                <Y>-1639.98</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>535.378</X>
+                <Y>-1638.98</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="21">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1084.88</X>
+                <Y>281.7</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1084.88</X>
+                <Y>282.7</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="22">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1835.01</X>
+                <Y>-1536.97</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1835.01</X>
+                <Y>-1535.97</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="23">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1463.62</X>
+                <Y>-716.981</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1463.62</X>
+                <Y>-715.981</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="24">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1214.29</X>
+                <Y>2181.26</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1214.29</X>
+                <Y>2182.26</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="25">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>2071.88</X>
+                <Y>1892.44</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>2071.88</X>
+                <Y>1893.44</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="26">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>2335.83</X>
+                <Y>151.547</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>2335.83</X>
+                <Y>152.547</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="27">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1948.48</X>
+                <Y>-2239.46</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1948.48</X>
+                <Y>-2238.46</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="28">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1375.41</X>
+                <Y>-1596.17</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1375.41</X>
+                <Y>-1595.17</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="29">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-697.257</X>
+                <Y>119.839</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-697.257</X>
+                <Y>120.839</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="30">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>72.713</X>
+                <Y>1760.53</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>72.713</X>
+                <Y>1761.53</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="31">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>1428.05</X>
+                <Y>1915.49</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>1428.05</X>
+                <Y>1916.49</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="32">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1581.43</X>
+                <Y>-221.663</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1581.43</X>
+                <Y>-220.663</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="33">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1683.36</X>
+                <Y>1558.03</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1683.36</X>
+                <Y>1559.03</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="34">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1960.55</X>
+                <Y>1729.86</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1960.55</X>
+                <Y>1730.86</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="35">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2240.76</X>
+                <Y>2454.34</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-2240.76</X>
+                <Y>2455.34</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="36">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2332.9</X>
+                <Y>2188.43</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-2332.9</X>
+                <Y>2189.43</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="37">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2010.67</X>
+                <Y>2232.64</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-2010.67</X>
+                <Y>2233.64</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="38">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1863.32</X>
+                <Y>1776.54</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1863.32</X>
+                <Y>1777.54</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="39">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2143.61</X>
+                <Y>2274.74</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-2143.61</X>
+                <Y>2275.74</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="40">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1892.92</X>
+                <Y>1672</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1892.92</X>
+                <Y>1673</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="41">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2216.98</X>
+                <Y>2056.34</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-2216.98</X>
+                <Y>2057.34</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Objeto oculto="false" id="42">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-1633</X>
+                <Y>1692.61</Y>
+                <Z>0</Z>
+            </Posicion>
+            <AtPoint>
+                <X>-1633</X>
+                <Y>1693.61</Y>
+                <Z>0</Z>
+            </AtPoint>
+            <Tags />
+        </Objeto>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>Arboleda</Nombre>
+            <ArchivoObjeto>Objetos/Arboles/E_arboleda_espaciada/E_arboleda_espaciada.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>0</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>7000</Ancho>
+                <Alto>7000</Alto>
+            </Dimensiones>
+            <Repeticiones>40</Repeticiones>
+            <Semilla>529149</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>0</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>20</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Casa</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Casa/Casa-lp.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>0</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>20</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Galpon</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Galpones/Galpon/galpon.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>0</X>
+                <Y>0</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>5000</Ancho>
+                <Alto>5000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2000</X>
+                <Y>2000</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>1000</Ancho>
+                <Alto>1000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+        <Scatter oculto="false">
+            <Tipo>APOYADO</Tipo>
+            <Nombre>col_Molino</Nombre>
+            <ArchivoObjeto>Objetos/Construcciones/Molino/Molino.rpgs</ArchivoObjeto>
+            <Posicion>
+                <X>-2000</X>
+                <Y>2000</Y>
+            </Posicion>
+            <Dimensiones>
+                <Ancho>1000</Ancho>
+                <Alto>1000</Alto>
+            </Dimensiones>
+            <Repeticiones>10</Repeticiones>
+            <Semilla>461848</Semilla>
+            <Tags />
+        </Scatter>
+    </Objetos>
+</Escenario>

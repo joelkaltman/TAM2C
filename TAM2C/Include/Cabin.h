@@ -41,7 +41,9 @@ public:
 		std::map<std::string, p3d::Sprite*> sprites;
 	};
 
-	Cabin();
+	Cabin(float x, float y) : spawnX(x), spawnY(y) {};
+
+	void setJoystick(ID id, int joystickId);
 
 	void createCamera(ID id, p3d::Scene3D* scene);
 	void createGDSU(ID id, p3d::Context* context, std::map<std::string, p3d::Resource*> resources);
@@ -55,4 +57,7 @@ private:
 
 	ApPanels uiAp;
 	JtanPanels uiJtan;
+
+	float spawnX = 0;
+	float spawnY = 0;
 };
