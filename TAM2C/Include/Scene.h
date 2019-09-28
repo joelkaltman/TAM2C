@@ -18,15 +18,6 @@ namespace p3d
 class Scene
 {
 public:
-	struct InitData
-	{
-		std::string scene = "";
-		int idJoyAp;
-		int idJoyJTAN;
-		float cabinX;
-		float cabinY;
-	};
-
 	Scene() = default;
 
 	void init(p3d::P3D* p3d);
@@ -37,9 +28,7 @@ private:
 	void loadResources(p3d::ResourceManager* resource_manager);
 
 	std::map<std::string, p3d::Resource*> resources;
-
-	InitData initData;
-
+	
 	Cabin* cabin;
 	JoysticksManager* joystickMng;
 };

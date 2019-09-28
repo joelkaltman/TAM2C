@@ -8,8 +8,16 @@
 	},
 	"cabin":
 	{
-		"joystickAP": 0,
-		"joystickJTAN": 1
+		"ap":
+		{
+			"joystick": 0,
+			"fullscreen": false
+		},
+		"jtan":
+		{
+			"joystick": 1,
+			"fullscreen": false
+		}
 	},
 	"scene":
 	{

@@ -2,10 +2,20 @@
 
 #include <string>
 
-class Scene;
-
-struct Definitions
+class Definitions
 {
+ public:
+	static struct InitData
+	{
+		std::string scene = "";
+		int idJoyAp = 0;
+		int idJoyJTAN = 0;
+		bool fullScreenAp = false;
+		bool fullScreenJtan = false;
+		float cabinX = 0.f;
+		float cabinY = 0.f;
+	} initData;
+
 	static std::string getGUIPath(std::string path = "")
 	{
 		if (!path.empty()) path.insert(0, "/");
@@ -30,7 +40,7 @@ struct Definitions
 		return Definitions::Scenes + path;
 	}
 
-	Definitions(const std::string& pathConfig, Scene* scene);
+	Definitions(const std::string& pathConfig);
 
  private:
 	static std::string GUIPath;

@@ -15,12 +15,12 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 
-	Scene scene;
-	Definitions("../config.json", &scene);
+	Definitions("../config.json");
 
 	p3d::P3D::initialize(p3d::P3D::NetworkingMode::ONLY_LOCAL, p3d::P3D::Platform::DIRECTX_11); 
 	p3d::P3D* p3d = p3d::P3D::getInstance();
 
+	Scene scene;
 	scene.init(p3d);
 
 	return a.exec();

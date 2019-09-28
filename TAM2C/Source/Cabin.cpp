@@ -9,6 +9,8 @@
 #include <p3d/Include/Resource.h>
 #include <p3d/Include/Context.h>
 
+#include <TAM2C/Include/Definitions.h>
+
 void Cabin::setJoystick(ID id, int joystickId)
 {
 	members[id].joystick = joystickId;
@@ -29,12 +31,12 @@ void Cabin::createCamera(ID id, p3d::Scene3D* scene)
 	uint32_t winId;
 	if (id == AP)
 	{
-		uiAp.show();
+		Definitions::initData.fullScreenAp ? uiAp.showFullScreen() : uiAp.show();
 		winId = uiAp.getPGSWidget()->winId();
 	}
 	else if (id == JTAN)
 	{
-		uiJtan.show();
+		Definitions::initData.fullScreenJtan ? uiJtan.showFullScreen() : uiJtan.show();
 		winId = uiJtan.getPGSWidget()->winId();
 	}
 

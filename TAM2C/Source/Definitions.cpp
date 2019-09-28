@@ -7,15 +7,14 @@
 #include <rapidjson/document.h>
 #include <rapidjson/istreamwrapper.h>
 
-// TAM2C
-#include <TAM2C/Include/Scene.h>
-
 std::string Definitions::GUIPath = "";
 std::string Definitions::ScreenSpritesPath = "";
 std::string Definitions::MultimediaResourcesPath = "";
 std::string Definitions::Scenes = "";
 
-Definitions::Definitions(const std::string& pathConfig, Scene* scene)
+Definitions::InitData Definitions::initData = Definitions::InitData();
+
+Definitions::Definitions(const std::string& pathConfig)
 {
 	std::ifstream inStream(pathConfig);
 	rapidjson::IStreamWrapper isw(inStream);
@@ -29,12 +28,20 @@ Definitions::Definitions(const std::string& pathConfig, Scene* scene)
 	Definitions::ScreenSpritesPath = paths["GDSUSprites"].GetString();
 	Definitions::Scenes = paths["Scenes"].GetString();
 
+
 	rapidjson::Value& cabin = configJson["cabin"];
-	scene->initData.idJoyAp = cabin["joystickAP"].GetInt();
-	scene->initData.idJoyJTAN = cabin["joystickJTAN"].GetInt();
+
+	rapidjson::Value& ap = cabin["ap"];
+	initData.idJoyAp = ap["joystick"].GetInt();
+	initData.fullScreenAp = ap["fullscreen"].GetBool();
+
+	rapidjson::Value& jtan = cabin["jtan"];
+	initData.idJoyJTAN = jtan["joystick"].GetInt();
+	initData.fullScreenJtan = jtan["fullscreen"].GetBool();
+
 
 	rapidjson::Value& jscene = configJson["scene"];
-	scene->initData.scene = jscene["pgsscene"].GetString();
-	scene->initData.cabinX = jscene["cabinPosX"].GetFloat();
-	scene->initData.cabinY = jscene["cabinPosY"].GetFloat();
+	initData.scene = jscene["pgsscene"].GetString();
+	initData.cabinX = jscene["cabinPosX"].GetFloat();
+	initData.cabinY = jscene["cabinPosY"].GetFloat();
 }

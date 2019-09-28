@@ -12,7 +12,7 @@ void Scene::init(p3d::P3D* p3d)
 {
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 
-	p3d::SceneDescription* scene_description = p3d->loadSceneDescription(Definitions::getScenePath(initData.scene), Definitions::getMultimediaResourcesPath());
+	p3d::SceneDescription* scene_description = p3d->loadSceneDescription(Definitions::getScenePath(Definitions::initData.scene), Definitions::getMultimediaResourcesPath());
 
 	resource_manager->loadResources(scene_description);
 
@@ -25,16 +25,10 @@ void Scene::init(p3d::P3D* p3d)
 
 	p3d::DirectionalLight* directional_light = scene->installDirectionalLight("luz direccional", 0, 1, -1, 255, 255, 255);
 
-	p3d::Billboard* billboard = scene->installBillboard("fire", 5010.0, 5010.0, 8, 5000.0, 5000.0, 8, 0, 0, 1, resources["Fire"], false);
-	billboard->scale(5.0, 5.0, 5.0);
-	billboard->playLoop();
+	cabin = new Cabin(Definitions::initData.cabinX, Definitions::initData.cabinY);
 
-	p3d::AnimatedObject3D* object_1 = scene->installAnimatedObject("terrorist", 5005.0, 5006.0, 8, 5005.0 - 1, 5006.0 - 1, 8, 0, 0, 1, resources["Terrorist"], true, p3d::Object3D::FillMode::SOLID);
-
-	cabin = new Cabin(initData.cabinX, initData.cabinY);
-
-	cabin->setJoystick(Cabin::ID::AP, initData.idJoyAp);
-	cabin->setJoystick(Cabin::ID::JTAN, initData.idJoyJTAN);
+	cabin->setJoystick(Cabin::ID::AP, Definitions::initData.idJoyAp);
+	cabin->setJoystick(Cabin::ID::JTAN, Definitions::initData.idJoyJTAN);
 
 	cabin->createCamera(Cabin::AP, scene);
 	cabin->createGDSU(Cabin::AP, context, resources);
@@ -45,17 +39,10 @@ void Scene::init(p3d::P3D* p3d)
 	joystickMng = new JoysticksManager(cabin);
 
 	p3d->initRendering();
-
-	object_1->startAnimation(0, true);
-	billboard->start();
 }
 
 void Scene::loadResources(p3d::ResourceManager* resource_manager)
 {
-	resources["Terrorist"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Objetos/Animados/Terrorist/Terrorist.rpgs"));
-
-	resources["Fire"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Videos/Fuego/Fuego01/Fuego_01.rpgs"));
-
 	resources["GDSU_periscope"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("GDSU_periscope.rpgs"));
 	resources["GDSU_-"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("-.rpgs"));
 	resources["GDSU_+"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("+.rpgs"));
