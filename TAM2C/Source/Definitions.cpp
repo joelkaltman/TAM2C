@@ -28,7 +28,6 @@ Definitions::Definitions(const std::string& pathConfig)
 	Definitions::ScreenSpritesPath = paths["GDSUSprites"].GetString();
 	Definitions::Scenes = paths["Scenes"].GetString();
 
-
 	rapidjson::Value& cabin = configJson["cabin"];
 
 	rapidjson::Value& ap = cabin["ap"];

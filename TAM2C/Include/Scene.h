@@ -20,7 +20,7 @@ class Scene
 public:
 	Scene() = default;
 
-	void init(p3d::P3D* p3d);
+	void init();
 
 private:
 	friend class Definitions;

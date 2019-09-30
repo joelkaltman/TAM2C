@@ -13,15 +13,8 @@
 #include <GUI/Include/ApPanels.h>
 #include <GUI/Include/JtanPanels.h>
 
-namespace p3d
-{
-	class Scene3D;
-	class Camera;
-	class Window;
-	class Context;
-	class Resource;
-	class Sprite;
-}
+// TAM2C
+#include <TAM2C/Include/IMember.h>
 
 class Cabin
 {
@@ -33,15 +26,7 @@ public:
 		INVALID
 	};
 
-	struct Member
-	{
-		int joystick;
-		p3d::Camera* camera;
-		p3d::Window* window;
-		std::map<std::string, p3d::Sprite*> sprites;
-	};
-
-	Cabin(float x, float y) : spawnX(x), spawnY(y) {};
+	Cabin(float x, float y, p3d::Resource* rCarriage, p3d::Resource* rTower, p3d::Resource* rCannon, p3d::Scene3D* scene);
 
 	void setJoystick(ID id, int joystickId);
 
@@ -53,11 +38,13 @@ public:
 	void axisModified(int id, float deriva, float alza);
 
 private:
-	std::map<ID, Member> members;
+	float spawnX = 0;
+	float spawnY = 0;
+
+	std::map<ID, IMember*> members;
 
 	ApPanels uiAp;
 	JtanPanels uiJtan;
 
-	float spawnX = 0;
-	float spawnY = 0;
+	p3d::Object3D* carriage = nullptr;
 };

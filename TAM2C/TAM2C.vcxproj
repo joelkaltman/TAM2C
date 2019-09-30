@@ -166,16 +166,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Ap.cpp" />
     <ClCompile Include="Source\Cabin.cpp" />
     <ClCompile Include="Source\Definitions.cpp" />
     <ClCompile Include="Source\JoysticksManager.cpp" />
+    <ClCompile Include="Source\JTan.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="TAM2C.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Ap.h" />
     <ClInclude Include="Include\Cabin.h" />
     <ClInclude Include="Include\Definitions.h" />
+    <ClInclude Include="Include\IMember.h" />
     <ClInclude Include="Include\JoysticksManager.h" />
+    <ClInclude Include="Include\Jtan.h" />
     <ClInclude Include="Include\Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

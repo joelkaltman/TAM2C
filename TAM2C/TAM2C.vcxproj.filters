@@ -36,6 +36,12 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Ap.cpp">
+      <Filter>Source Files\Cabin</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\JTan.cpp">
+      <Filter>Source Files\Cabin</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Definitions.h">
@@ -49,6 +55,15 @@
     </ClInclude>
     <ClInclude Include="Include\Scene.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Ap.h">
+      <Filter>Header Files\Cabin</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\IMember.h">
+      <Filter>Header Files\Cabin</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Jtan.h">
+      <Filter>Header Files\Cabin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

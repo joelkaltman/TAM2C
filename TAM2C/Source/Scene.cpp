@@ -8,8 +8,9 @@
 // PGSWidget
 #include <PGSWidget/Include/PGSWidget.h>
 
-void Scene::init(p3d::P3D* p3d)
+void Scene::init()
 {
+	p3d::P3D* p3d = p3d::P3D::getInstance();
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 
 	p3d::SceneDescription* scene_description = p3d->loadSceneDescription(Definitions::getScenePath(Definitions::initData.scene), Definitions::getMultimediaResourcesPath());
@@ -25,15 +26,15 @@ void Scene::init(p3d::P3D* p3d)
 
 	p3d::DirectionalLight* directional_light = scene->installDirectionalLight("luz direccional", 0, 1, -1, 255, 255, 255);
 
-	cabin = new Cabin(Definitions::initData.cabinX, Definitions::initData.cabinY);
+	cabin = new Cabin(Definitions::initData.cabinX, Definitions::initData.cabinY, resources["TAM2C_carriage"], resources["TAM2C_turret"], resources["TAM2C_cannon"], scene);
 
-	cabin->setJoystick(Cabin::ID::AP, Definitions::initData.idJoyAp);
-	cabin->setJoystick(Cabin::ID::JTAN, Definitions::initData.idJoyJTAN);
+	cabin->setJoystick(Cabin::AP, Definitions::initData.idJoyAp);
+	cabin->setJoystick(Cabin::JTAN, Definitions::initData.idJoyJTAN);
 
 	cabin->createCamera(Cabin::AP, scene);
-	cabin->createGDSU(Cabin::AP, context, resources);
-
 	cabin->createCamera(Cabin::JTAN, scene);
+
+	cabin->createGDSU(Cabin::AP, context, resources);
 	cabin->createGDSU(Cabin::JTAN, context, resources);
 
 	joystickMng = new JoysticksManager(cabin);
@@ -43,6 +44,10 @@ void Scene::init(p3d::P3D* p3d)
 
 void Scene::loadResources(p3d::ResourceManager* resource_manager)
 {
+	resources["TAM2C_carriage"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Objetos/Vehiculos/TAM/TAMVerde_Carro.rpgs"));
+	resources["TAM2C_turret"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Objetos/Vehiculos/TAM/TAMVerde_Torre.rpgs"));
+	resources["TAM2C_cannon"] = resource_manager->loadResource(Definitions::getMultimediaResourcesPath("Objetos/Vehiculos/TAM/TAMVerde_Canion.rpgs"));
+
 	resources["GDSU_periscope"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("GDSU_periscope.rpgs"));
 	resources["GDSU_-"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("-.rpgs"));
 	resources["GDSU_+"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("+.rpgs"));
