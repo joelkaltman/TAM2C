@@ -181,6 +181,7 @@
     <ClInclude Include="Include\IMember.h" />
     <ClInclude Include="Include\JoysticksManager.h" />
     <ClInclude Include="Include\Jtan.h" />
+    <ClInclude Include="Include\LocalResourceManager.h" />
     <ClInclude Include="Include\Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

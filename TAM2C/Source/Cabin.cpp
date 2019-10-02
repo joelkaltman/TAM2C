@@ -4,19 +4,31 @@
 #include <TAM2C/Include/Definitions.h>
 #include <TAM2C/Include/Ap.h>
 #include <TAM2C/Include/Jtan.h>
+#include <TAM2C/Include/LocalResourceManager.h>
 
-Cabin::Cabin(float x, float y, p3d::Resource* rCarriage, p3d::Resource* rTower, p3d::Resource* rCannon, p3d::Scene3D* scene) : spawnX(x), spawnY(y)
+// TaskLib
+#include <TaskLib/Include/TaskManager.h>
+
+Cabin::Cabin(p3d::Scene3D* scene)
 {
-	Ap* ap = new Ap(rTower, rCannon, scene);
+	Ap* ap = new Ap(scene);
 	JTan* jtan = new JTan(scene);
 
-	carriage = scene->installObjectVerticalToTerrain(spawnX, spawnY, 10, spawnX + 1, spawnY + 1, 10, rCarriage, true);
+	carriage = scene->installObjectVerticalToTerrain(
+		Definitions::initData.cabinPosX, Definitions::initData.cabinPosY, 10, 
+		Definitions::initData.cabinAtX, Definitions::initData.cabinAtY, 10, 
+		LocalResourceManager::getInstance().resources["TAM2C_carriage"], true);
 
-	carriage->addChild(ap->tower);
-	ap->tower->addChild(jtan->transfTraslation);
+	carriage->addChild(ap->turret);
+	ap->turret->addChild(jtan->transfTraslation);
 
 	members[AP] = ap;
 	members[JTAN] = jtan;
+
+
+	/*task::TaskManager* task_man = task::TaskManager::getInstance();
+	uiUpdate = task_man->createPeriodicTask(100, uiUpdateFunction, this);
+	uiUpdate->start();*/
 }
 
 void Cabin::setJoystick(ID id, int joystickId)
@@ -51,19 +63,26 @@ void Cabin::createCamera(ID id, p3d::Scene3D* scene)
 	members[id]->window->showCamera(members[id]->camera);
 }
 
-void Cabin::createGDSU(ID id, p3d::Context* context, std::map<std::string, p3d::Resource*> resources)
+void Cabin::createGDSU(ID id, p3d::Context* context)
 {
 	p3d::Scene2D* scene = context->createScene2D();
+
+	auto& resources = LocalResourceManager::getInstance().resources;
 
 	p3d::math::Vector4 screen1(860 / 2, 560 / 2, 860, 560);
 
 	members[id]->sprites["GDSU_periscope"] = scene->installSprite(screen1.getX(), screen1.getY(), screen1.getZ(), screen1.getW(), resources["GDSU_periscope"]);
 
 	p3d::math::Vector4 image1(70 / 2, 104 / 2, 70, 104);
-	p3d::math::Vector4 image2(2 / 2, 160 / 2, 2, 160);
+	p3d::math::Vector4 image2(300 / 2, 300 / 2, 300, 300);
 
 	members[id]->sprites["Cabin"] = scene->installSprite(image1.getX() + 210, image1.getY() + 80, image1.getZ(), image1.getW(), resources["Cabin"]);
-	members[id]->sprites["CabinAt"] = scene->installSprite(image2.getX() + image1.getX() + 210, image1.getY() / 2 + 110, image2.getZ(), image2.getW(), resources["CabinAt"]);
+	p3d::Sprite* at = scene->installSprite(image1.getX() + 210, image1.getY() + 80, image2.getZ(), image2.getW(), resources["CabinAt"]);
+
+	at->setROIPosition(150, 150);
+	members[id]->addGDSURotation(scene, at);
+	
+	members[id]->sprites["CabinAt"] = at;
 
 	p3d::math::Vector4 btn1(100 / 2, 20 / 2, 100, 20);
 	p3d::math::Vector4 btn2(80 / 2, 15 / 2, 80, 15);
@@ -118,7 +137,8 @@ void Cabin::axisModified(int id, float deriva, float alza)
 		return;
 
 	members[mId]->rotate(deriva, alza);
+}
 
-	members[mId]->sprites["CabinAt"]->rotateFrame(-deriva);
-
+void Cabin::uiUpdateFunction(const double_t& delta_time, void* instance)
+{
 }

@@ -26,20 +26,19 @@ public:
 		INVALID
 	};
 
-	Cabin(float x, float y, p3d::Resource* rCarriage, p3d::Resource* rTower, p3d::Resource* rCannon, p3d::Scene3D* scene);
+	Cabin(p3d::Scene3D* scene);
 
 	void setJoystick(ID id, int joystickId);
 
 	void createCamera(ID id, p3d::Scene3D* scene);
-	void createGDSU(ID id, p3d::Context* context, std::map<std::string, p3d::Resource*> resources);
+	void createGDSU(ID id, p3d::Context* context);
 
 	p3d::Camera* getCamera(ID id) const;
 
 	void axisModified(int id, float deriva, float alza);
 
 private:
-	float spawnX = 0;
-	float spawnY = 0;
+	static void uiUpdateFunction(const double_t& delta_time, void* instance);
 
 	std::map<ID, IMember*> members;
 
@@ -47,4 +46,6 @@ private:
 	JtanPanels uiJtan;
 
 	p3d::Object3D* carriage = nullptr;
+
+	task::PeriodicTask* uiUpdate;
 };

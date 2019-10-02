@@ -29,6 +29,9 @@ Definitions::Definitions(const std::string& pathConfig)
 	Definitions::Scenes = paths["Scenes"].GetString();
 
 	rapidjson::Value& cabin = configJson["cabin"];
+	initData.carriage = cabin["carriage"].GetString();
+	initData.turret = cabin["turret"].GetString();
+	initData.cannon = cabin["cannon"].GetString();
 
 	rapidjson::Value& ap = cabin["ap"];
 	initData.idJoyAp = ap["joystick"].GetInt();
@@ -38,9 +41,10 @@ Definitions::Definitions(const std::string& pathConfig)
 	initData.idJoyJTAN = jtan["joystick"].GetInt();
 	initData.fullScreenJtan = jtan["fullscreen"].GetBool();
 
-
 	rapidjson::Value& jscene = configJson["scene"];
 	initData.scene = jscene["pgsscene"].GetString();
-	initData.cabinX = jscene["cabinPosX"].GetFloat();
-	initData.cabinY = jscene["cabinPosY"].GetFloat();
+	initData.cabinPosX = jscene["cabinPosX"].GetFloat();
+	initData.cabinPosY = jscene["cabinPosY"].GetFloat();
+	initData.cabinAtX = jscene["cabinAtX"].GetFloat();
+	initData.cabinAtY = jscene["cabinAtY"].GetFloat();
 }

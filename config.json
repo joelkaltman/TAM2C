@@ -8,6 +8,9 @@
 	},
 	"cabin":
 	{
+		"carriage": "Objetos/Vehiculos/TAM/TAMVerde_Carro.rpgs",
+		"turret": "Objetos/Vehiculos/TAM/TAMVerde_Torre.rpgs",
+		"cannon": "Objetos/Vehiculos/TAM/TAMVerde_Canion.rpgs",
 		"ap":
 		{
 			"joystick": 0,
@@ -23,6 +26,8 @@
 	{
 		"pgsscene": "ValleSerrano.pgsscene",
 		"cabinPosX": 5000.0,
-		"cabinPosY": 5000.0
+		"cabinPosY": 5000.0,
+		"cabinAtX": 5001.0,
+		"cabinAtY": 5001.0
 	}
 }

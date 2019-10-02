@@ -50,6 +50,10 @@ class IMember
 
 	 virtual void rotate(double deriva, double alza) {};
 
+	 virtual void addGDSURotation(p3d::Scene2D* scene2d, p3d::Sprite* sprite) {};
+
+	 
+
  protected:
 	friend class Cabin;
 

@@ -27,8 +27,8 @@ private:
 
 	void loadResources(p3d::ResourceManager* resource_manager);
 
-	std::map<std::string, p3d::Resource*> resources;
-	
+	static std::map<std::string, p3d::Resource*> resources;
+
 	Cabin* cabin;
 	JoysticksManager* joystickMng;
 };

@@ -8,12 +8,17 @@ class Definitions
 	static struct InitData
 	{
 		std::string scene = "";
+		std::string carriage = "";
+		std::string turret = "";
+		std::string cannon = "";
 		int idJoyAp = 0;
 		int idJoyJTAN = 0;
 		bool fullScreenAp = false;
 		bool fullScreenJtan = false;
-		float cabinX = 0.f;
-		float cabinY = 0.f;
+		float cabinPosX = 0.f;
+		float cabinPosY = 0.f;
+		float cabinAtX = 0.f;
+		float cabinAtY = 0.f;
 	} initData;
 
 	static std::string getGUIPath(std::string path = "")

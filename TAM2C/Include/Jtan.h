@@ -15,6 +15,8 @@ public:
 
 	void rotate(double deriva, double alza) override;
 
+	void addGDSURotation(p3d::Scene2D* scene2d, p3d::Sprite* sprite) override;
+
 private:
 	friend class Cabin;
 
@@ -24,4 +26,6 @@ private:
 
 	p3d::VerticalRotationTrajectory* trajDirection;
 	p3d::LateralRotationTrajectory* trajHeight;
+
+	p3d::ROIRotationAnimation* spriteRot;
 };
