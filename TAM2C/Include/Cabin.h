@@ -38,8 +38,6 @@ public:
 	void axisModified(int id, float deriva, float alza);
 
 private:
-	static void uiUpdateFunction(const double_t& delta_time, void* instance);
-
 	std::map<ID, IMember*> members;
 
 	ApPanels uiAp;

@@ -8,13 +8,6 @@
 #include <TAM2C/Include/Cabin.h>
 #include <TAM2C/Include/JoysticksManager.h>
 
-namespace p3d
-{
-	class P3D;
-	class Resource;
-	class ResourceManager;
-};
-
 class Scene
 {
 public:
@@ -24,10 +17,6 @@ public:
 
 private:
 	friend class Definitions;
-
-	void loadResources(p3d::ResourceManager* resource_manager);
-
-	static std::map<std::string, p3d::Resource*> resources;
 
 	Cabin* cabin;
 	JoysticksManager* joystickMng;

@@ -24,11 +24,6 @@ Cabin::Cabin(p3d::Scene3D* scene)
 
 	members[AP] = ap;
 	members[JTAN] = jtan;
-
-
-	/*task::TaskManager* task_man = task::TaskManager::getInstance();
-	uiUpdate = task_man->createPeriodicTask(100, uiUpdateFunction, this);
-	uiUpdate->start();*/
 }
 
 void Cabin::setJoystick(ID id, int joystickId)
@@ -104,15 +99,22 @@ void Cabin::createGDSU(ID id, p3d::Context* context)
 	members[id]->sprites["GDSU_+"] =	scene->installSprite(btn1.getX() + screen1.getZ() - btn1.getZ() - 10, btn1.getY() + 40 + 90 * 4, btn1.getZ(), btn1.getW(), resources["GDSU_+"]);
 	members[id]->sprites["GDSU_-"] =	scene->installSprite(btn1.getX() + screen1.getZ() - btn1.getZ() - 10, btn1.getY() + 40 + 90 * 5, btn1.getZ(), btn1.getW(), resources["GDSU_-"]);
 
-	members[id]->sprites["GDSU_2114"] = scene->installSprite(btn1.getX() + 60 + 80 * 0, btn1.getY() + 10, btn1.getZ(), btn1.getW(), resources["GDSU_2114"]);
+	members[id]->sprites["GDSU_2114"] = scene->installSprite(btn1.getX() + 60 + 80 * 0, btn1.getY() + 10, btn1.getZ(), btn1.getW(), resources["GDSU_empty"]);
 	members[id]->sprites["GDSU_MAN"] = scene->installSprite(btn3.getX() + 100 + 80 * 1, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_MAN"]);
 	members[id]->sprites["GDSU_MSTG"] = scene->installSprite(btn3.getX() + 100 + 80 * 2, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_MSTG"]);
 	members[id]->sprites["GDSU_RDY"] = scene->installSprite(btn3.getX() + 100 + 80 * 3, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_RDY"]);
 	members[id]->sprites["GDSU_ARM"] = scene->installSprite(btn3.getX() + 100 + 80 * 4, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_ARM"]);
 	members[id]->sprites["GDSU_empty"] = scene->installSprite(btn3.getX() + 100 + 80 * 5, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_empty"]);
-	members[id]->sprites["GDSU_5567"] = scene->installSprite(btn3.getX() + 100 + 80 * 6, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_5567"]);
+	members[id]->sprites["GDSU_5567"] = scene->installSprite(btn3.getX() + 100 + 80 * 6, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_empty"]);
 	members[id]->sprites["GDSU_GUN"] = scene->installSprite(btn3.getX() + 100 + 80 * 7, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_GUN"]);
 	members[id]->sprites["GDSU_AP1"] = scene->installSprite(btn3.getX() + 100 + 80 * 8, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_AP1"]);
+
+	p3d::math::Vector4 num(14 / 2, 14 / 2, 14, 14);
+
+	members[id]->sprites["GDSU_2114_num1"] = scene->installSprite(num.getX() + 60 + 80 * 0 + 3, num.getY() + 10 + 3, num.getZ(), num.getW(), resources["Numbers"]);
+	members[id]->sprites["GDSU_2114_num1"]->changeROISize(14, 14);
+	members[id]->sprites["GDSU_2114_num1"]->setROIPosition(7, 2 * (14 + 10) + 7);
+
 
 	members[id]->sprites["GDSU_DATA"] = scene->installSprite(btn1.getX() + 250 + 120 * 0, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_DATA"]);
 	members[id]->sprites["GDSU_NEXT_FLT"] = scene->installSprite(btn1.getX() + 250 + 120 * 1, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_NEXT_FLT"]);
@@ -137,8 +139,4 @@ void Cabin::axisModified(int id, float deriva, float alza)
 		return;
 
 	members[mId]->rotate(deriva, alza);
-}
-
-void Cabin::uiUpdateFunction(const double_t& delta_time, void* instance)
-{
 }

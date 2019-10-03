@@ -171,6 +171,7 @@
     <ClCompile Include="Source\Definitions.cpp" />
     <ClCompile Include="Source\JoysticksManager.cpp" />
     <ClCompile Include="Source\JTan.cpp" />
+    <ClCompile Include="Source\LocalResourceManager.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="TAM2C.cpp" />
   </ItemGroup>

@@ -42,6 +42,9 @@
     <ClCompile Include="Source\JTan.cpp">
       <Filter>Source Files\Cabin</Filter>
     </ClCompile>
+    <ClCompile Include="Source\LocalResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Definitions.h">
