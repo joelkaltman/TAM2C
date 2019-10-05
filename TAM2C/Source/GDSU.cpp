@@ -54,12 +54,11 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	sprites["GDSU_GUN"] = sceneGDSU->installSprite(btn3.getX() + 100 + 80 * 7, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_GUN"]);
 	sprites["GDSU_AP1"] = sceneGDSU->installSprite(btn3.getX() + 100 + 80 * 8, btn3.getY() + 10, btn3.getZ(), btn3.getW(), resources["GDSU_AP1"]);
 
-	p3d::math::Vector4 num(14 / 2, 14 / 2, 14, 14);
+	numLabels["GDSU_2114"] = new NumLabel(60, 10, 10, "GDSU_2114", this);
+	numLabels["GDSU_2114"]->showNum(5473);
 
-	sprites["GDSU_2114_num1"] = sceneGDSU->installSprite(num.getX() + 60 + 80 * 0 + 3, num.getY() + 10 + 3, num.getZ(), num.getW(), resources["Numbers"]);
-	sprites["GDSU_2114_num1"]->changeROISize(14, 14);
-	sprites["GDSU_2114_num1"]->setROIPosition(7, 2 * (14 + 10) + 7);
-
+	numLabels["GDSU_5567"] = new NumLabel(100 + 80 * 6, 10, 10, "GDSU_5567", this);
+	numLabels["GDSU_5567"]->showNum(9876);
 
 	sprites["GDSU_DATA"] = sceneGDSU->installSprite(btn1.getX() + 250 + 120 * 0, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_DATA"]);
 	sprites["GDSU_NEXT_FLT"] = sceneGDSU->installSprite(btn1.getX() + 250 + 120 * 1, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_NEXT_FLT"]);
@@ -72,4 +71,34 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 {
 	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
 	spriteRot->start();
+}
+
+
+NumLabel::NumLabel(int posX, int posY, int offX, std::string labelName, GDSU* gdsu)
+{
+	auto& resources = LocalResourceManager::getInstance().resources;
+
+	p3d::math::Vector4 num(14 / 2, 14 / 2, 14, 14);
+
+	for (int i = 0; i < 4; ++i)
+	{
+		numbers[i] = gdsu->sceneGDSU->installSprite(num.getX() + posX + offX * i + 3, num.getY() + posY + 3, num.getZ(), num.getW(), resources["Numbers"]);
+		numbers[i]->changeROISize(14, 14);
+		numbers[i]->setROIPosition(7, 0 * (14 + 10) + 7);
+		
+		gdsu->sprites[labelName + "_num_" + std::to_string(i)] = numbers[i];
+	}
+}
+
+void NumLabel::showNum(int num)
+{
+	if (num > 9999)
+		std::cout << "ERROR trying to show number with more than 4 digits in GDSU label" << std::endl;
+
+	for (int i = 3; i >= 0; --i)
+	{
+		int digit = num % 10;
+		num /= 10;
+		numbers[i]->setROIPosition(7, digit * (14 + 10) + 7);
+	}
 }
