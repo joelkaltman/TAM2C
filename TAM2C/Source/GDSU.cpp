@@ -1,8 +1,11 @@
-#include <TAM2C/Include/IMember.h>
+#include <TAM2C/Include/GDSU.h>
+
+#include <math/Include/Vector4.h>
 
 #include <TAM2C/Include/LocalResourceManager.h>
 
-void IMember::loadSceneGDSU()
+GDSU::GDSU(p3d::Scene2D* sceneGDSU):
+	sceneGDSU(sceneGDSU)
 {
 	auto& resources = LocalResourceManager::getInstance().resources;
 
@@ -63,6 +66,10 @@ void IMember::loadSceneGDSU()
 	sprites["GDSU_Btl_Man"] = sceneGDSU->installSprite(btn1.getX() + 250 + 120 * 2, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_Btl_Man"]);
 	sprites["GDSU_Fst_Last"] = sceneGDSU->installSprite(btn1.getX() + 250 + 120 * 3, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_Fst_Last"]);
 	sprites["GDSU_NextAlt"] = sceneGDSU->installSprite(btn1.getX() + 250 + 120 * 4, btn1.getY() + screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), resources["GDSU_NextAlt"]);
+}
 
-	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
+void GDSU::addGDSURotation(p3d::Sprite* sprite)
+{
+	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
+	spriteRot->start();
 }

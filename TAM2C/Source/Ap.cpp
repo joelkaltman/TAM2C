@@ -5,8 +5,6 @@
 
 Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 {
-	this->sceneGDSU = sceneGDSU;
-
 	turret = scene->installObject(DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y, DISTANCIA_RELATIVA_TORRE_Z,
 		DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y + 1.0, DISTANCIA_RELATIVA_TORRE_Z,
 		0.0, 0.0, 1.0, LocalResourceManager::getInstance().resources["TAM2C_turret"], false);
@@ -34,8 +32,10 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 	trajCannon = trajMng->createLateralRotationTrajectory(cannon, 0.0);
 	trajCannon->start();
 
-	createCameraGDSU();
-	loadSceneGDSU();
+	createCameraGDSU(); 
+	
+	gdsu = new GDSU(sceneGDSU);
+	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 }
 
 void Ap::rotate(double deriva, double alza)
@@ -43,13 +43,7 @@ void Ap::rotate(double deriva, double alza)
 	trajTower->setFreeRotationVelocity(deriva);
 	trajCannon->setFreeRotationVelocity(alza);
 
-	spriteRot->setFreeRotationVelocity(-deriva);
-}
-
-void Ap::addGDSURotation(p3d::Sprite* sprite)
-{
-	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
-	spriteRot->start();
+	gdsu->spriteRot->setFreeRotationVelocity(-deriva);
 }
 
 void Ap::createCameraGDSU()

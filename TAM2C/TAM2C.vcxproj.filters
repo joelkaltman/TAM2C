@@ -45,7 +45,7 @@
     <ClCompile Include="Source\LocalResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\IMember.cpp">
+    <ClCompile Include="Source\GDSU.cpp">
       <Filter>Source Files\Cabin</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Include\LocalResourceManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GDSU.h">
+      <Filter>Header Files\Cabin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,9 @@
 #include <p3d/Include/ResourceManager.h>
 #include <p3d/Include/Object3D.h>
 
+// TAM2C
+#include <TAM2C/Include/GDSU.h>
+
 #define DISTANCIA_RELATIVA_TORRE_X 0.0
 #define DISTANCIA_RELATIVA_TORRE_Y 0.0
 #define DISTANCIA_RELATIVA_TORRE_Z 1.75
@@ -41,18 +44,14 @@ class IMember
 
 	 virtual void rotate(double deriva, double alza) {};
 
-	 virtual void addGDSURotation(p3d::Sprite* sprite) {};
-
  protected:
 	friend class Cabin;
 
-	virtual void loadSceneGDSU();
 	virtual void createCameraGDSU() {};
 
-	p3d::Scene2D* sceneGDSU;
+	GDSU* gdsu;
 
 	int joystick;
 	p3d::Camera* camera;
 	p3d::Window* window;
-	std::map<std::string, p3d::Sprite*> sprites;
 };

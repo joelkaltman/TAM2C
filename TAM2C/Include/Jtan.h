@@ -17,9 +17,6 @@ public:
 	JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
 
 	void rotate(double deriva, double alza) override;
-
-	void addGDSURotation(p3d::Sprite* sprite) override;
-
 private:
 	friend class Cabin;
 

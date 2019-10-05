@@ -4,8 +4,6 @@
 
 JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 {
-	this->sceneGDSU = sceneGDSU;
-
 	transfTraslation = scene->installAffineTransformation();
 	transfTraslation->setPose(DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
 		DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y + 1.0, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
@@ -35,7 +33,9 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 	trajHeight->start();
 
 	createCameraGDSU();
-	loadSceneGDSU();
+
+	gdsu = new GDSU(sceneGDSU);
+	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 }
 
 void JTan::rotate(double deriva, double alza)
@@ -43,13 +43,7 @@ void JTan::rotate(double deriva, double alza)
 	trajDirection->setFreeRotationVelocity(deriva);
 	trajHeight->setFreeRotationVelocity(alza);
 
-	spriteRot->setFreeRotationVelocity(-deriva);
-}
-
-void JTan::addGDSURotation(p3d::Sprite* sprite)
-{
-	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
-	spriteRot->start();
+	gdsu->spriteRot->setFreeRotationVelocity(-deriva);
 }
 
 void JTan::createCameraGDSU()
