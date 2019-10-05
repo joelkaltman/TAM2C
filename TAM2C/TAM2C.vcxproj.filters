@@ -45,6 +45,9 @@
     <ClCompile Include="Source\LocalResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\IMember.cpp">
+      <Filter>Source Files\Cabin</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Definitions.h">

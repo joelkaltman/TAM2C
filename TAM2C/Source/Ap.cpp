@@ -1,9 +1,12 @@
 #include <TAM2C/Include/Ap.h>
 
+#include <TAM2C/Include/Definitions.h>
 #include <TAM2C/Include/LocalResourceManager.h>
 
-Ap::Ap(p3d::Scene3D* scene)
+Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 {
+	this->sceneGDSU = sceneGDSU;
+
 	turret = scene->installObject(DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y, DISTANCIA_RELATIVA_TORRE_Z,
 		DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y + 1.0, DISTANCIA_RELATIVA_TORRE_Z,
 		0.0, 0.0, 1.0, LocalResourceManager::getInstance().resources["TAM2C_turret"], false);
@@ -30,6 +33,9 @@ Ap::Ap(p3d::Scene3D* scene)
 
 	trajCannon = trajMng->createLateralRotationTrajectory(cannon, 0.0);
 	trajCannon->start();
+
+	createCameraGDSU();
+	loadSceneGDSU();
 }
 
 void Ap::rotate(double deriva, double alza)
@@ -40,8 +46,18 @@ void Ap::rotate(double deriva, double alza)
 	spriteRot->setFreeRotationVelocity(-deriva);
 }
 
-void Ap::addGDSURotation(p3d::Scene2D* scene2d, p3d::Sprite* sprite)
+void Ap::addGDSURotation(p3d::Sprite* sprite)
 {
-	spriteRot = scene2d->installROIRotationAnimationOnSprite(sprite, 0.0);
+	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
 	spriteRot->start();
+}
+
+void Ap::createCameraGDSU()
+{
+	Definitions::initData.fullScreenAp ? uiAp.showFullScreen() : uiAp.show();
+	uint32_t winId = uiAp.getPGSWidget()->winId();
+
+	p3d::P3D* p3d = p3d::P3D::getInstance();
+	window = p3d->createWindow(winId);
+	window->showCamera(camera);
 }

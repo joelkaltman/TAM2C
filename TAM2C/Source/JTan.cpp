@@ -1,7 +1,11 @@
 #include <TAM2C/Include/Jtan.h>
 
-JTan::JTan(p3d::Scene3D* scene)
+#include <TAM2C/Include/Definitions.h>
+
+JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 {
+	this->sceneGDSU = sceneGDSU;
+
 	transfTraslation = scene->installAffineTransformation();
 	transfTraslation->setPose(DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
 		DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y + 1.0, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
@@ -29,6 +33,9 @@ JTan::JTan(p3d::Scene3D* scene)
 
 	trajHeight = trajMng->createLateralRotationTrajectory(transfRotHeight, 0.0);
 	trajHeight->start();
+
+	createCameraGDSU();
+	loadSceneGDSU();
 }
 
 void JTan::rotate(double deriva, double alza)
@@ -39,8 +46,18 @@ void JTan::rotate(double deriva, double alza)
 	spriteRot->setFreeRotationVelocity(-deriva);
 }
 
-void JTan::addGDSURotation(p3d::Scene2D* scene2d, p3d::Sprite* sprite)
+void JTan::addGDSURotation(p3d::Sprite* sprite)
 {
-	spriteRot = scene2d->installROIRotationAnimationOnSprite(sprite, 0.0);
+	spriteRot = sceneGDSU->installROIRotationAnimationOnSprite(sprite, 0.0);
 	spriteRot->start();
+}
+
+void JTan::createCameraGDSU()
+{
+	Definitions::initData.fullScreenJtan ? uiJtan.showFullScreen() : uiJtan.show();
+	uint32_t winId = uiJtan.getPGSWidget()->winId();
+
+	p3d::P3D* p3d = p3d::P3D::getInstance();
+	window = p3d->createWindow(winId);
+	window->showCamera(camera);
 }

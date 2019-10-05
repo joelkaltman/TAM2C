@@ -34,15 +34,6 @@
 #define DISTANCIA_RELATIVA_CAMARA_JTAN_Y -0.048
 #define DISTANCIA_RELATIVA_CAMARA_JTAN_Z 0.907
 
-namespace p3d
-{
-	class Object3D;
-	class Scene3D;
-	class Camera;
-	class Window;
-	class Sprite;
-}
-
 class IMember
 {
  public:
@@ -50,12 +41,15 @@ class IMember
 
 	 virtual void rotate(double deriva, double alza) {};
 
-	 virtual void addGDSURotation(p3d::Scene2D* scene2d, p3d::Sprite* sprite) {};
-
-	 
+	 virtual void addGDSURotation(p3d::Sprite* sprite) {};
 
  protected:
 	friend class Cabin;
+
+	virtual void loadSceneGDSU();
+	virtual void createCameraGDSU() {};
+
+	p3d::Scene2D* sceneGDSU;
 
 	int joystick;
 	p3d::Camera* camera;

@@ -29,16 +29,7 @@ void Scene::init()
 
 	p3d::DirectionalLight* directional_light = scene->installDirectionalLight(0, 1, -1, 255, 255, 255);
 
-	cabin = new Cabin(scene);
-
-	cabin->setJoystick(Cabin::AP, Definitions::initData.idJoyAp);
-	cabin->setJoystick(Cabin::JTAN, Definitions::initData.idJoyJTAN);
-
-	cabin->createCamera(Cabin::AP, scene);
-	cabin->createCamera(Cabin::JTAN, scene);
-
-	cabin->createGDSU(Cabin::AP, context);
-	cabin->createGDSU(Cabin::JTAN, context);
+	cabin = new Cabin(scene, context);
 
 	joystickMng = new JoysticksManager(cabin);
 

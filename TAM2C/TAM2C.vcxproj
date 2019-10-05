@@ -169,6 +169,7 @@
     <ClCompile Include="Source\Ap.cpp" />
     <ClCompile Include="Source\Cabin.cpp" />
     <ClCompile Include="Source\Definitions.cpp" />
+    <ClCompile Include="Source\IMember.cpp" />
     <ClCompile Include="Source\JoysticksManager.cpp" />
     <ClCompile Include="Source\JTan.cpp" />
     <ClCompile Include="Source\LocalResourceManager.cpp" />
