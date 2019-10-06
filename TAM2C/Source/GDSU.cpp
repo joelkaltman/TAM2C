@@ -35,6 +35,12 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	sprites["GDSU_MG_SC"] = sceneGDSU->installSprite(btn1.getX() + 10, btn1.getY() + 40 + 90 * 4, btn1.getZ(), btn1.getW(), resources["GDSU_MG_SC"]);
 	sprites["GDSU_FLS_WP"] = sceneGDSU->installSprite(btn1.getX() + 10, btn1.getY() + 40 + 90 * 5, btn1.getZ(), btn1.getW(), resources["GDSU_FLS_WP"]);
 
+	std::vector<p3d::math::Vector4> ap1ap2Sel;
+	ap1ap2Sel.push_back(p3d::math::Vector4(btn1.getX() / 2 + 10, btn1.getY() + 40 + 90 * 1, btn1.getZ() / 2, btn1.getW()));
+	ap1ap2Sel.push_back(p3d::math::Vector4(btn1.getX() / 2 + 10 + btn1.getX(), btn1.getY() + 40 + 90 * 1, btn1.getZ() / 2, btn1.getW()));
+	optionLabels["GDSU_AP1_AP2"] = new OptionLabel(ap1ap2Sel, "GDSU_AP1_AP2", this);
+	optionLabels["GDSU_AP1_AP2"]->select(1);
+
 	sprites["GDSU_Gn_Cm_CLR"] = sceneGDSU->installSprite(btn1.getX() + screen1.getZ() - btn1.getZ() - 10, btn1.getY() + 40 + 90 * 0, btn1.getZ(), btn1.getW(), resources["GDSU_Gn_Cm_CLR"]);
 	sprites["GDSU_DayCam"] = sceneGDSU->installSprite(btn1.getX() + screen1.getZ() - btn1.getZ(), btn1.getY() + 40 + 90 * 0 + 20, btn2.getZ(), btn2.getW(), resources["GDSU_DayCam"]);
 	sprites["GDSU_Gn_Cm"] = sceneGDSU->installSprite(btn1.getX() + screen1.getZ() - btn1.getZ() - 10, btn1.getY() + 40 + 90 * 1, btn1.getZ(), btn1.getW(), resources["GDSU_Gn_Cm"]);
@@ -90,7 +96,7 @@ NumLabel::NumLabel(int posX, int posY, int offX, std::string labelName, GDSU* gd
 	}
 }
 
-void NumLabel::showNum(int num)
+void NumLabel::showNum(unsigned int num)
 {
 	if (num > 9999)
 		std::cout << "ERROR trying to show number with more than 4 digits in GDSU label" << std::endl;
@@ -101,4 +107,24 @@ void NumLabel::showNum(int num)
 		num /= 10;
 		numbers[i]->setROIPosition(7, digit * (14 + 10) + 7);
 	}
+}
+
+OptionLabel::OptionLabel(std::vector<p3d::math::Vector4> prop, std::string labelName, GDSU* gdsu)
+{
+	auto& resources = LocalResourceManager::getInstance().resources;
+
+	for (int i = 0; i < prop.size(); ++i)
+	{
+		p3d::Sprite* s = gdsu->sceneGDSU->installSprite(prop[i].getX(), prop[i].getY(), prop[i].getZ(), prop[i].getW(), resources["SelectedLabel"]);
+		s->hide();
+		selectionSprites.push_back(s);
+
+		gdsu->sprites[labelName + "_opt_" + std::to_string(i)] = s;
+	}
+}
+
+void OptionLabel::select(unsigned int index)
+{
+	for (int i = 0; i < selectionSprites.size(); ++i)
+		i == index ? selectionSprites[i]->show() : selectionSprites[i]->hide();
 }
