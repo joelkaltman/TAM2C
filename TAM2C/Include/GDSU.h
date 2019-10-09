@@ -9,22 +9,29 @@
 
 class GDSU;
 
-struct NumLabel
+struct Label
 {
-	NumLabel(int posX, int posY, int offX, std::string labelName, GDSU* gdsu);
+	Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std::string resource = "");
 
+	void setEnabled(bool enable);
+
+	void addOption(float offX, int w, int h, GDSU* gdsu);
+	void selectOption(unsigned int index);
+
+	void addNumbers(float offX, GDSU* gdsu);
 	void showNum(unsigned int num);
 
-	p3d::Sprite* numbers[4];
-};
+	int x;
+	int y;
+	int w;
+	int h;
 
-struct OptionLabel
-{
-	OptionLabel(std::vector<p3d::math::Vector4> prop, std::string labelName, GDSU* gdsu);
-
-	void select(unsigned int index);
-
+	p3d::Sprite* background = nullptr;
+	p3d::Sprite* disableSprite = nullptr;
 	std::vector<p3d::Sprite*> selectionSprites;
+	std::vector<p3d::Sprite*> numberSprites;
+
+	bool enabled = true;
 };
 
 class GDSU
@@ -36,8 +43,6 @@ class GDSU
 	 
 	 p3d::Scene2D* sceneGDSU;
 	 p3d::ROIRotationAnimation* spriteRot;
-	 std::map<std::string, p3d::Sprite*> sprites;
 
-	 std::map<std::string, NumLabel*> numLabels;
-	 std::map<std::string, OptionLabel*> optionLabels;
+	 std::map<std::string, Label*> labels;
 };

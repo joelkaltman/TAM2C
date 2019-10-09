@@ -43,6 +43,7 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 	resources["CabinAt"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("CabinAt.rpgs"));
 	resources["Numbers"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("Numbers.rpgs"));
 	resources["SelectedLabel"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("SelectedLabel.rpgs"));
+	resources["DisabledLabel"] = resource_manager->loadResource(Definitions::getScreenSpritesPath("DisabledLabel.rpgs"));
 
 	for (auto& res : resources)
 	{
