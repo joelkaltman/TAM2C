@@ -41,6 +41,7 @@ class IMember
 {
  public:
 	 IMember() = default;
+	 ~IMember() = default;
 
 	 virtual void rotate(double deriva, double alza) {};
 
@@ -49,9 +50,9 @@ class IMember
 
 	virtual void createCameraGDSU() {};
 
-	GDSU* gdsu;
+	GDSU* gdsu = nullptr;
 
 	int joystick;
-	p3d::Camera* camera;
-	p3d::Window* window;
+	p3d::Camera* camera = nullptr;
+	p3d::Window* window = nullptr;
 };

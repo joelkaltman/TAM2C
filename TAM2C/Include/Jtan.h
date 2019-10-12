@@ -15,6 +15,7 @@ class JTan : public IMember
 {
 public:
 	JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
+	~JTan();
 
 	void rotate(double deriva, double alza) override;
 private:
@@ -24,12 +25,12 @@ private:
 
 	JtanPanels uiJtan;
 
-	p3d::AffineTransformation* transfTraslation;
-	p3d::AffineTransformation* transfRotDirection;
-	p3d::AffineTransformation* transfRotHeight;
+	p3d::AffineTransformation* transfTraslation = nullptr;
+	p3d::AffineTransformation* transfRotDirection = nullptr;
+	p3d::AffineTransformation* transfRotHeight = nullptr;
 
-	p3d::VerticalRotationTrajectory* trajDirection;
-	p3d::LateralRotationTrajectory* trajHeight;
+	p3d::VerticalRotationTrajectory* trajDirection = nullptr;
+	p3d::LateralRotationTrajectory* trajHeight = nullptr;
 
-	p3d::ROIRotationAnimation* spriteRot;
+	p3d::Scene3D* scene = nullptr;
 };

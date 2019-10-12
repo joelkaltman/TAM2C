@@ -19,6 +19,7 @@ public:
 	void operator=(LocalResourceManager const&) = delete;
 
 	void loadResources(p3d::ResourceManager* resource_manager);
+	void unloadResources(p3d::ResourceManager* resource_manager);
 
 	std::map<std::string, p3d::Resource*> resources;
 private:

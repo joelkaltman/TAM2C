@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <vector>
 
 // p3d
 #include <p3d/Include/Scene2D.h>
@@ -12,6 +13,7 @@ class GDSU;
 struct Label
 {
 	Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std::string resource = "");
+	~Label() = default;
 
 	void setEnabled(bool enable);
 
@@ -38,11 +40,12 @@ class GDSU
 {
  public:
 	 GDSU(p3d::Scene2D* sceneGDSU);
+	 ~GDSU();
 	 
 	 void addGDSURotation(p3d::Sprite* sprite);
 	 
-	 p3d::Scene2D* sceneGDSU;
-	 p3d::ROIRotationAnimation* spriteRot;
+	 p3d::Scene2D* sceneGDSU = nullptr;
+	 p3d::ROIRotationAnimation* spriteRot = nullptr;
 
 	 std::map<std::string, Label*> labels;
 };

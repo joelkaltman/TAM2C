@@ -19,9 +19,13 @@ JoysticksManager::JoysticksManager(Cabin* cabin) : cabin(cabin)
 	openJoysticks();
 
 	task::TaskManager* task_man = task::TaskManager::getInstance();
-	end_sem_joystick_listener_task = new utils::Semaphore();
 	joystick_listener = task_man->createPeriodicTask(100, joystickListenerFunction, this);
 	joystick_listener->start();
+}
+
+JoysticksManager::~JoysticksManager()
+{
+	joystick_listener->stop();
 }
 
 bool JoysticksManager::openJoysticks()

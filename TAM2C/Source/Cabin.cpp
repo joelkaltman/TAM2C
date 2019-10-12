@@ -9,7 +9,8 @@
 // TaskLib
 #include <TaskLib/Include/TaskManager.h>
 
-Cabin::Cabin(p3d::Scene3D* scene, p3d::Context* context)
+Cabin::Cabin(p3d::Scene3D* scene, p3d::Context* context) :
+	scene(scene)
 {
 	Ap* ap = new Ap(scene, context->createScene2D());
 	JTan* jtan = new JTan(scene, context->createScene2D());
@@ -27,6 +28,12 @@ Cabin::Cabin(p3d::Scene3D* scene, p3d::Context* context)
 
 	members[AP]->joystick = Definitions::initData.idJoyAp;
 	members[JTAN]->joystick = Definitions::initData.idJoyJTAN;
+}
+
+Cabin::~Cabin()
+{
+	members.clear();
+	scene->uninstallObject(carriage);
 }
 
 void Cabin::axisModified(int id, float deriva, float alza)

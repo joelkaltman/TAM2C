@@ -16,22 +16,40 @@ void Scene::init()
 	p3d::P3D* p3d = p3d::P3D::getInstance();
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 
-	p3d::SceneDescription* scene_description = p3d->loadSceneDescription(Definitions::getScenePath(Definitions::initData.scene), Definitions::getMultimediaResourcesPath());
+	sceneDesc = p3d->loadSceneDescription(Definitions::getScenePath(Definitions::initData.scene), Definitions::getMultimediaResourcesPath());
 
-	resource_manager->loadResources(scene_description);
+	resource_manager->loadResources(sceneDesc);
 
 	LocalResourceManager::getInstance().loadResources(resource_manager);
 
-	p3d::Context* context = p3d->createExecutionContext();
+	context = p3d->createExecutionContext();
 
-	p3d::Scene3D* scene = context->createScene3D();
-	scene->installSceneDescription(scene_description);
+	scene3d = context->createScene3D();
+	scene3d->installSceneDescription(sceneDesc);
 
-	p3d::DirectionalLight* directional_light = scene->installDirectionalLight(0, 1, -1, 255, 255, 255);
+	dirLight = scene3d->installDirectionalLight(0, 1, -1, 255, 255, 255);
 
-	cabin = new Cabin(scene, context);
+	cabin = new Cabin(scene3d, context);
 
 	joystickMng = new JoysticksManager(cabin);
 
 	p3d->initRendering();
+}
+
+void Scene::end()
+{
+	delete joystickMng;
+	delete cabin;
+
+	scene3d->uninstallLight(dirLight);
+	scene3d->uninstallSceneDescription(sceneDesc);
+
+	context->destroyAllScene2D();
+	context->destroyAllScene3D();
+
+	p3d::P3D* p3d = p3d::P3D::getInstance();
+	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
+	
+	LocalResourceManager::getInstance().unloadResources(resource_manager);
+	resource_manager->unloadResources(sceneDesc);
 }

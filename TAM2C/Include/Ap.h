@@ -15,6 +15,7 @@ class Ap : public IMember
 {
 public:
 	Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
+	~Ap();
 
 	void rotate(double deriva, double alza) override;
 private:
@@ -24,9 +25,11 @@ private:
 
 	ApPanels uiAp;
 
-	p3d::Object3D* turret;
-	p3d::Object3D* cannon;
+	p3d::Object3D* turret = nullptr;
+	p3d::Object3D* cannon = nullptr;
 
-	p3d::VerticalRotationTrajectory* trajTower;
-	p3d::LateralRotationTrajectory* trajCannon;
+	p3d::VerticalRotationTrajectory* trajTower = nullptr;
+	p3d::LateralRotationTrajectory* trajCannon = nullptr;
+
+	p3d::Scene3D* scene = nullptr;
 };

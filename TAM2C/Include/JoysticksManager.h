@@ -23,6 +23,7 @@ public:
 	};
 
 	JoysticksManager(Cabin* cabin);
+	~JoysticksManager();
 
 private:
 	bool openJoysticks();
@@ -30,7 +31,6 @@ private:
 	static void joystickListenerFunction(const double_t& delta_time, void* instance);
 
 	task::PeriodicTask* joystick_listener;
-	utils::Semaphore* end_sem_joystick_listener_task;
 
 	Cabin* cabin;
 };

@@ -50,3 +50,11 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 		res.second->waitTillLoaded();
 	}
 }
+
+void LocalResourceManager::unloadResources(p3d::ResourceManager* resource_manager)
+{
+	for (auto& res : resources)
+		resource_manager->unloadResource(res.second);
+
+	resources.clear();
+}

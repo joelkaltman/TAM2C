@@ -3,7 +3,8 @@
 #include <TAM2C/Include/Definitions.h>
 #include <TAM2C/Include/LocalResourceManager.h>
 
-Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
+Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
+	scene(scene)
 {
 	turret = scene->installObject(DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y, DISTANCIA_RELATIVA_TORRE_Z,
 		DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y + 1.0, DISTANCIA_RELATIVA_TORRE_Z,
@@ -36,6 +37,19 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 	
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
+}
+
+Ap::~Ap()
+{
+	p3d::TrajectoryManager* trajMng = p3d::P3D::getInstance()->getTrajectoryManager();
+	trajMng->destroyTrajectory(trajTower);
+	trajMng->destroyTrajectory(trajCannon);
+
+	scene->uninstallObject(turret);
+	scene->uninstallObject(cannon);
+	scene->uninstallCamera(camera);
+
+	uiAp.close();
 }
 
 void Ap::rotate(double deriva, double alza)

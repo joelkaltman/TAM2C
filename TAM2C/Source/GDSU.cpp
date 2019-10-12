@@ -9,51 +9,51 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 {
 	auto& resources = LocalResourceManager::getInstance().resources;
 
-	p3d::math::Vector4 screen1(860 / 2, 560 / 2, 860, 560);
+	p3d::math::Vector2 screen1(860, 560);
 
-	new Label(0, 0, screen1.getZ(), screen1.getW(), "GDSU_periscope", this);
+	new Label(0, 0, screen1.getX(), screen1.getY(), "GDSU_periscope", this);
 
-	p3d::math::Vector4 image1(70 / 2, 104 / 2, 70, 104);
-	p3d::math::Vector4 image2(300 / 2, 300 / 2, 300, 300);
+	p3d::math::Vector2 image1(70, 104);
+	p3d::math::Vector2 image2(300, 300);
 
-	new Label(210, 80, image1.getZ(), image1.getW(), "Cabin", this);
-	new Label(210, 80, image2.getZ(), image2.getW(), "CabinAt", this);
+	new Label(210, 80, image1.getX(), image1.getY(), "Cabin", this);
+	new Label(95, 0, image2.getX(), image2.getY(), "CabinAt", this);
 
-	p3d::math::Vector4 btn1(100 / 2, 20 / 2, 100, 20);
-	p3d::math::Vector4 btn2(80 / 2, 15 / 2, 80, 15);
-	p3d::math::Vector4 btn3(60 / 2, 20 / 2, 60, 20);
+	p3d::math::Vector2 btn1(100, 20);
+	p3d::math::Vector2 btn2(80, 15);
+	p3d::math::Vector2 btn3(60, 20);
 
-	new Label(10, 40 + 90 * 0, btn1.getZ(), btn1.getW(), "GDSU_LW", this);
-	new Label(10, 40 + 90 * 1, btn1.getZ(), btn1.getW(), "GDSU_AP1_AP2", this);
-	new Label(10, 40 + 90 * 2, btn1.getZ(), btn1.getW(), "GDSU_HT1_HT2", this);
-	new Label(10, 40 + 90 * 3, btn1.getZ(), btn1.getW(), "GDSU_HE1_HE2", this);
-	new Label(10, 40 + 90 * 4, btn1.getZ(), btn1.getW(), "GDSU_MG_SC", this);
-	new Label(10, 40 + 90 * 5, btn1.getZ(), btn1.getW(), "GDSU_FLS_WP", this);
+	new Label(10, 40 + 90 * 0, btn1.getX(), btn1.getY(), "GDSU_LW", this);
+	new Label(10, 40 + 90 * 1, btn1.getX(), btn1.getY(), "GDSU_AP1_AP2", this);
+	new Label(10, 40 + 90 * 2, btn1.getX(), btn1.getY(), "GDSU_HT1_HT2", this);
+	new Label(10, 40 + 90 * 3, btn1.getX(), btn1.getY(), "GDSU_HE1_HE2", this);
+	new Label(10, 40 + 90 * 4, btn1.getX(), btn1.getY(), "GDSU_MG_SC", this);
+	new Label(10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "GDSU_FLS_WP", this);
 
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 0, btn1.getZ(), btn1.getW(), "GDSU_Gn_Cm_CLR", this);
-	new Label(screen1.getZ() - btn1.getZ(), 40 + 90 * 0 + 30, btn2.getZ(), btn2.getW(), "GDSU_DayCam", this);
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 1, btn1.getZ(), btn1.getW(), "GDSU_Gn_Cm", this);
-	new Label(screen1.getZ() - btn1.getZ(), 40 + 90 * 1 + 30, btn2.getZ(), btn2.getW(), "GDSU_NightCam", this);
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 2, btn1.getZ(), btn1.getW(), "GDSU_N_W_VW", this);
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 3, btn1.getZ(), btn1.getW(), "GDSU_Zm_Rt_Fc_Ir", this);
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 4, btn1.getZ(), btn1.getW(), "GDSU_+", this);
-	new Label(screen1.getZ() - btn1.getZ() - 10, 40 + 90 * 5, btn1.getZ(), btn1.getW(), "GDSU_-", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 0, btn1.getX(), btn1.getY(), "GDSU_Gn_Cm_CLR", this);
+	new Label(screen1.getX() - btn1.getX(), 40 + 90 * 0 + 30, btn2.getX(), btn2.getY(), "GDSU_DayCam", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 1, btn1.getX(), btn1.getY(), "GDSU_Gn_Cm", this);
+	new Label(screen1.getX() - btn1.getX(), 40 + 90 * 1 + 30, btn2.getX(), btn2.getY(), "GDSU_NightCam", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 2, btn1.getX(), btn1.getY(), "GDSU_N_W_VW", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 3, btn1.getX(), btn1.getY(), "GDSU_Zm_Rt_Fc_Ir", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 4, btn1.getX(), btn1.getY(), "GDSU_+", this);
+	new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "GDSU_-", this);
 
-	new Label(60 + 80 * 0, 10, btn1.getZ(), btn1.getW(), "GDSU_2114", this, "GDSU_empty");
-	new Label(100 + 80 * 1, 10, btn3.getZ(), btn3.getW(), "GDSU_MAN", this);
-	new Label(100 + 80 * 2, 10, btn3.getZ(), btn3.getW(), "GDSU_MSTG", this);
-	new Label(100 + 80 * 3, 10, btn3.getZ(), btn3.getW(), "GDSU_RDY", this);
-	new Label(100 + 80 * 4, 10, btn3.getZ(), btn3.getW(), "GDSU_ARM", this);
-	new Label(100 + 80 * 5, 10, btn3.getZ(), btn3.getW(), "GDSU_empty", this);
-	new Label(100 + 80 * 6, 10, btn3.getZ(), btn3.getW(), "GDSU_5567", this, "GDSU_empty");
-	new Label(100 + 80 * 7, 10, btn3.getZ(), btn3.getW(), "GDSU_GUN", this);
-	new Label(100 + 80 * 8, 10, btn3.getZ(), btn3.getW(), "GDSU_AP1", this);
+	new Label(60 + 80 * 0, 10, btn1.getX(), btn1.getY(), "GDSU_2114", this, "GDSU_empty");
+	new Label(100 + 80 * 1, 10, btn3.getX(), btn3.getY(), "GDSU_MAN", this);
+	new Label(100 + 80 * 2, 10, btn3.getX(), btn3.getY(), "GDSU_MSTG", this);
+	new Label(100 + 80 * 3, 10, btn3.getX(), btn3.getY(), "GDSU_RDY", this);
+	new Label(100 + 80 * 4, 10, btn3.getX(), btn3.getY(), "GDSU_ARM", this);
+	new Label(100 + 80 * 5, 10, btn3.getX(), btn3.getY(), "GDSU_empty", this);
+	new Label(100 + 80 * 6, 10, btn3.getX(), btn3.getY(), "GDSU_5567", this, "GDSU_empty");
+	new Label(100 + 80 * 7, 10, btn3.getX(), btn3.getY(), "GDSU_GUN", this);
+	new Label(100 + 80 * 8, 10, btn3.getX(), btn3.getY(), "GDSU_AP1", this);
 
-	new Label(250 + 120 * 0, screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), "GDSU_DATA", this);
-	new Label(250 + 120 * 1, screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), "GDSU_NEXT_FLT", this);
-	new Label(250 + 120 * 2, screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), "GDSU_Btl_Man", this);
-	new Label(250 + 120 * 3, screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), "GDSU_Fst_Last", this);
-	new Label(250 + 120 * 4, screen1.getW() - btn1.getW() - 10, btn1.getZ(), btn1.getW(), "GDSU_NextAlt", this);
+	new Label(250 + 120 * 0, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_DATA", this);
+	new Label(250 + 120 * 1, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_NEXT_FLT", this);
+	new Label(250 + 120 * 2, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_Btl_Man", this);
+	new Label(250 + 120 * 3, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_Fst_Last", this);
+	new Label(250 + 120 * 4, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_NextAlt", this);
 
 	// Disabled
 	labels["GDSU_MG_SC"]->setEnabled(false);
@@ -94,6 +94,28 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	labels["GDSU_Zm_Rt_Fc_Ir"]->addOption(29 + 24, 25, 20, this);
 	labels["GDSU_Zm_Rt_Fc_Ir"]->addOption(29 + 24 + 25, 23, 20, this);
 	labels["GDSU_Zm_Rt_Fc_Ir"]->selectOption(1);
+}
+
+GDSU::~GDSU()
+{
+	if (spriteRot)
+		sceneGDSU->uninstallROIRotationAnimation(spriteRot);
+
+	for (auto& l : labels)
+	{
+		if (l.second->background)
+			sceneGDSU->uninstallSprite(l.second->background);
+
+		if (l.second->disableSprite)
+			sceneGDSU->uninstallSprite(l.second->disableSprite);
+
+		for(auto& s : l.second->numberSprites)
+			sceneGDSU->uninstallSprite(s);
+
+		for (auto& s : l.second->selectionSprites)
+			sceneGDSU->uninstallSprite(s);
+	}
+	labels.clear();
 }
 
 void GDSU::addGDSURotation(p3d::Sprite* sprite)

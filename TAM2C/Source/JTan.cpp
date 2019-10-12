@@ -2,7 +2,8 @@
 
 #include <TAM2C/Include/Definitions.h>
 
-JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
+JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) : 
+	scene(scene)
 {
 	transfTraslation = scene->installAffineTransformation();
 	transfTraslation->setPose(DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
@@ -36,6 +37,19 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU)
 
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
+}
+
+JTan::~JTan()
+{
+	p3d::TrajectoryManager* trajMng = p3d::P3D::getInstance()->getTrajectoryManager();
+	trajMng->destroyTrajectory(trajDirection);
+	trajMng->destroyTrajectory(trajHeight);
+
+	scene->uninstallAffineTransformation(transfTraslation);
+	scene->uninstallAffineTransformation(transfRotHeight);
+	scene->uninstallCamera(camera);
+
+	uiJtan.close();
 }
 
 void JTan::rotate(double deriva, double alza)
