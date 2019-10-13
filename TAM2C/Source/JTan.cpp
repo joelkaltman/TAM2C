@@ -69,3 +69,10 @@ void JTan::createCameraGDSU()
 	window = p3d->createWindow(winId);
 	window->showCamera(camera);
 }
+
+void JTan::setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback)
+{
+	UIElement* uie = uiJtan.getUiElement(elemId);
+	if (uie)
+		uie->setCallback(triggerState, callback);
+}

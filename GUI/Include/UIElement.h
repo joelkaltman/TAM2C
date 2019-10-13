@@ -11,7 +11,7 @@ class UIElement : public QWidget
 public:
 	virtual void setState(int newState) = 0;
 
-	void setCallback(int cbState, std::function<void()> cb)
+	void setCallback(int cbState, const std::function<void()>& cb)
 	{
 		this->callbacks[cbState] = cb;
 	}

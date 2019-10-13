@@ -1,5 +1,9 @@
 #include <TAM2C/Include/Scene.h>
 
+#include <UtilsLib/Include/Exception.h>
+
+#include <TaskLib/Include/TaskManager.h>
+
 // p3d
 #include <p3d/Include/P3D.h>
 #include <p3d/include/ResourceManager.h>
@@ -27,8 +31,6 @@ void Scene::init()
 	scene3d = context->createScene3D();
 	scene3d->installSceneDescription(sceneDesc);
 
-	dirLight = scene3d->installDirectionalLight(0, 1, -1, 255, 255, 255);
-
 	cabin = new Cabin(scene3d, context);
 
 	joystickMng = new JoysticksManager(cabin);
@@ -38,18 +40,29 @@ void Scene::init()
 
 void Scene::end()
 {
+	p3d::P3D* p3d = p3d::P3D::getInstance();
+	p3d->stopRendering();
+
 	delete joystickMng;
 	delete cabin;
 
-	scene3d->uninstallLight(dirLight);
-	scene3d->uninstallSceneDescription(sceneDesc);
+	try
+	{
+		scene3d->uninstallSceneDescription(sceneDesc);
+	}
+	catch (utils::Exception* e)
+	{
+		std::cout << e->getMensaje().str() << std::endl;
+	}
 
 	context->destroyAllScene2D();
 	context->destroyAllScene3D();
 
-	p3d::P3D* p3d = p3d::P3D::getInstance();
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 	
 	LocalResourceManager::getInstance().unloadResources(resource_manager);
 	resource_manager->unloadResources(sceneDesc);
+
+	p3d->exitFromExecutionContext(context);
+	p3d::P3D::release();
 }

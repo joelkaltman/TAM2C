@@ -38,7 +38,7 @@ Cabin::~Cabin()
 
 void Cabin::axisModified(int id, float deriva, float alza)
 {
-	ID mId = INVALID;
+	MEMBER_ID mId = INVALID;
 
 	for (auto& m : members)
 	{
@@ -50,4 +50,12 @@ void Cabin::axisModified(int id, float deriva, float alza)
 		return;
 
 	members[mId]->rotate(deriva, alza);
+}
+
+IMember* Cabin::getMember(MEMBER_ID id)
+{
+	if (members.find(id) != members.end())
+		return members.at(id);
+
+	return nullptr;
 }

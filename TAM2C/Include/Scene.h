@@ -7,7 +7,6 @@
 #include <p3d/Include/Context.h>
 #include <p3d/Include/Scene3d.h>
 #include <p3d/Include/SceneDescription.h>
-#include <p3d/Include/DirectionalLight.h>
 
 // TAM2C
 #include <TAM2C/Include/Definitions.h>
@@ -31,5 +30,4 @@ private:
 	p3d::Context* context = nullptr;
 	p3d::Scene3D* scene3d = nullptr;
 	p3d::SceneDescription* sceneDesc = nullptr;
-	p3d::DirectionalLight* dirLight = nullptr;
 };

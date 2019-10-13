@@ -13,6 +13,9 @@
 #include <p3d/Include/ResourceManager.h>
 #include <p3d/Include/Object3D.h>
 
+// GUI
+#include <GUI/Include/UIElement.h>
+
 // TAM2C
 #include <TAM2C/Include/GDSU.h>
 
@@ -44,6 +47,8 @@ class IMember
 	 ~IMember() = default;
 
 	 virtual void rotate(double deriva, double alza) {};
+
+	 virtual void setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback) {};
 
  protected:
 	friend class Cabin;

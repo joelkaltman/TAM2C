@@ -3,8 +3,6 @@
 #include <TAM2C/Include/Definitions.h>
 #include <TAM2C/Include/LocalResourceManager.h>
 
-#include <GUI/Include/UIElement.h>
-
 Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	scene(scene)
 {
@@ -39,8 +37,6 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
-
-	//uiAp.getUiElement(ELEM_ID::AP_P1_BUTTON)->setCallback(BUTTON_STATE::PRESSED, []() { std::cout << "Button Pressed" << std::endl; });
 }
 
 Ap::~Ap()
@@ -72,4 +68,11 @@ void Ap::createCameraGDSU()
 	p3d::P3D* p3d = p3d::P3D::getInstance();
 	window = p3d->createWindow(winId);
 	window->showCamera(camera);
+}
+
+void Ap::setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback)
+{
+	UIElement* uie = uiAp.getUiElement(elemId);
+	if (uie)
+		uie->setCallback(triggerState, callback);
 }
