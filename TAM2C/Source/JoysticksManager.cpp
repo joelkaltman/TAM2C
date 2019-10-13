@@ -11,7 +11,7 @@
 // TAM2C
 #include <TAM2C/Include/Cabin.h>
 
-#define ZONA_MUERTA 4000.0
+#define DEAD_ZONE 4000.0
 #define MAX 32767.0
 
 JoysticksManager::JoysticksManager(Cabin* cabin) : cabin(cabin)
@@ -51,24 +51,24 @@ void JoysticksManager::joystickListenerFunction(const double_t& delta_time, void
 	}
 }
 
-double normalizarPosicionEje(Sint16 valor_eje)
+double normalizeAxisPos(Sint16 axisVal)
 {
-	double valor_normalizado = 0.0;
+	double normalVal = 0.0;
 
-	if ((valor_eje > -ZONA_MUERTA) && (valor_eje < ZONA_MUERTA))
+	if ((axisVal > -DEAD_ZONE) && (axisVal < DEAD_ZONE))
 	{
-		valor_normalizado = 0.0;
+		normalVal = 0.0;
 	}
 	else
 	{
-		valor_normalizado = (abs(valor_eje) - ZONA_MUERTA) / (MAX - ZONA_MUERTA);
-		if (valor_eje < 0)
+		normalVal = (abs(axisVal) - DEAD_ZONE) / (MAX - DEAD_ZONE);
+		if (axisVal < 0)
 		{
-			valor_normalizado *= -1;
+			normalVal *= -1;
 		}
 	}
 
-	return valor_normalizado;
+	return normalVal;
 }
 
 void JoysticksManager::handleJoysticksEvent(SDL_Event &joystick_event)
@@ -77,13 +77,13 @@ void JoysticksManager::handleJoysticksEvent(SDL_Event &joystick_event)
 	{
 		float deriva = 0;
 		float alza = 0;
-		if (((EJE_X > 0) ? EJE_X - 1 : (EJE_X*-1) - 1) == joystick_event.jaxis.axis)
+		if (((AXIS_X > 0) ? AXIS_X - 1 : (AXIS_X*-1) - 1) == joystick_event.jaxis.axis)
 		{
-			deriva = normalizarPosicionEje(joystick_event.jaxis.value)*((EJE_X < 0) ? -1 : 1);
+			deriva = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_X < 0) ? -1 : 1);
 		}
-		else if (((EJE_Y > 0) ? EJE_Y - 1 : (EJE_Y*-1) - 1) == joystick_event.jaxis.axis)
+		else if (((AXIS_Y > 0) ? AXIS_Y - 1 : (AXIS_Y*-1) - 1) == joystick_event.jaxis.axis)
 		{
-			alza = normalizarPosicionEje(joystick_event.jaxis.value)*((EJE_Y < 0) ? -1 : 1);
+			alza = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_Y < 0) ? -1 : 1);
 		}
 
 		//std::cout << "AXIS d="<<d<<" a="<<a<< std::endl;

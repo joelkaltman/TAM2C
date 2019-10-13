@@ -3,7 +3,7 @@
 #include <TAM2C/Include/Definitions.h>
 
 Button::Button(QPushButton* uiButton, const std::string& nameImage) :
-	uiButton(uiButton), state(RELESED), nameImage(nameImage)
+	uiButton(uiButton), state(RELEASED), nameImage(nameImage)
 {
 	connect(uiButton, SIGNAL(pressed()), this, SLOT(Pressed()));
 	connect(uiButton, SIGNAL(released()), this, SLOT(Released()));
@@ -11,22 +11,32 @@ Button::Button(QPushButton* uiButton, const std::string& nameImage) :
 
 void Button::Pressed()
 {
-	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImage).c_str()));
-	state = PRESSED;
+	if (!usable)
+		return;
+
+	setState(PRESSED);
 }
 
 void Button::Released()
 {
-	uiButton->setIcon(QIcon());
-	state = RELESED;
-}
-
-void Button::setState(int state)
-{
-	if (state < 0 || state > 1)
+	if (!usable)
 		return;
 
-	this->state = (ButtonState)state;
+	setState(RELEASED);
+}
 
-	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImage).c_str()));
+void Button::setState(int newState)
+{
+	if (newState < 0 || newState > 1 || !enabled)
+		return;
+
+	state = (BUTTON_STATE)newState;
+
+	if(newState == PRESSED)
+		uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImage).c_str()));
+	else
+		uiButton->setIcon(QIcon());
+
+	if (callbacks.find(state) != callbacks.end())
+		callbacks.at(state)();
 }

@@ -15,7 +15,10 @@ struct Label
 	Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std::string resource = "");
 	~Label() = default;
 
+	void setVisible(bool visible);
 	void setEnabled(bool enable);
+
+	std::vector<p3d::Sprite*> getAllSprites() const;
 
 	void addOption(float offX, int w, int h, GDSU* gdsu);
 	void selectOption(unsigned int index);

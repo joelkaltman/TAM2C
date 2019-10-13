@@ -18,6 +18,8 @@ public:
 
 	PGSQtWidget::PGSWidget* getPGSWidget() const;
 
+	UIElement* getUiElement(ELEM_ID id) const;
+
 private:
 	void loadImages();
 

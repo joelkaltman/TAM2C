@@ -16,10 +16,10 @@ class JoysticksManager
 public:
 	enum JoystickAxis
 	{
-		EJE_X = 1,
-		EJE_Y = 2,
-		EJE_Z = 3,
-		ROTACION_Z = 4
+		AXIS_X = 1,
+		AXIS_Y = 2,
+		AXIS_Z = 3,
+		ROT_Z = 4
 	};
 
 	JoysticksManager(Cabin* cabin);

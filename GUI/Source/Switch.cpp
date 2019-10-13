@@ -27,19 +27,25 @@ Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::
 
 void Switch::Pressed()
 {
-	state = SwitchState(state + 1);
-	if (state == INVALID || state > positions - 1)
-		state = SwitchState(0);
-
-	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImages[state]).c_str()));
-}
-
-void Switch::setState(int state)
-{
-	if (state < 0 || state > positions - 1)
+	if (!usable)
 		return;
 
-	this->state = (SwitchState)state;
+	SWITCH_STATE newState = SWITCH_STATE(state + 1);
+	if (newState == INVALID_SWITCH || newState > positions - 1)
+		setState(0);
+	else
+		setState(newState);
+}
 
-	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImages[state]).c_str()));
+void Switch::setState(int newState)
+{
+	if (newState < 0 || newState > positions - 1 || !enabled)
+		return;
+
+	state = (SWITCH_STATE)newState;
+
+	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImages[newState]).c_str()));
+
+	if (callbacks.find(state) != callbacks.end())
+		callbacks.at(state)();
 }

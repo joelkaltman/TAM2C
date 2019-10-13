@@ -1,36 +1,4 @@
 <RCC>
   <qresource prefix="ApPanels">
-    <file>../../Multimedia/GUI/AP_GDSU_button_circle_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_GDSU_button_minus_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_GDSU_button_plus_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_red_pressed.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch1_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch1_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch1_3.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch2_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch2_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch3_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel1_switch3_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led1.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led2.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led3.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led4.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led5.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led6.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led7.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led8.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led9.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_led10.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch1_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch1_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch2_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch2_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch3_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch3_2.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch4_1.png</file>
-    <file>../../Multimedia/GUI/AP_panel2_switch4_2.png</file>
-    <file>../../Multimedia/GUI/ApPanels.png</file>
   </qresource>
 </RCC>

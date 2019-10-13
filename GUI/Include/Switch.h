@@ -9,14 +9,14 @@ public:
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2);
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3);
 
-	void setState(int state) override;
+	void setState(int newState) override;
 
 private slots:
 	void Pressed();
 
 private:
 	int positions;
-	SwitchState state;
+	SWITCH_STATE state;
 	std::string nameImages[3];
 	QPushButton* uiButton;
 };

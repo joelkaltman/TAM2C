@@ -8,14 +8,14 @@ class Button : public UIElement
 public:
 	Button(QPushButton* uiButton, const std::string& nameImage);
 
-	void setState(int state) override;
+	void setState(int newState) override;
 
 private slots:
 	void Pressed();
 	void Released();
 
 private:
-	ButtonState state;
+	BUTTON_STATE state;
 	std::string nameImage;
 	QPushButton* uiButton;
 };

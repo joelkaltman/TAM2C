@@ -55,3 +55,11 @@ PGSQtWidget::PGSWidget* JtanPanels::getPGSWidget() const
 {
 	return this->pgs_qt_widget;
 }
+
+UIElement* JtanPanels::getUiElement(ELEM_ID id) const
+{
+	if (uiElem.find(id) == uiElem.end())
+		return nullptr;
+
+	return uiElem.at(id);
+}

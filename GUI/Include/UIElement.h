@@ -3,23 +3,31 @@
 #include <QtWidgets/QWidget>
 #include <GUI/GeneratedFiles/ui_ApPanels.h>
 
+#include <GUI/Include/Definitions.h>
+
 class UIElement : public QWidget
 {
 	Q_OBJECT
 public:
-	enum ButtonState
-	{
-		RELESED,
-		PRESSED
-	};
+	virtual void setState(int newState) = 0;
 
-	enum SwitchState
+	void setCallback(int cbState, std::function<void()> cb)
 	{
-		POS_1,
-		POS_2,
-		POS_3,
-		INVALID
-	};
+		this->callbacks[cbState] = cb;
+	}
 
-	virtual void setState(int state) = 0;
+	void setEnabled(bool enabled)
+	{
+		this->enabled = enabled;
+	}
+
+	void setUsable(bool usable)
+	{
+		this->usable = usable;
+	}
+
+protected:
+	bool enabled = true;
+	bool usable = true;
+	std::map<int, std::function<void()>> callbacks;
 };

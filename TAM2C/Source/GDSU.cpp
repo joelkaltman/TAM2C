@@ -139,6 +139,31 @@ Label::Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std:
 	gdsu->labels[labelName] = this;
 }
 
+std::vector<p3d::Sprite*> Label::getAllSprites() const
+{
+	std::vector<p3d::Sprite*> allSprites;
+	if (background)
+		allSprites.push_back(background);
+
+	if (disableSprite)
+		allSprites.push_back(disableSprite);
+
+	for (auto& s : numberSprites)
+		allSprites.push_back(s);
+
+	for (auto& s : selectionSprites)
+		allSprites.push_back(s);
+
+	return allSprites;
+}
+
+void Label::setVisible(bool visible)
+{
+	std::vector<p3d::Sprite*> sprites = getAllSprites();
+	for (auto& s : sprites)
+		visible ? s->show() : s->hide();
+}
+
 void Label::setEnabled(bool enable)
 {
 	enable ? disableSprite->hide() : disableSprite->show();
