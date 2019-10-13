@@ -168,7 +168,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Ap.cpp" />
     <ClCompile Include="Source\Cabin.cpp" />
-    <ClCompile Include="Source\Definitions.cpp" />
+    <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\GDSU.cpp" />
     <ClCompile Include="Source\JoysticksManager.cpp" />
     <ClCompile Include="Source\JTan.cpp" />
@@ -179,7 +179,7 @@
   <ItemGroup>
     <ClInclude Include="Include\Ap.h" />
     <ClInclude Include="Include\Cabin.h" />
-    <ClInclude Include="Include\Definitions.h" />
+    <ClInclude Include="Include\Config.h" />
     <ClInclude Include="Include\GDSU.h" />
     <ClInclude Include="Include\IMember.h" />
     <ClInclude Include="Include\JoysticksManager.h" />

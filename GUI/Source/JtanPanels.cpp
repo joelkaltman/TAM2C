@@ -5,7 +5,7 @@
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 
 JtanPanels::JtanPanels(QWidget *parent)
 	: QWidget(parent)
@@ -48,7 +48,7 @@ JtanPanels::JtanPanels(QWidget *parent)
 
 void JtanPanels::loadImages()
 {
-	ui.JTAN_Background->setPixmap(QPixmap(Definitions::getGUIPath("JtanPanels.png").c_str()));
+	ui.JTAN_Background->setPixmap(QPixmap(Config::getGUIPath("JtanPanels.png").c_str()));
 }
 
 PGSQtWidget::PGSWidget* JtanPanels::getPGSWidget() const

@@ -10,9 +10,10 @@
 
 class GDSU;
 
-struct Label
+class Label
 {
-	Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std::string resource = "");
+ public:
+	Label(int x, int y, int w, int h, const std::string& labelName, GDSU* gdsu, std::string resource = "");
 	~Label() = default;
 
 	void setVisible(bool visible);
@@ -31,6 +32,9 @@ struct Label
 	int w;
 	int h;
 
+ private:
+	friend class GDSU;
+
 	p3d::Sprite* background = nullptr;
 	p3d::Sprite* disableSprite = nullptr;
 	std::vector<p3d::Sprite*> selectionSprites;
@@ -45,6 +49,13 @@ class GDSU
 	 GDSU(p3d::Scene2D* sceneGDSU);
 	 ~GDSU();
 	 
+	 Label* getLabel(const std::string& labelName) const;
+
+ private:
+	 friend class Label;
+	 friend class Ap;
+	 friend class JTan;
+
 	 void addGDSURotation(p3d::Sprite* sprite);
 	 
 	 p3d::Scene2D* sceneGDSU = nullptr;

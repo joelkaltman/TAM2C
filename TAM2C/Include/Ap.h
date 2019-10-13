@@ -19,7 +19,7 @@ public:
 
 	void rotate(double deriva, double alza) override;
 
-	void setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback) override;
+	UIElement* getUIElement(ELEM_ID elemId) override;
 
 private:
 	friend class Cabin;

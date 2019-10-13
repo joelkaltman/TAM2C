@@ -1,7 +1,7 @@
 #include <TAM2C/Include/Cabin.h>
 
 // TAM2C
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 #include <TAM2C/Include/Ap.h>
 #include <TAM2C/Include/Jtan.h>
 #include <TAM2C/Include/LocalResourceManager.h>
@@ -16,8 +16,8 @@ Cabin::Cabin(p3d::Scene3D* scene, p3d::Context* context) :
 	JTan* jtan = new JTan(scene, context->createScene2D());
 
 	carriage = scene->installObjectVerticalToTerrain(
-		Definitions::initData.cabinPosX, Definitions::initData.cabinPosY, 10, 
-		Definitions::initData.cabinAtX, Definitions::initData.cabinAtY, 10, 
+		Config::initData.cabinPosX, Config::initData.cabinPosY, 10, 
+		Config::initData.cabinAtX, Config::initData.cabinAtY, 10, 
 		LocalResourceManager::getInstance().resources["TAM2C_carriage"], true);
 
 	carriage->addChild(ap->turret);
@@ -26,8 +26,8 @@ Cabin::Cabin(p3d::Scene3D* scene, p3d::Context* context) :
 	members[AP] = ap;
 	members[JTAN] = jtan;
 
-	members[AP]->joystick = Definitions::initData.idJoyAp;
-	members[JTAN]->joystick = Definitions::initData.idJoyJTAN;
+	members[AP]->joystick = Config::initData.idJoyAp;
+	members[JTAN]->joystick = Config::initData.idJoyJTAN;
 }
 
 Cabin::~Cabin()

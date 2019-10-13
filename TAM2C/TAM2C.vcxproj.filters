@@ -24,9 +24,6 @@
     <ClCompile Include="TAM2C.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Definitions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\JoysticksManager.cpp">
       <Filter>Source Files\Cabin</Filter>
     </ClCompile>
@@ -48,11 +45,11 @@
     <ClCompile Include="Source\GDSU.cpp">
       <Filter>Source Files\Cabin</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Cabin.h">
       <Filter>Header Files\Cabin</Filter>
     </ClInclude>
@@ -76,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Include\GDSU.h">
       <Filter>Header Files\Cabin</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Config.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

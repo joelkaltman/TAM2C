@@ -2,7 +2,7 @@
 
 #include <string>
 
-class Definitions
+class Config
 {
  public:
 	static struct InitData
@@ -24,28 +24,28 @@ class Definitions
 	static std::string getGUIPath(std::string path = "")
 	{
 		if (!path.empty()) path.insert(0, "/");
-		return Definitions::GUIPath + path;
+		return Config::GUIPath + path;
 	}
 
 	static std::string getScreenSpritesPath(std::string path = "")
 	{
 		if (!path.empty()) path.insert(0, "/");
-		return Definitions::ScreenSpritesPath + path;
+		return Config::ScreenSpritesPath + path;
 	}
 
 	static std::string getMultimediaResourcesPath(std::string path = "")
 	{
 		if (!path.empty()) path.insert(0, "/");
-		return Definitions::MultimediaResourcesPath + path;
+		return Config::MultimediaResourcesPath + path;
 	}
 
 	static std::string getScenePath(std::string path = "")
 	{
 		if (!path.empty()) path.insert(0, "/");
-		return Definitions::Scenes + path;
+		return Config::Scenes + path;
 	}
 
-	Definitions(const std::string& pathConfig);
+	Config(const std::string& pathConfig);
 
  private:
 	static std::string GUIPath;

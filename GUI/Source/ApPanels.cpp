@@ -6,7 +6,7 @@
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 
 ApPanels::ApPanels(QWidget *parent)
 	: QWidget(parent)
@@ -54,7 +54,7 @@ ApPanels::ApPanels(QWidget *parent)
 }
 
 void ApPanels::loadImages() {
-	ui.AP_background->setPixmap(QPixmap(Definitions::getGUIPath("ApPanels.png").c_str()));
+	ui.AP_background->setPixmap(QPixmap(Config::getGUIPath("ApPanels.png").c_str()));
 }
 
 PGSQtWidget::PGSWidget* ApPanels::getPGSWidget() const

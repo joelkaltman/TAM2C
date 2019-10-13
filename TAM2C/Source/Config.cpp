@@ -1,4 +1,4 @@
-#include <Include/Definitions.h>
+#include <Include/Config.h>
 
 // stl
 #include <fstream>
@@ -7,14 +7,14 @@
 #include <rapidjson/document.h>
 #include <rapidjson/istreamwrapper.h>
 
-std::string Definitions::GUIPath = "";
-std::string Definitions::ScreenSpritesPath = "";
-std::string Definitions::MultimediaResourcesPath = "";
-std::string Definitions::Scenes = "";
+std::string Config::GUIPath = "";
+std::string Config::ScreenSpritesPath = "";
+std::string Config::MultimediaResourcesPath = "";
+std::string Config::Scenes = "";
 
-Definitions::InitData Definitions::initData = Definitions::InitData();
+Config::InitData Config::initData = Config::InitData();
 
-Definitions::Definitions(const std::string& pathConfig)
+Config::Config(const std::string& pathConfig)
 {
 	std::ifstream inStream(pathConfig);
 	rapidjson::IStreamWrapper isw(inStream);
@@ -23,10 +23,10 @@ Definitions::Definitions(const std::string& pathConfig)
 	configJson.ParseStream(isw);
 
 	rapidjson::Value& paths = configJson["paths"];
-	Definitions::MultimediaResourcesPath = paths["MultimediaResources"].GetString();
-	Definitions::GUIPath = paths["GUI"].GetString();
-	Definitions::ScreenSpritesPath = paths["GDSUSprites"].GetString();
-	Definitions::Scenes = paths["Scenes"].GetString();
+	Config::MultimediaResourcesPath = paths["MultimediaResources"].GetString();
+	Config::GUIPath = paths["GUI"].GetString();
+	Config::ScreenSpritesPath = paths["GDSUSprites"].GetString();
+	Config::Scenes = paths["Scenes"].GetString();
 
 	rapidjson::Value& cabin = configJson["cabin"];
 	initData.carriage = cabin["carriage"].GetString();

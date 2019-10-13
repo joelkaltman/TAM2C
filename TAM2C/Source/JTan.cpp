@@ -1,6 +1,6 @@
 #include <TAM2C/Include/Jtan.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 
 JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) : 
 	scene(scene)
@@ -62,7 +62,7 @@ void JTan::rotate(double deriva, double alza)
 
 void JTan::createCameraGDSU()
 {
-	Definitions::initData.fullScreenJtan ? uiJtan.showFullScreen() : uiJtan.show();
+	Config::initData.fullScreenJtan ? uiJtan.showFullScreen() : uiJtan.show();
 	uint32_t winId = uiJtan.getPGSWidget()->winId();
 
 	p3d::P3D* p3d = p3d::P3D::getInstance();
@@ -70,9 +70,7 @@ void JTan::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-void JTan::setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback)
+UIElement* JTan::getUIElement(ELEM_ID elemId)
 {
-	UIElement* uie = uiJtan.getUiElement(elemId);
-	if (uie)
-		uie->setCallback(triggerState, callback);
+	return uiJtan.getUiElement(elemId);
 }

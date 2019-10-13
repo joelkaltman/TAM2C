@@ -48,7 +48,7 @@ class IMember
 
 	 virtual void rotate(double deriva, double alza) {};
 
-	 virtual void setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback) {};
+	 virtual UIElement* getUIElement(ELEM_ID elemId) { return nullptr; };
 
  protected:
 	friend class Cabin;

@@ -1,6 +1,6 @@
 #include <GUI/Include/Switch.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 
 Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2) :
 	uiButton(uiButton), state(POS_1), positions(2)
@@ -44,7 +44,7 @@ void Switch::setState(int newState)
 
 	state = (SWITCH_STATE)newState;
 
-	uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImages[newState]).c_str()));
+	uiButton->setIcon(QPixmap(Config::getGUIPath(nameImages[newState]).c_str()));
 
 	if (callbacks.find(state) != callbacks.end())
 		callbacks.at(state)();

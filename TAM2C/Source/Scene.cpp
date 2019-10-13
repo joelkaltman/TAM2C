@@ -20,7 +20,7 @@ void Scene::init()
 	p3d::P3D* p3d = p3d::P3D::getInstance();
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 
-	sceneDesc = p3d->loadSceneDescription(Definitions::getScenePath(Definitions::initData.scene), Definitions::getMultimediaResourcesPath());
+	sceneDesc = p3d->loadSceneDescription(Config::getScenePath(Config::initData.scene), Config::getMultimediaResourcesPath());
 
 	resource_manager->loadResources(sceneDesc);
 

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 
-	Definitions("../config.json");
+	Config("../config.json");
 
 	p3d::P3D::initialize(p3d::P3D::NetworkingMode::ONLY_LOCAL, p3d::P3D::Platform::DIRECTX_11); 
 

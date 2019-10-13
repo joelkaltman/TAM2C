@@ -1,6 +1,6 @@
 #include <TAM2C/Include/Ap.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 #include <TAM2C/Include/LocalResourceManager.h>
 
 Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
@@ -62,7 +62,7 @@ void Ap::rotate(double deriva, double alza)
 
 void Ap::createCameraGDSU()
 {
-	Definitions::initData.fullScreenAp ? uiAp.showFullScreen() : uiAp.show();
+	Config::initData.fullScreenAp ? uiAp.showFullScreen() : uiAp.show();
 	uint32_t winId = uiAp.getPGSWidget()->winId();
 
 	p3d::P3D* p3d = p3d::P3D::getInstance();
@@ -70,9 +70,7 @@ void Ap::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-void Ap::setCallbackUIElement(ELEM_ID elemId, int triggerState, const std::function<void()>& callback)
+UIElement* Ap::getUIElement(ELEM_ID elemId)
 {
-	UIElement* uie = uiAp.getUiElement(elemId);
-	if (uie)
-		uie->setCallback(triggerState, callback);
+	return uiAp.getUiElement(elemId);
 }

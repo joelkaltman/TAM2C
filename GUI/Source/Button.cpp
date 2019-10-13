@@ -1,6 +1,6 @@
 #include <GUI/Include/Button.h>
 
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 
 Button::Button(QPushButton* uiButton, const std::string& nameImage) :
 	uiButton(uiButton), state(RELEASED), nameImage(nameImage)
@@ -33,7 +33,7 @@ void Button::setState(int newState)
 	state = (BUTTON_STATE)newState;
 
 	if(newState == PRESSED)
-		uiButton->setIcon(QPixmap(Definitions::getGUIPath(nameImage).c_str()));
+		uiButton->setIcon(QPixmap(Config::getGUIPath(nameImage).c_str()));
 	else
 		uiButton->setIcon(QIcon());
 

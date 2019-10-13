@@ -103,19 +103,20 @@ GDSU::~GDSU()
 
 	for (auto& l : labels)
 	{
-		if (l.second->background)
-			sceneGDSU->uninstallSprite(l.second->background);
+		std::vector<p3d::Sprite*> sprites = l.second->getAllSprites();
 
-		if (l.second->disableSprite)
-			sceneGDSU->uninstallSprite(l.second->disableSprite);
-
-		for(auto& s : l.second->numberSprites)
-			sceneGDSU->uninstallSprite(s);
-
-		for (auto& s : l.second->selectionSprites)
+		for (auto& s : sprites)
 			sceneGDSU->uninstallSprite(s);
 	}
 	labels.clear();
+}
+
+Label* GDSU::getLabel(const std::string& labelName) const
+{
+	if (labels.find(labelName) != labels.end())
+		return labels.at(labelName);
+
+	return nullptr;
 }
 
 void GDSU::addGDSURotation(p3d::Sprite* sprite)
@@ -124,7 +125,7 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 	spriteRot->start();
 }
 
-Label::Label(int x, int y, int w, int h, std::string labelName, GDSU* gdsu, std::string resource) :
+Label::Label(int x, int y, int w, int h, const std::string& labelName, GDSU* gdsu, std::string resource) :
 	x(x), y(y), w(w), h(h)
 {
 	auto& resources = LocalResourceManager::getInstance().resources;

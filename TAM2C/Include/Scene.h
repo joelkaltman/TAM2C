@@ -9,7 +9,7 @@
 #include <p3d/Include/SceneDescription.h>
 
 // TAM2C
-#include <TAM2C/Include/Definitions.h>
+#include <TAM2C/Include/Config.h>
 #include <TAM2C/Include/Cabin.h>
 #include <TAM2C/Include/JoysticksManager.h>
 
@@ -22,7 +22,7 @@ public:
 	void end();
 
 private:
-	friend class Definitions;
+	friend class Config;
 
 	Cabin* cabin = nullptr;
 	JoysticksManager* joystickMng = nullptr;
