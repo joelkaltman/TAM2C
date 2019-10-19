@@ -37,6 +37,8 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
+
+	setUIOperations();
 }
 
 Ap::~Ap()
@@ -73,4 +75,29 @@ void Ap::createCameraGDSU()
 UIElement* Ap::getUIElement(ELEM_ID elemId)
 {
 	return uiAp.getUiElement(elemId);
+}
+
+void Ap::setUIOperations()
+{
+	uiAp.getUiElement(AP_P2_SWITCH_3)->setCallback(POS_2, std::bind(&Ap::opPWRpressed, this));
+	uiAp.getUiElement(AP_P2_SWITCH_2)->setCallback(POS_2, std::bind(&Ap::opSTABpressed, this));
+}
+
+void Ap::opPWRpressed()
+{
+	uiAp.getUiElement(AP_P2_SWITCH_3)->setUsable(false);
+
+	uiAp.getUiElement(AP_P2_LED_8)->setState(ON);
+	uiAp.getUiElement(AP_P2_LED_9)->setState(ON);
+}
+
+void Ap::opSTABpressed()
+{
+	if (uiAp.getUiElement(AP_P2_SWITCH_3)->getState() != POS_2)
+		return;
+
+	uiAp.getUiElement(AP_P2_SWITCH_2)->setUsable(false);
+
+	uiAp.getUiElement(AP_P2_LED_6)->setState(ON);
+	uiAp.getUiElement(AP_P2_LED_7)->setState(ON);
 }

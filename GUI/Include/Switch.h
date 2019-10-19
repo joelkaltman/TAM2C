@@ -10,6 +10,7 @@ public:
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3);
 
 	void setState(int newState) override;
+	int getState() const override;
 
 private slots:
 	void Pressed();

@@ -24,6 +24,11 @@ public:
 private:
 	friend class Cabin;
 
+	void setUIOperations();
+
+	void opPWRpressed();
+	void opSTABpressed();
+
 	void createCameraGDSU() override;
 
 	ApPanels uiAp;

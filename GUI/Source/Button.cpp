@@ -40,3 +40,8 @@ void Button::setState(int newState)
 	if (callbacks.find(state) != callbacks.end())
 		callbacks.at(state)();
 }
+
+int Button::getState() const
+{
+	return state;
+}

@@ -65,3 +65,10 @@ enum SWITCH_STATE
 	POS_3,
 	INVALID_SWITCH
 };
+
+enum LED_STATE
+{
+	OFF,
+	ON,
+	INVALID_LED
+};

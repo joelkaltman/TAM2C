@@ -9,6 +9,7 @@ public:
 	Button(QPushButton* uiButton, const std::string& nameImage);
 
 	void setState(int newState) override;
+	int getState() const override;
 
 private slots:
 	void Pressed();

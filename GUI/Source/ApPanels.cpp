@@ -5,6 +5,7 @@
 #include <GUI/Include/UIElement.h>
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
+#include <GUI/Include/Led.h>
 
 #include <TAM2C/Include/Config.h>
 
@@ -41,10 +42,20 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P1_SWITCH_3] = new Switch(ui.Panel_1_switch_3, "AP_panel1_switch3_1.png", "AP_panel1_switch3_2.png");
 	uiElem[AP_P1_BUTTON] = new Button(ui.Panel_1_button, "AP_panel1_red_pressed.png");
 
-	uiElem[AP_P2_SWITCH_1] = new Switch(ui.Panel_2_switch_1, "AP_panel2_switch1_1.png", "AP_panel2_switch1_2.png");
-	uiElem[AP_P2_SWITCH_2] = new Switch(ui.Panel_2_switch_2, "AP_panel2_switch2_1.png", "AP_panel2_switch2_2.png");
-	uiElem[AP_P2_SWITCH_3] = new Switch(ui.Panel_2_switch_3, "AP_panel2_switch3_1.png", "AP_panel2_switch3_2.png");
-	uiElem[AP_P2_SWITCH_4] = new Switch(ui.Panel_2_switch_4, "AP_panel2_switch4_1.png", "AP_panel2_switch4_2.png");
+	uiElem[AP_P2_SWITCH_1] = new Switch(ui.Panel_2_switch_1, "AP_panel2_switch1_2.png", "AP_panel2_switch1_1.png");
+	uiElem[AP_P2_SWITCH_2] = new Switch(ui.Panel_2_switch_2, "AP_panel2_switch2_2.png", "AP_panel2_switch2_1.png");
+	uiElem[AP_P2_SWITCH_3] = new Switch(ui.Panel_2_switch_3, "AP_panel2_switch3_2.png", "AP_panel2_switch3_1.png");
+	uiElem[AP_P2_SWITCH_4] = new Switch(ui.Panel_2_switch_4, "AP_panel2_switch4_2.png", "AP_panel2_switch4_1.png");
+	uiElem[AP_P2_LED_1] = new Led(ui.Panel_2_led_1, "AP_panel2_led1.png");
+	uiElem[AP_P2_LED_2] = new Led(ui.Panel_2_led_2, "AP_panel2_led2.png");
+	uiElem[AP_P2_LED_3] = new Led(ui.Panel_2_led_3, "AP_panel2_led3.png");
+	uiElem[AP_P2_LED_4] = new Led(ui.Panel_2_led_4, "AP_panel2_led4.png");
+	uiElem[AP_P2_LED_5] = new Led(ui.Panel_2_led_5, "AP_panel2_led5.png");
+	uiElem[AP_P2_LED_6] = new Led(ui.Panel_2_led_6, "AP_panel2_led6.png");
+	uiElem[AP_P2_LED_7] = new Led(ui.Panel_2_led_7, "AP_panel2_led7.png");
+	uiElem[AP_P2_LED_8] = new Led(ui.Panel_2_led_8, "AP_panel2_led8.png");
+	uiElem[AP_P2_LED_9] = new Led(ui.Panel_2_led_9, "AP_panel2_led9.png");
+	uiElem[AP_P2_LED_10] = new Led(ui.Panel_2_led_10, "AP_panel2_led10.png");
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
