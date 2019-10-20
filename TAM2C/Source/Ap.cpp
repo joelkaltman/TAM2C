@@ -79,8 +79,8 @@ UIElement* Ap::getUIElement(ELEM_ID elemId)
 
 void Ap::setUIOperations()
 {
-	uiAp.getUiElement(AP_P2_SWITCH_3)->setCallback(POS_2, std::bind(&Ap::opPWRpressed, this));
-	uiAp.getUiElement(AP_P2_SWITCH_2)->setCallback(POS_2, std::bind(&Ap::opSTABpressed, this));
+	uiAp.getUiElement(AP_P2_SWITCH_3)->setCallback(POS_2, std::bind(&Ap::opPWRpressed, this), 1000);
+	uiAp.getUiElement(AP_P2_SWITCH_2)->setCallback(POS_2, std::bind(&Ap::opSTABpressed, this), 1000);
 }
 
 void Ap::opPWRpressed()

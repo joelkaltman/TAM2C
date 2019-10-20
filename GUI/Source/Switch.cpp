@@ -45,9 +45,17 @@ void Switch::setState(int newState)
 	state = (SWITCH_STATE)newState;
 
 	uiButton->setIcon(QPixmap(Config::getGUIPath(nameImages[newState]).c_str()));
-
+	
 	if (callbacks.find(state) != callbacks.end())
-		callbacks.at(state)();
+	{
+		CBTime cbTime =	callbacks.at(state);
+
+		QTime dieTime = QTime::currentTime().addMSecs(cbTime.first);
+		while (QTime::currentTime() < dieTime)
+			QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+		cbTime.second();
+	}
 }
 
 int Switch::getState() const

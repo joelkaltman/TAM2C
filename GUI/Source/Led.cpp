@@ -20,7 +20,15 @@ void Led::setState(int newState)
 		uiLabel->setPixmap(QPixmap());
 
 	if (callbacks.find(state) != callbacks.end())
-		callbacks.at(state)();
+	{
+		CBTime cbTime = callbacks.at(state);
+
+		QTime dieTime = QTime::currentTime().addMSecs(cbTime.first);
+		while (QTime::currentTime() < dieTime)
+			QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+		cbTime.second();
+	}
 }
 
 int Led::getState() const
