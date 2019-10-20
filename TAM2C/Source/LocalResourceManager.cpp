@@ -33,6 +33,8 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 	resources["GDSU_MAN"] = resource_manager->loadResource(Config::getScreenSpritesPath("MAN.rpgs"));
 	resources["GDSU_MG_SC"] = resource_manager->loadResource(Config::getScreenSpritesPath("MG SC.rpgs"));
 	resources["GDSU_MSTG"] = resource_manager->loadResource(Config::getScreenSpritesPath("MSTG.rpgs"));
+	resources["GDSU_STG"] = resource_manager->loadResource(Config::getScreenSpritesPath("STG.rpgs"));
+	resources["GDSU_GTS"] = resource_manager->loadResource(Config::getScreenSpritesPath("GTS.rpgs"));
 	resources["GDSU_N_W_VW"] = resource_manager->loadResource(Config::getScreenSpritesPath("N W VW.rpgs"));
 	resources["GDSU_NEXT_FLT"] = resource_manager->loadResource(Config::getScreenSpritesPath("NEXT FLT.rpgs"));
 	resources["GDSU_NextAlt"] = resource_manager->loadResource(Config::getScreenSpritesPath("NextAlt.rpgs"));

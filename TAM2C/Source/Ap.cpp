@@ -89,6 +89,8 @@ void Ap::opPWRpressed()
 
 	uiAp.getUiElement(AP_P2_LED_8)->setState(ON);
 	uiAp.getUiElement(AP_P2_LED_9)->setState(ON);
+
+	gdsu->getLabel("Nav_System")->changeBackground("GDSU_STG");
 }
 
 void Ap::opSTABpressed()
@@ -100,4 +102,6 @@ void Ap::opSTABpressed()
 
 	uiAp.getUiElement(AP_P2_LED_6)->setState(ON);
 	uiAp.getUiElement(AP_P2_LED_7)->setState(ON);
+
+	gdsu->getLabel("Nav_System")->changeBackground("GDSU_GTS");
 }
