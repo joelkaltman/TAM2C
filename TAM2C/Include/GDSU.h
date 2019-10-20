@@ -8,6 +8,9 @@
 #include <p3d/Include/Sprite.h>
 #include <math/Include/Vector4.h>
 
+// TAM2C
+#include <TAM2C/Include/IMemberConfig.h>
+
 class GDSU;
 
 class Label
@@ -57,6 +60,8 @@ class GDSU
 	 void loadMainView();
 
 	 Label* getLabel(const std::string& labelName) const;
+
+	 void updateConfig(IMemberConfig config);
 
  private:
 	 friend class Label;

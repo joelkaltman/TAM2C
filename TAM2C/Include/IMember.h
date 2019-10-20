@@ -18,6 +18,7 @@
 
 // TAM2C
 #include <TAM2C/Include/GDSU.h>
+#include <TAM2C/Include/IMemberConfig.h>
 
 #define DISTANCIA_RELATIVA_TORRE_X 0.0
 #define DISTANCIA_RELATIVA_TORRE_Y 0.0
@@ -43,6 +44,7 @@
 class IMember
 {
  public:
+
 	 IMember() = default;
 	 ~IMember() = default;
 
@@ -60,4 +62,6 @@ class IMember
 	int joystick;
 	p3d::Camera* camera = nullptr;
 	p3d::Window* window = nullptr;
+
+	IMemberConfig config;
 };

@@ -77,5 +77,8 @@
     <ClInclude Include="Include\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\IMemberConfig.h">
+      <Filter>Header Files\Cabin</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

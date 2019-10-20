@@ -143,6 +143,20 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 	spriteRot->start();
 }
 
+void GDSU::updateConfig(IMemberConfig config)
+{
+	Label* navSystem = getLabel("Nav_System");
+	if (navSystem)
+	{
+		switch (config.nav)
+		{
+			case MSTG: navSystem->changeBackground("GDSU_MSTG"); break;
+			case STG: navSystem->changeBackground("GDSU_STG"); break;
+			case GTS: navSystem->changeBackground("GDSU_GTS"); break;
+		}
+	}
+}
+
 Label::Label(int x, int y, int w, int h, std::string res, p3d::Scene2D* sceneGDSU) :
 	x(x), y(y), w(w), h(h)
 {
