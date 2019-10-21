@@ -4,6 +4,7 @@
 #include <GUI/GeneratedFiles/ui_ApPanels.h>
 
 #include <GUI/Include/Definitions.h>
+#include <GUI/Include/ISubscriber.h>
 
 #include <PGSWidget/Include/PGSWidget.h>
 
@@ -20,12 +21,20 @@ public:
 
 	UIElement* getUiElement(ELEM_ID id) const;
 
+	void addSubscriber(ISubscriber* sub);
+
 private:
 	void loadImages();
+
+	void operation(ELEM_ID elem, int state);
+	void opPWRpressed();
+	void opSTABpressed();
 
 	Ui::ApPanelsClass ui;
 
 	PGSQtWidget::PGSWidget* pgs_qt_widget;
 
 	std::map<ELEM_ID, UIElement*> uiElem;
+
+	ISubscriber* subscriber;
 };

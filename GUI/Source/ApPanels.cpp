@@ -62,6 +62,19 @@ ApPanels::ApPanels(QWidget *parent)
 	this->pgs_qt_widget->setGeometry(QRect(142, 290, 860, 560));
 
 	loadImages();
+
+
+	uiElem[AP_P2_SWITCH_3]->setCallback(POS_2, [this]()
+	{
+		subscriber->notify(AP_P2_SWITCH_3, POS_2);
+		opPWRpressed();
+	}, 1000);
+
+	uiElem[AP_P2_SWITCH_2]->setCallback(POS_2, [this]()
+	{
+		subscriber->notify(AP_P2_SWITCH_2, POS_2);
+		opSTABpressed();
+	}, 1000);
 }
 
 void ApPanels::loadImages() {
@@ -79,4 +92,28 @@ UIElement* ApPanels::getUiElement(ELEM_ID id) const
 		return nullptr;
 
 	return uiElem.at(id);
+}
+
+void ApPanels::addSubscriber(ISubscriber* sub)
+{
+	this->subscriber = sub;
+}
+
+void ApPanels::opPWRpressed()
+{
+	uiElem[AP_P2_SWITCH_3]->setUsable(false);
+
+	uiElem[AP_P2_LED_8]->setState(ON);
+	uiElem[AP_P2_LED_9]->setState(ON);
+}
+
+void ApPanels::opSTABpressed()
+{
+	if (uiElem[AP_P2_SWITCH_3]->getState() != POS_2)
+		return;
+
+	uiElem[AP_P2_SWITCH_2]->setUsable(false);
+
+	uiElem[AP_P2_LED_6]->setState(ON);
+	uiElem[AP_P2_LED_7]->setState(ON);
 }

@@ -38,7 +38,7 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
-	setUIOperations();
+	uiAp.addSubscriber(this);
 }
 
 Ap::~Ap()
@@ -77,31 +77,13 @@ UIElement* Ap::getUIElement(ELEM_ID elemId)
 	return uiAp.getUiElement(elemId);
 }
 
-void Ap::setUIOperations()
+void Ap::notify(ELEM_ID elem, int state)
 {
-	uiAp.getUiElement(AP_P2_SWITCH_3)->setCallback(POS_2, std::bind(&Ap::opPWRpressed, this), 1000);
-	uiAp.getUiElement(AP_P2_SWITCH_2)->setCallback(POS_2, std::bind(&Ap::opSTABpressed, this), 1000);
-}
+	if (elem == AP_P2_SWITCH_3 && state == POS_2)
+		config.nav = STG;
 
-void Ap::opPWRpressed()
-{
-	uiAp.getUiElement(AP_P2_SWITCH_3)->setUsable(false);
-
-	uiAp.getUiElement(AP_P2_LED_8)->setState(ON);
-	uiAp.getUiElement(AP_P2_LED_9)->setState(ON);
-
-	gdsu->updateConfig(config);
-}
-
-void Ap::opSTABpressed()
-{
-	if (uiAp.getUiElement(AP_P2_SWITCH_3)->getState() != POS_2)
-		return;
-
-	uiAp.getUiElement(AP_P2_SWITCH_2)->setUsable(false);
-
-	uiAp.getUiElement(AP_P2_LED_6)->setState(ON);
-	uiAp.getUiElement(AP_P2_LED_7)->setState(ON);
+	if (elem == AP_P2_SWITCH_2 && state == POS_2)
+		config.nav = GTS;
 
 	gdsu->updateConfig(config);
 }

@@ -7,11 +7,12 @@
 
 // GUI
 #include <GUI/Include/ApPanels.h>
+#include <GUI/Include/ISubscriber.h>
 
 // TAM2C
 #include <TAM2C/Include/IMember.h>
 
-class Ap : public IMember
+class Ap : public IMember, public ISubscriber
 {
 public:
 	Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
@@ -21,13 +22,10 @@ public:
 
 	UIElement* getUIElement(ELEM_ID elemId) override;
 
+	void notify(ELEM_ID elem, int state) override;
+
 private:
 	friend class Cabin;
-
-	void setUIOperations();
-
-	void opPWRpressed();
-	void opSTABpressed();
 
 	void createCameraGDSU() override;
 
