@@ -7,7 +7,8 @@
 
 #include <PGSWidget/Include/PGSWidget.h>
 
-class UIElement;
+class IElement;
+class IMemberConfig;
 
 class JtanPanels : public QWidget
 {
@@ -18,7 +19,9 @@ public:
 
 	PGSQtWidget::PGSWidget* getPGSWidget() const;
 
-	UIElement* getUiElement(ELEM_ID id) const;
+	IElement* getUiElement(ELEM_ID id) const;
+
+	void updateConfig(IMemberConfig config);
 
 private:
 	void loadImages();
@@ -27,5 +30,5 @@ private:
 
 	PGSQtWidget::PGSWidget* pgs_qt_widget;
 
-	std::map<ELEM_ID, UIElement*> uiElem;
+	std::map<ELEM_ID, IElement*> uiElem;
 };

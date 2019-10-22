@@ -63,6 +63,8 @@ class GDSU
 
 	 void updateConfig(IMemberConfig config);
 
+	 void updateOrientationLabels(float drift, float rise);
+
  private:
 	 friend class Label;
 	 friend class Ap;
@@ -73,7 +75,10 @@ class GDSU
 	 void clearLabels(std::map<std::string, Label*>& labels);
 
 	 p3d::Scene2D* sceneGDSU = nullptr;
+
 	 p3d::ROIRotationAnimation* spriteRot = nullptr;
+
+	 int totalRise = 0;
 
 	 std::map<std::string, Label*> commonLabels;
 	 std::map<std::string, Label*> viewLabels;

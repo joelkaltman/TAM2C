@@ -37,19 +37,15 @@ void Button::setState(int newState)
 	else
 		uiButton->setIcon(QIcon());
 
-	if (callbacks.find(state) != callbacks.end())
-	{
-		CBTime cbTime = callbacks.at(state);
-
-		QTime dieTime = QTime::currentTime().addMSecs(cbTime.first);
-		while (QTime::currentTime() < dieTime)
-			QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-
-		cbTime.second();
-	}
+	IElement::setState(newState);
 }
 
 int Button::getState() const
 {
 	return state;
+}
+
+void Button::setSubscriber(ISubscriber* subscriber)
+{
+	this->subscriber = subscriber;
 }

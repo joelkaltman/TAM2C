@@ -59,7 +59,7 @@ void Ap::rotate(double deriva, double alza)
 	trajTower->setFreeRotationVelocity(deriva);
 	trajCannon->setFreeRotationVelocity(alza);
 
-	gdsu->spriteRot->setFreeRotationVelocity(-deriva);
+	gdsu->updateOrientationLabels(deriva, alza);
 }
 
 void Ap::createCameraGDSU()
@@ -72,7 +72,7 @@ void Ap::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-UIElement* Ap::getUIElement(ELEM_ID elemId)
+IElement* Ap::getIElement(ELEM_ID elemId)
 {
 	return uiAp.getUiElement(elemId);
 }
@@ -86,4 +86,5 @@ void Ap::notify(ELEM_ID elem, int state)
 		config.nav = GTS;
 
 	gdsu->updateConfig(config);
+	uiAp.updateConfig(config);
 }

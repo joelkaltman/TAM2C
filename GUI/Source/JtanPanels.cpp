@@ -1,11 +1,12 @@
 #include <GUI/Include/JtanPanels.h>
 
 
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
 
 #include <TAM2C/Include/Config.h>
+#include <TAM2C/Include/IMemberConfig.h>
 
 JtanPanels::JtanPanels(QWidget *parent)
 	: QWidget(parent)
@@ -56,10 +57,14 @@ PGSQtWidget::PGSWidget* JtanPanels::getPGSWidget() const
 	return this->pgs_qt_widget;
 }
 
-UIElement* JtanPanels::getUiElement(ELEM_ID id) const
+IElement* JtanPanels::getUiElement(ELEM_ID id) const
 {
 	if (uiElem.find(id) == uiElem.end())
 		return nullptr;
 
 	return uiElem.at(id);
+}
+
+void JtanPanels::updateConfig(IMemberConfig config)
+{
 }

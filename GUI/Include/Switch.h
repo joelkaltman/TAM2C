@@ -1,8 +1,8 @@
 #pragma once
 
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 
-class Switch : public UIElement
+class Switch : public IElement
 {
 	Q_OBJECT
 public:
@@ -11,6 +11,8 @@ public:
 
 	void setState(int newState) override;
 	int getState() const override;
+
+	void setSubscriber(ISubscriber* subscriber) override;
 
 private slots:
 	void Pressed();

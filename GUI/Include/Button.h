@@ -1,8 +1,8 @@
 #pragma once
 
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 
-class Button : public UIElement
+class Button : public IElement
 {
 	Q_OBJECT
 public:
@@ -10,6 +10,8 @@ public:
 
 	void setState(int newState) override;
 	int getState() const override;
+
+	void setSubscriber(ISubscriber* subscriber) override;
 
 private slots:
 	void Pressed();

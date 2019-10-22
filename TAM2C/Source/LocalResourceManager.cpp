@@ -41,8 +41,10 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 	resources["GDSU_NightCam"] = resource_manager->loadResource(Config::getScreenSpritesPath("NightCam.rpgs"));
 	resources["GDSU_RDY"] = resource_manager->loadResource(Config::getScreenSpritesPath("RDY.rpgs"));
 	resources["GDSU_Zm_Rt_Fc_Ir"] = resource_manager->loadResource(Config::getScreenSpritesPath("Zm Rt Fc Ir.rpgs"));
-	resources["Cabin"] = resource_manager->loadResource(Config::getScreenSpritesPath("Cabin.rpgs"));
-	resources["CabinAt"] = resource_manager->loadResource(Config::getScreenSpritesPath("CabinAt.rpgs"));
+	resources["Drift"] = resource_manager->loadResource(Config::getScreenSpritesPath("Drift.rpgs"));
+	resources["DriftCenter"] = resource_manager->loadResource(Config::getScreenSpritesPath("DriftCenter.rpgs"));
+	resources["Rise"] = resource_manager->loadResource(Config::getScreenSpritesPath("Rise.rpgs"));
+	resources["RiseIndicator"] = resource_manager->loadResource(Config::getScreenSpritesPath("RiseIndicator.rpgs"));
 	resources["Numbers"] = resource_manager->loadResource(Config::getScreenSpritesPath("Numbers.rpgs"));
 	resources["SelectedLabel"] = resource_manager->loadResource(Config::getScreenSpritesPath("SelectedLabel.rpgs"));
 	resources["DisabledLabel"] = resource_manager->loadResource(Config::getScreenSpritesPath("DisabledLabel.rpgs"));

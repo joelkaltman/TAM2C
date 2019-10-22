@@ -139,6 +139,7 @@
     </ClCompile>
     <ClCompile Include="Source\ApPanels.cpp" />
     <ClCompile Include="Source\Button.cpp" />
+    <ClCompile Include="Source\IElement.cpp" />
     <ClCompile Include="Source\JtanPanels.cpp" />
     <ClCompile Include="Source\Led.cpp" />
     <ClCompile Include="Source\Switch.cpp" />
@@ -164,7 +165,10 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib\trunk;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib\trunk;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget</IncludePath>
     </QtMoc>
-    <QtMoc Include="Include\UIElement.h" />
+    <QtMoc Include="Include\IElement.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib\trunk;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib\trunk;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget</IncludePath>
+    </QtMoc>
     <QtMoc Include="Include\Switch.h" />
     <QtMoc Include="Include\Button.h" />
     <QtMoc Include="Include\JtanPanels.h" />

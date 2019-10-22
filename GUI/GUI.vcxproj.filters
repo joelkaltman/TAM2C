@@ -72,6 +72,9 @@
     <ClCompile Include="Source\Led.cpp">
       <Filter>Source Files\UIelements</Filter>
     </ClCompile>
+    <ClCompile Include="Source\IElement.cpp">
+      <Filter>Source Files\UIelements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resources\ApPanels.qrc">
@@ -116,10 +119,10 @@
     <QtMoc Include="Include\Switch.h">
       <Filter>Header Files\UIelements</Filter>
     </QtMoc>
-    <QtMoc Include="Include\UIElement.h">
+    <QtMoc Include="Include\Led.h">
       <Filter>Header Files\UIelements</Filter>
     </QtMoc>
-    <QtMoc Include="Include\Led.h">
+    <QtMoc Include="Include\IElement.h">
       <Filter>Header Files\UIelements</Filter>
     </QtMoc>
   </ItemGroup>

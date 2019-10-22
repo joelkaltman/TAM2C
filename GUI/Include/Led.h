@@ -1,8 +1,8 @@
 #pragma once
 
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 
-class Led : public UIElement
+class Led : public IElement
 {
 	Q_OBJECT
 public:

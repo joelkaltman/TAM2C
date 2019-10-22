@@ -14,7 +14,7 @@
 #include <p3d/Include/Object3D.h>
 
 // GUI
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 
 // TAM2C
 #include <TAM2C/Include/GDSU.h>
@@ -50,7 +50,7 @@ class IMember
 
 	 virtual void rotate(double deriva, double alza) {};
 
-	 virtual UIElement* getUIElement(ELEM_ID elemId) { return nullptr; };
+	 virtual IElement* getIElement(ELEM_ID elemId) { return nullptr; };
 
  protected:
 	friend class Cabin;

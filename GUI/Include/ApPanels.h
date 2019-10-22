@@ -8,7 +8,8 @@
 
 #include <PGSWidget/Include/PGSWidget.h>
 
-class UIElement;
+class IElement;
+class IMemberConfig;
 
 class ApPanels : public QWidget
 {
@@ -19,22 +20,18 @@ public:
 
 	PGSQtWidget::PGSWidget* getPGSWidget() const;
 
-	UIElement* getUiElement(ELEM_ID id) const;
+	IElement* getUiElement(ELEM_ID id) const;
 
 	void addSubscriber(ISubscriber* sub);
 
+	void updateConfig(IMemberConfig config);
+
 private:
 	void loadImages();
-
-	void operation(ELEM_ID elem, int state);
-	void opPWRpressed();
-	void opSTABpressed();
 
 	Ui::ApPanelsClass ui;
 
 	PGSQtWidget::PGSWidget* pgs_qt_widget;
 
-	std::map<ELEM_ID, UIElement*> uiElem;
-
-	ISubscriber* subscriber;
+	std::map<ELEM_ID, IElement*> uiElem;
 };

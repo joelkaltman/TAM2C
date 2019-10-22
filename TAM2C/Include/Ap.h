@@ -11,6 +11,7 @@
 
 // TAM2C
 #include <TAM2C/Include/IMember.h>
+#include <TAM2C/Include/IMemberConfig.h>
 
 class Ap : public IMember, public ISubscriber
 {
@@ -20,7 +21,7 @@ public:
 
 	void rotate(double deriva, double alza) override;
 
-	UIElement* getUIElement(ELEM_ID elemId) override;
+	IElement* getIElement(ELEM_ID elemId) override;
 
 	void notify(ELEM_ID elem, int state) override;
 

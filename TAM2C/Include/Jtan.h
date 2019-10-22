@@ -19,7 +19,7 @@ public:
 
 	void rotate(double deriva, double alza) override;
 
-	UIElement* getUIElement(ELEM_ID elemId) override;
+	IElement* getIElement(ELEM_ID elemId) override;
 private:
 	friend class Cabin;
 

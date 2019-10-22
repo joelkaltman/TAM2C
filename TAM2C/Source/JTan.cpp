@@ -57,7 +57,7 @@ void JTan::rotate(double deriva, double alza)
 	trajDirection->setFreeRotationVelocity(deriva);
 	trajHeight->setFreeRotationVelocity(alza);
 
-	gdsu->spriteRot->setFreeRotationVelocity(-deriva);
+	gdsu->updateOrientationLabels(deriva, alza);
 }
 
 void JTan::createCameraGDSU()
@@ -70,7 +70,7 @@ void JTan::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-UIElement* JTan::getUIElement(ELEM_ID elemId)
+IElement* JTan::getIElement(ELEM_ID elemId)
 {
 	return uiJtan.getUiElement(elemId);
 }

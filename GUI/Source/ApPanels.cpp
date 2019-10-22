@@ -2,12 +2,13 @@
 
 #include <iostream>
 
-#include <GUI/Include/UIElement.h>
+#include <GUI/Include/IElement.h>
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
 #include <GUI/Include/Led.h>
 
 #include <TAM2C/Include/Config.h>
+#include <TAM2C/Include/IMemberConfig.h>
 
 ApPanels::ApPanels(QWidget *parent)
 	: QWidget(parent)
@@ -57,24 +58,14 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P2_LED_9] = new Led(ui.Panel_2_led_9, "AP_panel2_led9.png");
 	uiElem[AP_P2_LED_10] = new Led(ui.Panel_2_led_10, "AP_panel2_led10.png");
 
+	for (auto& e : uiElem)
+		e.second->setId(e.first);
+
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
 	this->pgs_qt_widget->setGeometry(QRect(142, 290, 860, 560));
 
 	loadImages();
-
-
-	uiElem[AP_P2_SWITCH_3]->setCallback(POS_2, [this]()
-	{
-		subscriber->notify(AP_P2_SWITCH_3, POS_2);
-		opPWRpressed();
-	}, 1000);
-
-	uiElem[AP_P2_SWITCH_2]->setCallback(POS_2, [this]()
-	{
-		subscriber->notify(AP_P2_SWITCH_2, POS_2);
-		opSTABpressed();
-	}, 1000);
 }
 
 void ApPanels::loadImages() {
@@ -86,7 +77,7 @@ PGSQtWidget::PGSWidget* ApPanels::getPGSWidget() const
 	return this->pgs_qt_widget;
 }
 
-UIElement* ApPanels::getUiElement(ELEM_ID id) const
+IElement* ApPanels::getUiElement(ELEM_ID id) const
 {
 	if (uiElem.find(id) == uiElem.end())
 		return nullptr;
@@ -96,24 +87,35 @@ UIElement* ApPanels::getUiElement(ELEM_ID id) const
 
 void ApPanels::addSubscriber(ISubscriber* sub)
 {
-	this->subscriber = sub;
+	for (auto& e : uiElem)
+		e.second->setSubscriber(sub);
 }
 
-void ApPanels::opPWRpressed()
+void ApPanels::updateConfig(IMemberConfig config)
 {
-	uiElem[AP_P2_SWITCH_3]->setUsable(false);
+	switch (config.nav)
+	{
+		case MSTG:
+			break;
+		case STG:
+		{
+			uiElem[AP_P2_SWITCH_3]->setUsable(false);
 
-	uiElem[AP_P2_LED_8]->setState(ON);
-	uiElem[AP_P2_LED_9]->setState(ON);
-}
+			uiElem[AP_P2_LED_8]->setState(ON);
+			uiElem[AP_P2_LED_9]->setState(ON);
+			break;
+		}
+		case GTS:
+		{
+			if (uiElem[AP_P2_SWITCH_3]->getState() != POS_2)
+				return;
 
-void ApPanels::opSTABpressed()
-{
-	if (uiElem[AP_P2_SWITCH_3]->getState() != POS_2)
-		return;
+			uiElem[AP_P2_SWITCH_2]->setUsable(false);
 
-	uiElem[AP_P2_SWITCH_2]->setUsable(false);
+			uiElem[AP_P2_LED_6]->setState(ON);
+			uiElem[AP_P2_LED_7]->setState(ON);
 
-	uiElem[AP_P2_LED_6]->setState(ON);
-	uiElem[AP_P2_LED_7]->setState(ON);
+			break;
+		}
+	}
 }

@@ -13,16 +13,24 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 
 	commonLabels["Periscope"] = new Label(0, 0, screen1.getX(), screen1.getY(), "GDSU_periscope", sceneGDSU);
 
-	p3d::math::Vector2 image1(70, 104);
+	p3d::math::Vector2 image1(70, 124);
 	p3d::math::Vector2 image2(300, 300);
 
-	commonLabels["Cabin"] = new Label(210, 80, image1.getX(), image1.getY(), "Cabin", sceneGDSU);
-	commonLabels["CabinAt"] = new Label(95, 0, image2.getX(), image2.getY(), "CabinAt", sceneGDSU);
+	commonLabels["Drift"] = new Label(210, 80, image1.getX(), image1.getY(), "Drift", sceneGDSU);
+	commonLabels["DriftCenter"] = new Label(95, 0, image2.getX(), image2.getY(), "DriftCenter", sceneGDSU);
 
 	// Rotation
-	p3d::Sprite* at = commonLabels["CabinAt"]->getBackground();
+	p3d::Sprite* at = commonLabels["DriftCenter"]->getBackground();
 	at->setROIPosition(150, 150);
 	addGDSURotation(at);
+
+	p3d::math::Vector2 image3(50, 110);
+	p3d::math::Vector2 image4(40, 16);
+
+	commonLabels["Rise"] = new Label(340, 80, image3.getX(), image3.getY(), "Rise", sceneGDSU);
+	commonLabels["RiseIndicator"] = new Label(333, 150, image4.getX(), image4.getY(), "RiseIndicator", sceneGDSU);
+
+	updateOrientationLabels(0, 0);
 
 	loadMainView();
 }
@@ -155,6 +163,18 @@ void GDSU::updateConfig(IMemberConfig config)
 			case GTS: navSystem->changeBackground("GDSU_GTS"); break;
 		}
 	}
+}
+
+void GDSU::updateOrientationLabels(float drift, float rise)
+{
+	spriteRot->setFreeRotationVelocity(-drift);
+
+	Label* labelRise = commonLabels["Rise"];
+	Label* labelRiseIndicator = commonLabels["RiseIndicator"];
+
+	totalRise += rise * 20;
+	totalRise = std::clamp(totalRise, -labelRise->h / 2, labelRise->h / 4);
+	labelRiseIndicator->getBackground()->setFramePosition(labelRiseIndicator->x, labelRiseIndicator->y + totalRise);
 }
 
 Label::Label(int x, int y, int w, int h, std::string res, p3d::Scene2D* sceneGDSU) :
