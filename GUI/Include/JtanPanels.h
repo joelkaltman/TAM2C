@@ -4,6 +4,7 @@
 #include <GUI/GeneratedFiles/ui_JtanPanels.h>
 
 #include <GUI/Include/Definitions.h>
+#include <GUI/Include/ISubscriber.h>
 
 #include <PGSWidget/Include/PGSWidget.h>
 
@@ -20,6 +21,8 @@ public:
 	PGSQtWidget::PGSWidget* getPGSWidget() const;
 
 	IElement* getUiElement(ELEM_ID id) const;
+
+	void addSubscriber(ISubscriber* sub);
 
 	void updateConfig(IMemberConfig config);
 

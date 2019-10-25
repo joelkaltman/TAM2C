@@ -11,6 +11,8 @@ Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::
 	setState(state);
 
 	connect(uiButton, SIGNAL(pressed()), this, SLOT(Pressed()));
+
+	initialState = state;
 }
 
 Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3) :

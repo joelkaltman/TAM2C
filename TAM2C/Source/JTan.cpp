@@ -37,6 +37,10 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
+
+	uiJtan.addSubscriber(this);
+
+	uiJtan.getUiElement(JTAN_P1_SWITCH_1)->setState(POS_1);
 }
 
 JTan::~JTan()
@@ -73,4 +77,13 @@ void JTan::createCameraGDSU()
 IElement* JTan::getIElement(ELEM_ID elemId)
 {
 	return uiJtan.getUiElement(elemId);
+}
+
+void JTan::notify(ELEM_ID elem, int state)
+{
+	if (elem == JTAN_P1_SWITCH_1)
+		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
+
+	gdsu->updateConfig(config);
+	uiJtan.updateConfig(config);
 }

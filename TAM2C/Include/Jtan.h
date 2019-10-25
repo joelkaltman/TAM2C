@@ -11,7 +11,7 @@
 // TAM2C
 #include <TAM2C/Include/IMember.h>
 
-class JTan : public IMember
+class JTan : public IMember, public ISubscriber
 {
 public:
 	JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
@@ -20,6 +20,8 @@ public:
 	void rotate(double deriva, double alza) override;
 
 	IElement* getIElement(ELEM_ID elemId) override;
+
+	void notify(ELEM_ID elem, int state) override;
 private:
 	friend class Cabin;
 

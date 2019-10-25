@@ -7,6 +7,8 @@ Button::Button(QPushButton* uiButton, const std::string& nameImage) :
 {
 	connect(uiButton, SIGNAL(pressed()), this, SLOT(Pressed()));
 	connect(uiButton, SIGNAL(released()), this, SLOT(Released()));
+
+	initialState = state;
 }
 
 void Button::Pressed()

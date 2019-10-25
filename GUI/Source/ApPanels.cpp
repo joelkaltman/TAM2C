@@ -93,13 +93,38 @@ void ApPanels::addSubscriber(ISubscriber* sub)
 
 void ApPanels::updateConfig(IMemberConfig config)
 {
+	for (auto& e : uiElem)
+		e.second->setInitialState();
+
+	if(config.general)
+		uiElem[AP_P2_LED_10]->setState(ON);
+	else
+	{
+		uiElem[AP_P2_LED_10]->setState(OFF);
+		return;
+	}
+
+	if (config.gun == MGUN)
+	{
+		uiElem[AP_P2_LED_2]->setState(ON);
+		uiElem[AP_P2_LED_3]->setState(OFF);
+	}
+	else
+	{
+		uiElem[AP_P2_LED_2]->setState(OFF);
+		uiElem[AP_P2_LED_3]->setState(ON);
+	}
+
 	switch (config.nav)
 	{
 		case MSTG:
+			uiElem[AP_P2_SWITCH_2]->setUsable(true);
+			uiElem[AP_P2_SWITCH_3]->setUsable(true);
 			break;
 		case STG:
 		{
-			uiElem[AP_P2_SWITCH_3]->setUsable(false);
+			uiElem[AP_P2_SWITCH_2]->setUsable(true);
+			uiElem[AP_P2_SWITCH_3]->setUsable(true);
 
 			uiElem[AP_P2_LED_8]->setState(ON);
 			uiElem[AP_P2_LED_9]->setState(ON);
@@ -107,13 +132,17 @@ void ApPanels::updateConfig(IMemberConfig config)
 		}
 		case GTS:
 		{
-			if (uiElem[AP_P2_SWITCH_3]->getState() != POS_2)
-				return;
-
 			uiElem[AP_P2_SWITCH_2]->setUsable(false);
+			uiElem[AP_P2_SWITCH_3]->setUsable(false);
 
-			uiElem[AP_P2_LED_6]->setState(ON);
-			uiElem[AP_P2_LED_7]->setState(ON);
+			for (int i = 0; i < 6; i++)
+			{
+				uiElem[AP_P2_LED_6]->setState(i % 2);
+				uiElem[AP_P2_LED_7]->setState(i % 2);
+				IElement::sleepUI(500);
+			}
+
+			uiElem[AP_P2_SWITCH_2]->setUsable(true);
 
 			break;
 		}

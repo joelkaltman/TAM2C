@@ -10,6 +10,7 @@ public:
 
 	void setState(int newState) override;
 	int getState() const override;
+	void setInitialState() override;
 
 private:
 	LED_STATE state;

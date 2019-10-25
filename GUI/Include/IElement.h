@@ -17,6 +17,7 @@ public:
 	virtual int getState() const = 0;
 
 	virtual void setState(int newState);
+	virtual void setInitialState();
 
 	virtual void setSubscriber(ISubscriber* subscriber);
 
@@ -28,12 +29,15 @@ public:
 
 	void setId(ELEM_ID id);
 
+	static void sleepUI(int ms);
 
 protected:
 	ELEM_ID id = INVALID_ID;
 
 	bool enabled = true;
 	bool usable = true;
+
+	int initialState = 0;
 
 	std::map<int, CBTime> callbacks;
 

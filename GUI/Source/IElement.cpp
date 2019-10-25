@@ -9,12 +9,14 @@ void IElement::setState(int newState)
 	{
 		CBTime cbTime = callbacks.at(newState);
 
-		QTime dieTime = QTime::currentTime().addMSecs(cbTime.first);
-		while (QTime::currentTime() < dieTime)
-			QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+		sleepUI(cbTime.first);
 
 		cbTime.second();
 	}
+}
+
+void IElement::setInitialState()
+{
 }
 
 void IElement::setCallback(int cbState, const std::function<void()>& cb, int delayMs)
@@ -39,4 +41,11 @@ void IElement::setId(ELEM_ID id)
 
 void IElement::setSubscriber(ISubscriber* subscriber)
 {
+}
+
+void IElement::sleepUI(int ms)
+{
+	QTime dieTime = QTime::currentTime().addMSecs(ms);
+	while (QTime::currentTime() < dieTime)
+		QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }

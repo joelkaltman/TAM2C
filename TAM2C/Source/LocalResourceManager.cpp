@@ -27,6 +27,7 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 	resources["GDSU_Gn_Cm_CLR"] = resource_manager->loadResource(Config::getScreenSpritesPath("Gn Cm CLR.rpgs"));
 	resources["GDSU_Gn_Cm"] = resource_manager->loadResource(Config::getScreenSpritesPath("Gn Cm.rpgs"));
 	resources["GDSU_GUN"] = resource_manager->loadResource(Config::getScreenSpritesPath("GUN.rpgs"));
+	resources["GDSU_MGUN"] = resource_manager->loadResource(Config::getScreenSpritesPath("MGUN.rpgs"));
 	resources["GDSU_HE1_HE2"] = resource_manager->loadResource(Config::getScreenSpritesPath("HE1 HE2.rpgs"));
 	resources["GDSU_HT1_HT2"] = resource_manager->loadResource(Config::getScreenSpritesPath("HT1 HT2.rpgs"));
 	resources["GDSU_LW"] = resource_manager->loadResource(Config::getScreenSpritesPath("LW.rpgs"));
@@ -48,6 +49,7 @@ void LocalResourceManager::loadResources(p3d::ResourceManager* resource_manager)
 	resources["Numbers"] = resource_manager->loadResource(Config::getScreenSpritesPath("Numbers.rpgs"));
 	resources["SelectedLabel"] = resource_manager->loadResource(Config::getScreenSpritesPath("SelectedLabel.rpgs"));
 	resources["DisabledLabel"] = resource_manager->loadResource(Config::getScreenSpritesPath("DisabledLabel.rpgs"));
+	resources["Blackout"] = resource_manager->loadResource(Config::getScreenSpritesPath("Blackout.rpgs"));
 
 	for (auto& res : resources)
 	{

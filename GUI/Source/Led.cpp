@@ -5,6 +5,7 @@
 Led::Led(QLabel* uiLabel, const std::string& nameImage) :
 	uiLabel(uiLabel), state(OFF), nameImage(nameImage)
 {
+	initialState = state;
 }
 
 void Led::setState(int newState)
@@ -20,6 +21,16 @@ void Led::setState(int newState)
 		uiLabel->setPixmap(QPixmap());
 
 	IElement::setState(newState);
+}
+
+void Led::setInitialState()
+{
+	state = (LED_STATE)initialState;
+
+	if (initialState == ON)
+		uiLabel->setPixmap(QPixmap(Config::getGUIPath(nameImage).c_str()));
+	else
+		uiLabel->setPixmap(QPixmap());
 }
 
 int Led::getState() const

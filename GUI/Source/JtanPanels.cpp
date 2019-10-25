@@ -4,6 +4,7 @@
 #include <GUI/Include/IElement.h>
 #include <GUI/Include/Button.h>
 #include <GUI/Include/Switch.h>
+#include <GUI/Include/Led.h>
 
 #include <TAM2C/Include/Config.h>
 #include <TAM2C/Include/IMemberConfig.h>
@@ -36,9 +37,13 @@ JtanPanels::JtanPanels(QWidget *parent)
 	uiElem[GDSU_BUTTON_PLUS] = new Button(ui.GDSU_btn_plus, "JTAN_GDSU_button_plus_pressed.png");
 	uiElem[GDSU_BUTTON_CIRCLE] = new Button(ui.GDSU_btn_circle, "JTAN_GDSU_button_circle_pressed.png");
 
-	uiElem[JTAN_P1_SWITCH_1] = new Switch(ui.Panel_1_switch_1, "JTAN_panel1_switch1_1.png", "JTAN_panel1_switch1_2.png");
-	uiElem[JTAN_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "JTAN_panel1_switch2_1.png", "JTAN_panel1_switch2_2.png");
+	uiElem[JTAN_P1_SWITCH_1] = new Switch(ui.Panel_1_switch_1, "JTAN_panel1_switch1_2.png", "JTAN_panel1_switch1_1.png");
+	uiElem[JTAN_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "JTAN_panel1_switch2_2.png", "JTAN_panel1_switch2_1.png");
 	uiElem[JTAN_P1_KNOB] = new Switch(ui.Panel_1_knob, "JTAN_panel1_knob_1.png", "JTAN_panel1_knob_2.png", "JTAN_panel1_knob_3");
+	uiElem[JTAN_P1_LED_1] = new Led(ui.Panel_1_led_1, "JTAN_panel1_led1.png");
+
+	for (auto& e : uiElem)
+		e.second->setId(e.first);
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
@@ -65,6 +70,22 @@ IElement* JtanPanels::getUiElement(ELEM_ID id) const
 	return uiElem.at(id);
 }
 
+void JtanPanels::addSubscriber(ISubscriber* sub)
+{
+	for (auto& e : uiElem)
+		e.second->setSubscriber(sub);
+}
+
 void JtanPanels::updateConfig(IMemberConfig config)
 {
+	for (auto& e : uiElem)
+		e.second->setInitialState();
+
+	if (config.general)
+		uiElem[JTAN_P1_LED_1]->setState(ON);
+	else
+	{
+		uiElem[JTAN_P1_LED_1]->setState(OFF);
+		return;
+	}
 }

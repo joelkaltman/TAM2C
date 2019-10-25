@@ -4,6 +4,8 @@
 
 #include <TAM2C/Include/LocalResourceManager.h>
 
+#include <p3d/Include/P3D.h>
+
 GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	sceneGDSU(sceneGDSU)
 {
@@ -33,6 +35,9 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	updateOrientationLabels(0, 0);
 
 	loadMainView();
+
+	commonLabels["Blackout"] = new Label(0, 0, screen1.getX(), screen1.getY(), "Blackout", sceneGDSU);
+	commonLabels["Blackout"]->getBackground()->hide();
 }
 
 void GDSU::loadMainView()
@@ -68,7 +73,7 @@ void GDSU::loadMainView()
 	viewLabels["Top_5"] = new Label(100 + 80 * 4, 10, btn3.getX(), btn3.getY(), "GDSU_ARM", sceneGDSU);
 	viewLabels["Top_6"] = new Label(100 + 80 * 5, 10, btn3.getX(), btn3.getY(), "GDSU_empty", sceneGDSU);
 	viewLabels["Top_7"] = new Label(100 + 80 * 6, 10, btn3.getX(), btn3.getY(), "GDSU_empty", sceneGDSU);
-	viewLabels["Gun_Type"] = new Label(100 + 80 * 7, 10, btn3.getX(), btn3.getY(), "GDSU_GUN", sceneGDSU);
+	viewLabels["Gun_Type"] = new Label(100 + 80 * 7, 10, btn3.getX(), btn3.getY(), std::vector<std::string>{ "GDSU_GUN", "GDSU_MGUN" }, sceneGDSU);
 	viewLabels["Top_9"] = new Label(100 + 80 * 8, 10, btn3.getX(), btn3.getY(), "GDSU_AP1", sceneGDSU);
 
 	viewLabels["Bottom_1"] = new Label(250 + 120 * 0, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "GDSU_DATA", sceneGDSU);
@@ -153,16 +158,25 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 
 void GDSU::updateConfig(IMemberConfig config)
 {
-	Label* navSystem = getLabel("Nav_System");
-	if (navSystem)
+	if (config.general)
+		commonLabels["Blackout"]->getBackground()->hide();
+	else
+		commonLabels["Blackout"]->getBackground()->show();
+
+	Label* gunType = getLabel("Gun_Type");
+	switch (config.gun)
 	{
-		switch (config.nav)
-		{
-			case MSTG: navSystem->changeBackground("GDSU_MSTG"); break;
-			case STG: navSystem->changeBackground("GDSU_STG"); break;
-			case GTS: navSystem->changeBackground("GDSU_GTS"); break;
-		}
+		case GUN: gunType->changeBackground("GDSU_GUN"); break;
+		case MGUN: gunType->changeBackground("GDSU_MGUN"); break;
 	}
+
+	Label* navSystem = getLabel("Nav_System");
+	switch (config.nav)
+	{
+		case MSTG: navSystem->changeBackground("GDSU_MSTG"); break;
+		case STG: navSystem->changeBackground("GDSU_STG"); break;
+		case GTS: navSystem->changeBackground("GDSU_GTS"); break;
+	};
 }
 
 void GDSU::updateOrientationLabels(float drift, float rise)

@@ -39,6 +39,8 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
 	uiAp.addSubscriber(this);
+
+	uiAp.getUiElement(AP_P2_SWITCH_4)->setState(POS_1);
 }
 
 Ap::~Ap()
@@ -79,11 +81,17 @@ IElement* Ap::getIElement(ELEM_ID elemId)
 
 void Ap::notify(ELEM_ID elem, int state)
 {
-	if (elem == AP_P2_SWITCH_3 && state == POS_2)
-		config.nav = STG;
+	if (elem == AP_P2_SWITCH_1)
+		config.gun = (state == POS_2) ? MGUN : GUN;
 
-	if (elem == AP_P2_SWITCH_2 && state == POS_2)
-		config.nav = GTS;
+	if (elem == AP_P2_SWITCH_3)
+		config.nav = (state == POS_2) ? STG : MSTG;
+
+	if (elem == AP_P2_SWITCH_2)
+		config.nav = (state == POS_2) ? GTS : STG;
+
+	if (elem == AP_P2_SWITCH_4)
+		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
 
 	gdsu->updateConfig(config);
 	uiAp.updateConfig(config);
