@@ -1,6 +1,6 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <recurso_grafico>
 	<sprite>
-		<image_file>BLACKOUT.png</image_file>
+		<image_file>VIEW_1_RIGHT_1a.png</image_file>
 	</sprite>
 </recurso_grafico>

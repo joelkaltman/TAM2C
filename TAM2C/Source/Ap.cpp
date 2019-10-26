@@ -40,6 +40,7 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 
 	uiAp.addSubscriber(this);
 
+	uiAp.getUiElement(AP_P2_SWITCH_1)->setState(POS_1);
 	uiAp.getUiElement(AP_P2_SWITCH_4)->setState(POS_1);
 }
 
