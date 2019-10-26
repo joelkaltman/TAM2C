@@ -6,17 +6,17 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	scene(scene)
 {
 	transfTraslation = scene->installAffineTransformation();
-	transfTraslation->setPose(DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
-		DISTANCIA_RELATIVA_CAMARA_JTAN_X, DISTANCIA_RELATIVA_CAMARA_JTAN_Y + 1.0, DISTANCIA_RELATIVA_CAMARA_JTAN_Z,
+	transfTraslation->setPose(RELATIVE_DISTANCE_CAMERA_JTAN_X, RELATIVE_DISTANCE_CAMERA_JTAN_Y, RELATIVE_DISTANCE_CAMERA_JTAN_Z,
+		RELATIVE_DISTANCE_CAMERA_JTAN_X, RELATIVE_DISTANCE_CAMERA_JTAN_Y + 1.0, RELATIVE_DISTANCE_CAMERA_JTAN_Z,
 		0.0, 0.0, 1.0);
 
 	transfRotDirection = scene->installAffineTransformation();
 
 	transfRotHeight = scene->installAffineTransformation();
-	transfRotHeight->clampPitch(MIN_ANGULO_CABECEO_PERISCOPIO, MAX_ANGULO_CABECEO_PERISCOPIO);
+	transfRotHeight->clampPitch(MIN_ANGLE_RISE_PERISCOPE, MAX_ANGLE_RISE_PERISCOPE);
 
 	camera = scene->installCamera(0.0, 0.0, 0.0,
-		-DISTANCIA_RELATIVA_CAMARA_JTAN_X + DISTANCIA_RELATIVA_CANION_X, -DISTANCIA_RELATIVA_CAMARA_JTAN_Y + DISTANCIA_RELATIVA_CANION_Y + DISTANCIA_CALIBRACION_PUNTERIA, -DISTANCIA_RELATIVA_CAMARA_JTAN_Z + DISTANCIA_RELATIVA_CANION_Z,
+		-RELATIVE_DISTANCE_CAMERA_JTAN_X + RELATIVE_DISTANCE_CANNON_X, -RELATIVE_DISTANCE_CAMERA_JTAN_Y + RELATIVE_DISTANCE_CANNON_Y + DISTANCIA_CALIBRACION_PUNTERIA, -RELATIVE_DISTANCE_CAMERA_JTAN_Z + RELATIVE_DISTANCE_CANNON_Z,
 		0.0, 0.0, 1.0);
 
 	camera->setPerspectiveFovProjection(12.5, 860 / 560, 0.5, 50000.0, true);
@@ -56,12 +56,12 @@ JTan::~JTan()
 	uiJtan.close();
 }
 
-void JTan::rotate(double deriva, double alza)
+void JTan::rotate(double drift, double rise)
 {
-	trajDirection->setFreeRotationVelocity(deriva);
-	trajHeight->setFreeRotationVelocity(alza);
+	trajDirection->setFreeRotationVelocity(drift);
+	trajHeight->setFreeRotationVelocity(rise);
 
-	gdsu->updateOrientationLabels(deriva, alza);
+	gdsu->updateOrientationLabels(drift, rise);
 }
 
 void JTan::createCameraGDSU()
@@ -82,8 +82,10 @@ IElement* JTan::getIElement(ELEM_ID elemId)
 void JTan::notify(ELEM_ID elem, int state)
 {
 	if (elem == JTAN_P1_SWITCH_1)
+	{
+		config.lastChange = 0;
 		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
-
+	}
 	gdsu->updateConfig(config);
 	uiJtan.updateConfig(config);
 }

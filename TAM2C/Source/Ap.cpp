@@ -6,22 +6,22 @@
 Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	scene(scene)
 {
-	turret = scene->installObject(DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y, DISTANCIA_RELATIVA_TORRE_Z,
-		DISTANCIA_RELATIVA_TORRE_X, DISTANCIA_RELATIVA_TORRE_Y + 1.0, DISTANCIA_RELATIVA_TORRE_Z,
+	turret = scene->installObject(RELATIVE_DISTANCE_TOWER_X, RELATIVE_DISTANCE_TOWER_Y, RELATIVE_DISTANCE_TOWER_Z,
+		RELATIVE_DISTANCE_TOWER_X, RELATIVE_DISTANCE_TOWER_Y + 1.0, RELATIVE_DISTANCE_TOWER_Z,
 		0.0, 0.0, 1.0, LocalResourceManager::getInstance().resources["TAM2C_turret"], false);
 
-	cannon = scene->installObject(DISTANCIA_RELATIVA_CANION_X, DISTANCIA_RELATIVA_CANION_Y, DISTANCIA_RELATIVA_CANION_Z,
-		DISTANCIA_RELATIVA_CANION_X, DISTANCIA_RELATIVA_CANION_Y + DISTANCIA_CALIBRACION_PUNTERIA, DISTANCIA_RELATIVA_CANION_Z,
+	cannon = scene->installObject(RELATIVE_DISTANCE_CANNON_X, RELATIVE_DISTANCE_CANNON_Y, RELATIVE_DISTANCE_CANNON_Z,
+		RELATIVE_DISTANCE_CANNON_X, RELATIVE_DISTANCE_CANNON_Y + DISTANCIA_CALIBRACION_PUNTERIA, RELATIVE_DISTANCE_CANNON_Z,
 		0.0, 0.0, 1.0, LocalResourceManager::getInstance().resources["TAM2C_cannon"], false);
 
-	camera = scene->installCamera(DISTANCIA_RELATIVA_CAMARA_APUN_X, DISTANCIA_RELATIVA_CAMARA_APUN_Y, DISTANCIA_RELATIVA_CAMARA_APUN_Z,
+	camera = scene->installCamera(RELATIVE_DISTANCE_CAMERA_APUN_X, RELATIVE_DISTANCE_CAMERA_APUN_Y, RELATIVE_DISTANCE_CAMERA_APUN_Z,
 		0.0, DISTANCIA_CALIBRACION_PUNTERIA, 0.0,
 		0.0, 0.0, 1.0);
 
 	camera->setPerspectiveFovProjection(12.5, 860/560, 0.5, 50000.0, true);
 	camera->setZoomFactor(2.0);
 
-	cannon->clampPitch(MIN_ANGULO_CABECEO_PERISCOPIO, MAX_ANGULO_CABECEO_PERISCOPIO);
+	cannon->clampPitch(MIN_ANGLE_RISE_PERISCOPE, MAX_ANGLE_RISE_PERISCOPE);
 
 	turret->addChild(cannon);
 	cannon->addChild(camera);
@@ -57,12 +57,12 @@ Ap::~Ap()
 	uiAp.close();
 }
 
-void Ap::rotate(double deriva, double alza)
+void Ap::rotate(double drift, double rise)
 {
-	trajTower->setFreeRotationVelocity(deriva);
-	trajCannon->setFreeRotationVelocity(alza);
+	trajTower->setFreeRotationVelocity(drift);
+	trajCannon->setFreeRotationVelocity(rise);
 
-	gdsu->updateOrientationLabels(deriva, alza);
+	gdsu->updateOrientationLabels(drift, rise);
 }
 
 void Ap::createCameraGDSU()
@@ -83,16 +83,28 @@ IElement* Ap::getIElement(ELEM_ID elemId)
 void Ap::notify(ELEM_ID elem, int state)
 {
 	if (elem == AP_P2_SWITCH_1)
+	{
+		config.lastChange = 0;
 		config.gun = (state == POS_2) ? MGUN : GUN;
+	}
 
 	if (elem == AP_P2_SWITCH_3)
+	{
+		config.lastChange = 1;
 		config.nav = (state == POS_2) ? STG : MSTG;
+	}
 
 	if (elem == AP_P2_SWITCH_2)
+	{
+		config.lastChange = 1;
 		config.nav = (state == POS_2) ? GTS : STG;
+	}
 
 	if (elem == AP_P2_SWITCH_4)
+	{
+		config.lastChange = 2;
 		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
+	}
 
 	gdsu->updateConfig(config);
 	uiAp.updateConfig(config);

@@ -75,19 +75,19 @@ void JoysticksManager::handleJoysticksEvent(SDL_Event &joystick_event)
 {
 	if (joystick_event.type == SDL_JOYAXISMOTION)
 	{
-		float deriva = 0;
-		float alza = 0;
+		float drift = 0;
+		float rise = 0;
 		if (((AXIS_X > 0) ? AXIS_X - 1 : (AXIS_X*-1) - 1) == joystick_event.jaxis.axis)
 		{
-			deriva = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_X < 0) ? -1 : 1);
+			drift = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_X < 0) ? -1 : 1);
 		}
 		else if (((AXIS_Y > 0) ? AXIS_Y - 1 : (AXIS_Y*-1) - 1) == joystick_event.jaxis.axis)
 		{
-			alza = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_Y < 0) ? -1 : 1);
+			rise = normalizeAxisPos(joystick_event.jaxis.value)*((AXIS_Y < 0) ? -1 : 1);
 		}
 
 		//std::cout << "AXIS d="<<d<<" a="<<a<< std::endl;
-		cabin->axisModified(joystick_event.jaxis.which, deriva, alza);
+		cabin->axisModified(joystick_event.jaxis.which, drift, rise);
 	}
 	else if ((joystick_event.type == SDL_JOYBUTTONDOWN) || (joystick_event.type == SDL_JOYBUTTONUP) || (joystick_event.type == SDL_JOYHATMOTION))
 	{

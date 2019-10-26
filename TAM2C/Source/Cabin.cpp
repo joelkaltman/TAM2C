@@ -36,7 +36,7 @@ Cabin::~Cabin()
 	scene->uninstallObject(carriage);
 }
 
-void Cabin::axisModified(int id, float deriva, float alza)
+void Cabin::axisModified(int id, float drift, float rise)
 {
 	MEMBER_ID mId = INVALID;
 
@@ -49,7 +49,7 @@ void Cabin::axisModified(int id, float deriva, float alza)
 	if (mId == INVALID)
 		return;
 
-	members[mId]->rotate(deriva, alza);
+	members[mId]->rotate(drift, rise);
 }
 
 IMember* Cabin::getMember(MEMBER_ID id)

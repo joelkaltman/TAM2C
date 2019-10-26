@@ -21,6 +21,7 @@ enum GUN_SYSTEM
 
 struct IMemberConfig
 {
+	unsigned int lastChange =	0;
 	GENERAL_SYSTEM general =	GENERAL_OFF;
 	NAV_SYSTEM nav =			MSTG;
 	GUN_SYSTEM gun =			MGUN;

@@ -19,7 +19,7 @@ public:
 	Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU);
 	~Ap();
 
-	void rotate(double deriva, double alza) override;
+	void rotate(double drift, double rise) override;
 
 	IElement* getIElement(ELEM_ID elemId) override;
 

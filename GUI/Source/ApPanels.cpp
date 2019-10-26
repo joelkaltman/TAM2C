@@ -135,11 +135,14 @@ void ApPanels::updateConfig(IMemberConfig config)
 			uiElem[AP_P2_SWITCH_2]->setUsable(false);
 			uiElem[AP_P2_SWITCH_3]->setUsable(false);
 
-			for (int i = 0; i < 6; i++)
+			if (config.lastChange == 1)
 			{
-				uiElem[AP_P2_LED_6]->setState(i % 2);
-				uiElem[AP_P2_LED_7]->setState(i % 2);
-				IElement::sleepUI(500);
+				for (int i = 0; i < 6; i++)
+				{
+					uiElem[AP_P2_LED_6]->setState(i % 2);
+					uiElem[AP_P2_LED_7]->setState(i % 2);
+					IElement::sleepUI(500);
+				}
 			}
 
 			uiElem[AP_P2_SWITCH_2]->setUsable(true);

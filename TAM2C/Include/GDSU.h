@@ -3,6 +3,9 @@
 #include <map>
 #include <vector>
 
+// TaskLib
+#include <TaskLib/Include/PeriodicTask.h>
+
 // p3d
 #include <p3d/Include/Scene2D.h>
 #include <p3d/Include/Sprite.h>
@@ -70,6 +73,9 @@ class GDSU
 	 friend class Ap;
 	 friend class JTan;
 
+	 static void riseUpdateFunction(const double_t& delta_time, void* instance);
+	 task::PeriodicTask* riseUpdateTask;
+
 	 void addGDSURotation(p3d::Sprite* sprite);
 	 
 	 void clearLabels(std::map<std::string, Label*>& labels);
@@ -78,6 +84,7 @@ class GDSU
 
 	 p3d::ROIRotationAnimation* spriteRot = nullptr;
 
+	 float lastRise = 0;
 	 int totalRise = 0;
 
 	 std::map<std::string, Label*> commonLabels;

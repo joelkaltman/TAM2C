@@ -1,10 +1,19 @@
 #include <TAM2C/Include/GDSU.h>
 
+// math
 #include <math/Include/Vector4.h>
 
+// TaskLib
+#include <TaskLib/Include/TaskManager.h>
+#include <TaskLib/Include/StdTaskManager.h>
+
+// p3d
+#include <p3d/Include/P3D.h>
+
+// TAM2C
 #include <TAM2C/Include/LocalResourceManager.h>
 
-#include <p3d/Include/P3D.h>
+bool usedJoystick = false;
 
 GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	sceneGDSU(sceneGDSU)
@@ -38,6 +47,10 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 
 	commonLabels["Blackout"] = new Label(0, 0, screen1.getX(), screen1.getY(), "BLACKOUT", sceneGDSU);
 	commonLabels["Blackout"]->getBackground()->hide();
+
+	task::TaskManager* task_man = task::TaskManager::getInstance();
+	riseUpdateTask = task_man->createPeriodicTask(100, riseUpdateFunction, this);
+	riseUpdateTask->start();
 }
 
 void GDSU::loadMainView()
@@ -180,14 +193,27 @@ void GDSU::updateConfig(IMemberConfig config)
 
 void GDSU::updateOrientationLabels(float drift, float rise)
 {
+	usedJoystick = true;
+
 	spriteRot->setFreeRotationVelocity(-drift);
 
-	Label* labelRise = commonLabels["Rise"];
-	Label* labelRiseIndicator = commonLabels["RiseIndicator"];
+	lastRise = rise;
+}
 
-	totalRise += rise * 20;
-	totalRise = std::clamp(totalRise, -labelRise->h / 2, labelRise->h / 4);
-	labelRiseIndicator->getBackground()->setFramePosition(labelRiseIndicator->x, labelRiseIndicator->y + totalRise);
+void GDSU::riseUpdateFunction(const double_t& delta_time, void* instance)
+{
+	if (!usedJoystick)
+		return;
+
+	GDSU* gdsu = (GDSU*)instance;
+
+	Label* labelRise = gdsu->commonLabels["Rise"];
+	Label* labelRiseIndicator = gdsu->commonLabels["RiseIndicator"];
+
+	gdsu->totalRise += gdsu->lastRise * 15;
+	gdsu->totalRise = std::clamp(gdsu->totalRise, -labelRise->h / 2, labelRise->h / 4);
+
+	labelRiseIndicator->getBackground()->setFramePosition(labelRiseIndicator->x, labelRiseIndicator->y + gdsu->totalRise);
 }
 
 Label::Label(int x, int y, int w, int h, std::string res, p3d::Scene2D* sceneGDSU) :
