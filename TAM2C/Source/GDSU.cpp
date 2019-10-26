@@ -22,7 +22,7 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 
 	p3d::math::Vector2 screen1(860, 560);
 
-	//commonLabels["Periscope"] = new Label(0, 0, screen1.getX(), screen1.getY(), "PERISCOPE", sceneGDSU);
+	commonLabels["Periscope"] = new Label(0, 0, screen1.getX(), screen1.getY(), "PERISCOPE", sceneGDSU);
 	
 	commonLabels["Drift"] = new Label(210, 80, 70, 124, "DRIFT", sceneGDSU);
 	commonLabels["DriftCenter"] = new Label(95, 0, 300, 300, "DRIFT_CENTER", sceneGDSU);
