@@ -22,26 +22,26 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 
 	p3d::math::Vector2 screen1(860, 560);
 
-	commonLabels["Periscope"] = new Label(0, 0, screen1.getX(), screen1.getY(), "PERISCOPE", sceneGDSU);
-
-	p3d::math::Vector2 image1(70, 124);
-	p3d::math::Vector2 image2(300, 300);
-
-	commonLabels["Drift"] = new Label(210, 80, image1.getX(), image1.getY(), "DRIFT", sceneGDSU);
-	commonLabels["DriftCenter"] = new Label(95, 0, image2.getX(), image2.getY(), "DRIFT_CENTER", sceneGDSU);
+	//commonLabels["Periscope"] = new Label(0, 0, screen1.getX(), screen1.getY(), "PERISCOPE", sceneGDSU);
+	
+	commonLabels["Drift"] = new Label(210, 80, 70, 124, "DRIFT", sceneGDSU);
+	commonLabels["DriftCenter"] = new Label(95, 0, 300, 300, "DRIFT_CENTER", sceneGDSU);
 
 	// Rotation
 	p3d::Sprite* at = commonLabels["DriftCenter"]->getBackground();
 	at->setROIPosition(150, 150);
 	addGDSURotation(at);
-
-	p3d::math::Vector2 image3(50, 110);
-	p3d::math::Vector2 image4(40, 16);
-
-	commonLabels["Rise"] = new Label(340, 80, image3.getX(), image3.getY(), "RISE", sceneGDSU);
-	commonLabels["RiseIndicator"] = new Label(333, 150, image4.getX(), image4.getY(), "RISE_INDICATOR", sceneGDSU);
+	
+	commonLabels["Rise"] = new Label(340, 80, 50, 110, "RISE", sceneGDSU);
+	commonLabels["RiseIndicator"] = new Label(333, 150, 40, 16, "RISE_INDICATOR", sceneGDSU);
 
 	updateOrientationLabels(0, 0);
+
+	commonLabels["Alert"] = new Label(180, 400, 500, 20, "LABEL_ALERT", sceneGDSU);
+	commonLabels["Alert"]->addText(10, sceneGDSU, "RANGO PARA MUNICION BAJO", Label::RED);
+
+	commonLabels["Malfunction"] = new Label(180, 440, 500, 20, "LABEL_MALFUNCTION", sceneGDSU);
+	commonLabels["Malfunction"]->addText(10, sceneGDSU, "644 MSM INVALID PRESSURE", Label::WHITE);
 
 	loadMainView();
 
@@ -95,19 +95,9 @@ void GDSU::loadMainView()
 	viewLabels["Bottom_4"] = new Label(250 + 120 * 3, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_4", sceneGDSU);
 	viewLabels["Bottom_5"] = new Label(250 + 120 * 4, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_5", sceneGDSU);
 
-	// Disabled
-	viewLabels["Left_5"]->setEnabled(false);
-	viewLabels["Right_5"]->setEnabled(false);
-	viewLabels["Right_6"]->setEnabled(false);
-	viewLabels["Bottom_4"]->setEnabled(false);
-	viewLabels["Bottom_5"]->setEnabled(false);
-
 	// NumLabels
-	viewLabels["Dist_Value"]->addNumbers(10, sceneGDSU);
-	viewLabels["Dist_Value"]->showNum(5473);
-
-	viewLabels["Top_7"]->addNumbers(10, sceneGDSU);
-	viewLabels["Top_7"]->showNum(9876);
+	viewLabels["Dist_Value"]->addText(10, sceneGDSU, "5473");
+	viewLabels["Top_7"]->addText(10, sceneGDSU, "9876");
 
 	// OptionLabels
 	viewLabels["Left_2"]->addOption(0, 50, 20, sceneGDSU);
@@ -128,6 +118,18 @@ void GDSU::loadMainView()
 	viewLabels["Right_6"]->addOption(29 + 24, 25, 20, sceneGDSU);
 	viewLabels["Right_6"]->addOption(29 + 24 + 25, 23, 20, sceneGDSU);
 	viewLabels["Right_6"]->selectOption(1);
+
+	// Hide
+	viewLabels["Top_5"]->setVisible(false);
+	viewLabels["Top_7"]->setVisible(false);
+
+	// Disabled
+	viewLabels["Left_5"]->setEnabled(false);
+	viewLabels["Right_5"]->setEnabled(false);
+	viewLabels["Right_6"]->setEnabled(false);
+	viewLabels["Bottom_4"]->setEnabled(false);
+	viewLabels["Bottom_5"]->setEnabled(false);
+
 }
 
 GDSU::~GDSU()
@@ -258,7 +260,7 @@ std::vector<p3d::Sprite*> Label::getAllSprites() const
 	if (disableSprite)
 		allSprites.push_back(disableSprite);
 
-	for (auto& s : numberSprites)
+	for (auto& s : textSprites)
 		allSprites.push_back(s);
 
 	for (auto& s : selectionSprites)
@@ -319,28 +321,48 @@ void Label::selectOption(unsigned int index)
 		i == index ? selectionSprites[i]->show() : selectionSprites[i]->hide();
 }
 
-void Label::addNumbers(float offX, p3d::Scene2D* sceneGDSU)
+int charOffset(char ch)
+{
+	if (ch >= '0' && ch <= '9')
+		return ch - '0';
+
+	if (ch >= 'a' && ch <= 'z')
+		return ch - 'a' + 10;
+
+	if (ch >= 'A' && ch <= 'Z')
+		return ch - 'A' + 10;
+
+	if (ch == ' ')	return 36;
+	if (ch == '.')	return 37;
+	if (ch == ':')	return 38;
+	if (ch == ',')	return 39;
+	if (ch == '-')	return 40;
+
+	return 0;
+}
+
+void Label::addText(float offX, p3d::Scene2D* sceneGDSU, const std::string& text, Color color)
 {
 	auto& resources = LocalResourceManager::getInstance().resources;
 
-	int wNum = 14;
-	int hNum = 14;
+	int wLet = 14;
+	int hLet = 14;
 
-	for (int i = 0; i < 4; ++i)
-	{
-		p3d::Sprite* num = sceneGDSU->installSprite(wNum / 2 + x + offX * i + 3, hNum / 2 + y + 3, wNum, hNum, resources["NUMBERS"]);
-		num->changeROISize(wNum, hNum);
-		num->setROIPosition(7, 0 * (14 + 10) + 7);
-		numberSprites.push_back(num);
-	}
-}
+	for (auto& s : textSprites)
+		sceneGDSU->uninstallSprite(s);
 
-void Label::showNum(unsigned int num)
-{
-	for (int i = numberSprites.size() - 1; i >= 0; --i)
+	textSprites.clear();
+
+	std::string res;
+	if (color == WHITE) res = "TEXT_WHITE";
+	else if (color == RED) res = "TEXT_RED";
+	else if (color == BLACK) res = "TEXT_BLACK";
+
+	for (int i = 0; i < text.length(); ++i)
 	{
-		int digit = num % 10;
-		num /= 10;
-		numberSprites[i]->setROIPosition(7, digit * (14 + 10) + 7);
+		p3d::Sprite* num = sceneGDSU->installSprite(wLet / 2 + x + offX * i + 10, hLet / 2 + y + 3, wLet, hLet, resources[res]);
+		num->changeROISize(wLet, hLet);
+		num->setROIPosition(charOffset(text[i]) * (14 + 7) + 7, 7);
+		textSprites.push_back(num);
 	}
 }

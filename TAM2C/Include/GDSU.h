@@ -19,6 +19,13 @@ class GDSU;
 class Label
 {
  public:
+	enum Color
+	{
+		BLACK,
+		WHITE,
+		RED
+	};
+
 	Label(int x, int y, int w, int h, std::string res, p3d::Scene2D* sceneGDSU);
 	Label(int x, int y, int w, int h, std::vector<std::string> res, p3d::Scene2D* sceneGDSU);
 	~Label() = default;
@@ -33,9 +40,8 @@ class Label
 
 	void addOption(float offX, int w, int h, p3d::Scene2D* sceneGDSU);
 	void selectOption(unsigned int index);
-
-	void addNumbers(float offX, p3d::Scene2D* sceneGDSU);
-	void showNum(unsigned int num);
+	
+	void addText(float offX, p3d::Scene2D* sceneGDSU, const std::string& text, Color color = BLACK);
 
 	int x;
 	int y;
@@ -48,7 +54,7 @@ class Label
 	std::map<std::string, p3d::Sprite*> background;
 	p3d::Sprite* disableSprite = nullptr;
 	std::vector<p3d::Sprite*> selectionSprites;
-	std::vector<p3d::Sprite*> numberSprites;
+	std::vector<p3d::Sprite*> textSprites;
 
 	std::string currentBackground = "";
 	bool enabled = true;
