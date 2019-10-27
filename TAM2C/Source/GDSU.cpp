@@ -38,10 +38,10 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	updateOrientationLabels(0, 0);
 
 	commonLabels["Alert"] = new Label(180, 400, 500, 20, "LABEL_ALERT", sceneGDSU);
-	commonLabels["Alert"]->addText(10, sceneGDSU, "RANGO PARA MUNICION BAJO", Label::RED);
+	commonLabels["Alert"]->addText(sceneGDSU, "RANGO PARA MUNICION BAJO", Label::RED, 10);
 
 	commonLabels["Malfunction"] = new Label(180, 440, 500, 20, "LABEL_MALFUNCTION", sceneGDSU);
-	commonLabels["Malfunction"]->addText(10, sceneGDSU, "644 MSM INVALID PRESSURE", Label::WHITE);
+	commonLabels["Malfunction"]->addText(sceneGDSU, "644 MSM INVALID PRESSURE", Label::WHITE, 10);
 
 	loadMainView();
 
@@ -79,15 +79,15 @@ void GDSU::loadMainView()
 	viewLabels["Right_7"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 4, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_5", sceneGDSU);
 	viewLabels["Right_8"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_6", sceneGDSU);
 
-	viewLabels["Dist_Value"] = new Label(60 + 80 * 0, 10, btn1.getX(), btn1.getY(), "TOP_1", sceneGDSU);
-	viewLabels["Dist_System"] = new Label(100 + 80 * 1, 10, btn3.getX(), btn3.getY(), std::vector<std::string>{ "TOP_2_ALCOM", "TOP_2_LASER"}, sceneGDSU);
-	viewLabels["Nav_System"] = new Label(100 + 80 * 2, 10, btn3.getX(), btn3.getY(), { "TOP_3_MSTG", "TOP_3_STG", "TOP_3_GTS" }, sceneGDSU);
-	viewLabels["Test_State"] = new Label(100 + 80 * 3, 10, btn3.getX(), btn3.getY(), "TOP_4", sceneGDSU);
-	viewLabels["Top_5"] = new Label(100 + 80 * 4, 10, btn3.getX(), btn3.getY(), "TOP_5", sceneGDSU);
-	viewLabels["Top_6"] = new Label(100 + 80 * 5, 10, btn3.getX(), btn3.getY(), "TOP_6", sceneGDSU);
-	viewLabels["Top_7"] = new Label(100 + 80 * 6, 10, btn3.getX(), btn3.getY(), "TOP_7", sceneGDSU);
-	viewLabels["Gun_Type"] = new Label(100 + 80 * 7, 10, btn3.getX(), btn3.getY(), std::vector<std::string>{ "TOP_8_Cn", "TOP_8_Cx" }, sceneGDSU);
-	viewLabels["Top_9"] = new Label(100 + 80 * 8, 10, btn3.getX(), btn3.getY(), "TOP_9", sceneGDSU);
+	viewLabels["Top_1"] = new Label(60 + 80 * 0, 10, btn1.getX(), btn1.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_2"] = new Label(100 + 80 * 1, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_3"] = new Label(100 + 80 * 2, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_4"] = new Label(100 + 80 * 3, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_5"] = new Label(100 + 80 * 4, 10, btn3.getX(), btn3.getY(), "LABEL_RED", sceneGDSU);
+	viewLabels["Top_6"] = new Label(100 + 80 * 5, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_7"] = new Label(100 + 80 * 6, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_8"] = new Label(100 + 80 * 7, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
+	viewLabels["Top_9"] = new Label(100 + 80 * 8, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
 
 	viewLabels["Bottom_1"] = new Label(250 + 120 * 0, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_1", sceneGDSU);
 	viewLabels["Bottom_2"] = new Label(250 + 120 * 1, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_2", sceneGDSU);
@@ -95,14 +95,28 @@ void GDSU::loadMainView()
 	viewLabels["Bottom_4"] = new Label(250 + 120 * 3, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_4", sceneGDSU);
 	viewLabels["Bottom_5"] = new Label(250 + 120 * 4, screen1.getY() - btn1.getY() - 10, btn1.getX(), btn1.getY(), "VIEW_1_BOTTOM_5", sceneGDSU);
 
-	// NumLabels
-	viewLabels["Dist_Value"]->addText(10, sceneGDSU, "5473");
-	viewLabels["Top_7"]->addText(10, sceneGDSU, "9876");
+	// TopTexts
+	viewLabels["Top_1"]->addText(sceneGDSU, "5473", Label::BLACK, 10);
+	viewLabels["Top_2"]->addText(sceneGDSU, "LASER");
+	viewLabels["Top_3"]->addText(sceneGDSU, "MTSG");
+	viewLabels["Top_4"]->addText(sceneGDSU, "LISTO");
+	viewLabels["Top_5"]->addText(sceneGDSU, "FUEGO", Label::WHITE);
+	viewLabels["Top_7"]->addText(sceneGDSU, "9876", Label::BLACK, 10);
+	viewLabels["Top_8"]->addText(sceneGDSU, "Cn");
+	viewLabels["Top_9"]->addText(sceneGDSU, "AP1");
 
 	// OptionLabels
 	viewLabels["Left_2"]->addOption(0, 50, 20, sceneGDSU);
 	viewLabels["Left_2"]->addOption(50, 50, 20, sceneGDSU);
 	viewLabels["Left_2"]->selectOption(1);
+
+	viewLabels["Left_3"]->addOption(0, 50, 20, sceneGDSU);
+	viewLabels["Left_3"]->addOption(50, 50, 20, sceneGDSU);
+	viewLabels["Left_3"]->selectOption(1);
+
+	viewLabels["Left_4"]->addOption(0, 50, 20, sceneGDSU);
+	viewLabels["Left_4"]->addOption(50, 50, 20, sceneGDSU);
+	viewLabels["Left_4"]->selectOption(2);
 
 	viewLabels["Right_1"]->addOption(0, 30, 20, sceneGDSU);
 	viewLabels["Right_1"]->addOption(30, 30, 20, sceneGDSU);
@@ -177,20 +191,51 @@ void GDSU::updateConfig(IMemberConfig config)
 	else
 		commonLabels["Blackout"]->getBackground()->show();
 
-	Label* gunType = getLabel("Gun_Type");
-	switch (config.gun)
-	{
-		case GUN: gunType->changeBackground("TOP_8_Cn"); break;
-		case MGUN: gunType->changeBackground("TOP_8_Cx"); break;
-	}
 
-	Label* navSystem = getLabel("Nav_System");
 	switch (config.nav)
 	{
-		case MSTG: navSystem->changeBackground("TOP_3_MSTG"); break;
-		case STG: navSystem->changeBackground("TOP_3_STG"); break;
-		case GTS: navSystem->changeBackground("TOP_3_GTS"); break;
+		case MSTG: getLabel("Top_3")->addText(sceneGDSU, "MTSG"); break;
+		case STG: getLabel("Top_3")->addText(sceneGDSU, "STG"); break;
+		case GTS: getLabel("Top_3")->addText(sceneGDSU, "GTS"); break;
 	};
+
+	switch (config.gun)
+	{
+		case GUN: getLabel("Top_8")->addText(sceneGDSU, "Cn"); break;
+		case MGUN: getLabel("Top_8")->addText(sceneGDSU, "Cx"); break;
+	}
+
+	getLabel("Left_2")->selectOption(-1);
+	getLabel("Left_3")->selectOption(-1);
+	getLabel("Left_4")->selectOption(-1);
+
+	switch (config.ammo)
+	{
+	case AP1: 
+		getLabel("Top_9")->addText(sceneGDSU, "AP1");
+		getLabel("Left_2")->selectOption(0);
+		break;
+	case AP2: 
+		getLabel("Top_9")->addText(sceneGDSU, "AP2");
+		getLabel("Left_2")->selectOption(1);
+		break;
+	case HP1: 
+		getLabel("Top_9")->addText(sceneGDSU, "HP1");
+		getLabel("Left_3")->selectOption(0);
+		break;
+	case HP2: 
+		getLabel("Top_9")->addText(sceneGDSU, "HP2");
+		getLabel("Left_3")->selectOption(1);
+		break;
+	case HE1: 
+		getLabel("Top_9")->addText(sceneGDSU, "HE1");
+		getLabel("Left_4")->selectOption(0);
+		break;
+	case HE2: 
+		getLabel("Top_9")->addText(sceneGDSU, "HE2");
+		getLabel("Left_4")->selectOption(1);
+		break;
+	}
 }
 
 void GDSU::updateOrientationLabels(float drift, float rise)
@@ -341,7 +386,7 @@ int charOffset(char ch)
 	return 0;
 }
 
-void Label::addText(float offX, p3d::Scene2D* sceneGDSU, const std::string& text, Color color)
+void Label::addText(p3d::Scene2D* sceneGDSU, const std::string& text, Color color, float offX, float step)
 {
 	auto& resources = LocalResourceManager::getInstance().resources;
 
@@ -360,7 +405,7 @@ void Label::addText(float offX, p3d::Scene2D* sceneGDSU, const std::string& text
 
 	for (int i = 0; i < text.length(); ++i)
 	{
-		p3d::Sprite* num = sceneGDSU->installSprite(wLet / 2 + x + offX * i + 10, hLet / 2 + y + 3, wLet, hLet, resources[res]);
+		p3d::Sprite* num = sceneGDSU->installSprite(wLet / 2 + x + step * i + offX, hLet / 2 + y + 3, wLet, hLet, resources[res]);
 		num->changeROISize(wLet, hLet);
 		num->setROIPosition(charOffset(text[i]) * (14 + 7) + 7, 7);
 		textSprites.push_back(num);

@@ -82,10 +82,8 @@ IElement* JTan::getIElement(ELEM_ID elemId)
 void JTan::notify(ELEM_ID elem, int state)
 {
 	if (elem == JTAN_P1_SWITCH_1)
-	{
-		config.lastChange = 0;
 		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
-	}
+
 	gdsu->updateConfig(config);
-	uiJtan.updateConfig(config);
+	uiJtan.updateConfig(config, elem);
 }

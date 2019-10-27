@@ -14,25 +14,25 @@ JtanPanels::JtanPanels(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	uiElem[GDSU_BUTTON_1] = new Button(ui.GDSU_btn_1, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_2] = new Button(ui.GDSU_btn_2, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_3] = new Button(ui.GDSU_btn_3, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_4] = new Button(ui.GDSU_btn_4, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_5] = new Button(ui.GDSU_btn_5, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_6] = new Button(ui.GDSU_btn_6, "JTAN_GDSU_button_vertical1_pressed.png");
-	uiElem[GDSU_BUTTON_7] = new Button(ui.GDSU_btn_7, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_8] = new Button(ui.GDSU_btn_8, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_9] = new Button(ui.GDSU_btn_9, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_10] = new Button(ui.GDSU_btn_10, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_11] = new Button(ui.GDSU_btn_11, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_12] = new Button(ui.GDSU_btn_12, "JTAN_GDSU_button_vertical2_pressed.png");
-	uiElem[GDSU_BUTTON_13] = new Button(ui.GDSU_btn_13, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_14] = new Button(ui.GDSU_btn_14, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_15] = new Button(ui.GDSU_btn_15, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_16] = new Button(ui.GDSU_btn_16, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_17] = new Button(ui.GDSU_btn_17, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_18] = new Button(ui.GDSU_btn_18, "JTAN_GDSU_button_horizontal_pressed.png");
-	uiElem[GDSU_BUTTON_19] = new Button(ui.GDSU_btn_19, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_1] = new Button(ui.GDSU_btn_left_1, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_2] = new Button(ui.GDSU_btn_left_2, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_3] = new Button(ui.GDSU_btn_left_3, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_4] = new Button(ui.GDSU_btn_left_4, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_5] = new Button(ui.GDSU_btn_left_5, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_LEFT_6] = new Button(ui.GDSU_btn_left_6, "JTAN_GDSU_button_vertical1_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_1] = new Button(ui.GDSU_btn_right_1, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_2] = new Button(ui.GDSU_btn_right_2, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_3] = new Button(ui.GDSU_btn_right_3, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_4] = new Button(ui.GDSU_btn_right_4, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_5] = new Button(ui.GDSU_btn_right_5, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_RIGHT_6] = new Button(ui.GDSU_btn_right_6, "JTAN_GDSU_button_vertical2_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_1] = new Button(ui.GDSU_btn_bottom_1, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_2] = new Button(ui.GDSU_btn_bottom_2, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_3] = new Button(ui.GDSU_btn_bottom_3, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_4] = new Button(ui.GDSU_btn_bottom_4, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_5] = new Button(ui.GDSU_btn_bottom_5, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_6] = new Button(ui.GDSU_btn_bottom_6, "JTAN_GDSU_button_horizontal_pressed.png");
+	uiElem[GDSU_BUTTON_BOTTOM_7] = new Button(ui.GDSU_btn_bottom_7, "JTAN_GDSU_button_horizontal_pressed.png");
 	uiElem[GDSU_BUTTON_MINUS] = new Button(ui.GDSU_btn_minus, "JTAN_GDSU_button_minus_pressed.png");
 	uiElem[GDSU_BUTTON_PLUS] = new Button(ui.GDSU_btn_plus, "JTAN_GDSU_button_plus_pressed.png");
 	uiElem[GDSU_BUTTON_CIRCLE] = new Button(ui.GDSU_btn_circle, "JTAN_GDSU_button_circle_pressed.png");
@@ -76,7 +76,7 @@ void JtanPanels::addSubscriber(ISubscriber* sub)
 		e.second->setSubscriber(sub);
 }
 
-void JtanPanels::updateConfig(IMemberConfig config)
+void JtanPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 {
 	for (auto& e : uiElem)
 		e.second->setInitialState();

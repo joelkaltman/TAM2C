@@ -41,7 +41,7 @@ class Label
 	void addOption(float offX, int w, int h, p3d::Scene2D* sceneGDSU);
 	void selectOption(unsigned int index);
 	
-	void addText(float offX, p3d::Scene2D* sceneGDSU, const std::string& text, Color color = BLACK);
+	void addText(p3d::Scene2D* sceneGDSU, const std::string& text, Color color = BLACK, float offX = 0, float step = 10);
 
 	int x;
 	int y;

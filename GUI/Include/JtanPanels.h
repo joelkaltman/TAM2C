@@ -24,7 +24,7 @@ public:
 
 	void addSubscriber(ISubscriber* sub);
 
-	void updateConfig(IMemberConfig config);
+	void updateConfig(IMemberConfig config, ELEM_ID elemLastChange);
 
 private:
 	void loadImages();

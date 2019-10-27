@@ -82,30 +82,29 @@ IElement* Ap::getIElement(ELEM_ID elemId)
 
 void Ap::notify(ELEM_ID elem, int state)
 {
+	// GDSU
+	if (elem == GDSU_BUTTON_LEFT_2 && state == PRESSED)
+		(config.ammo == AP1) ? config.ammo = AP2 : config.ammo = AP1;
+
+	if (elem == GDSU_BUTTON_LEFT_3 && state == PRESSED)
+		(config.ammo == HP1) ? config.ammo = HP2 : config.ammo = HP1;
+
+	if (elem == GDSU_BUTTON_LEFT_4 && state == PRESSED)
+		(config.ammo == HE1) ? config.ammo = HE2 : config.ammo = HE1;
+
+	// Panel 2
 	if (elem == AP_P2_SWITCH_1)
-	{
-		config.lastChange = 0;
 		config.gun = (state == POS_2) ? MGUN : GUN;
-	}
 
 	if (elem == AP_P2_SWITCH_3)
-	{
-		config.lastChange = 1;
 		config.nav = (state == POS_2) ? STG : MSTG;
-	}
 
 	if (elem == AP_P2_SWITCH_2)
-	{
-		config.lastChange = 1;
 		config.nav = (state == POS_2) ? GTS : STG;
-	}
 
 	if (elem == AP_P2_SWITCH_4)
-	{
-		config.lastChange = 2;
 		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
-	}
 
 	gdsu->updateConfig(config);
-	uiAp.updateConfig(config);
+	uiAp.updateConfig(config, elem);
 }
