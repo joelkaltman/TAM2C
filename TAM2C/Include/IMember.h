@@ -47,10 +47,8 @@ class IMember
 
 	 IMember() = default;
 	 ~IMember() = default;
-
+	 
 	 virtual void rotate(double drift, double rise) {};
-
-	 virtual IElement* getIElement(ELEM_ID elemId) { return nullptr; };
 
  protected:
 	friend class Cabin;

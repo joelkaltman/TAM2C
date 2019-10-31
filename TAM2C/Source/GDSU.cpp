@@ -46,7 +46,6 @@ GDSU::GDSU(p3d::Scene2D* sceneGDSU):
 	loadMainView();
 
 	commonLabels["Blackout"] = new Label(0, 0, screen1.getX(), screen1.getY(), "BLACKOUT", sceneGDSU);
-	commonLabels["Blackout"]->getBackground()->hide();
 
 	task::TaskManager* task_man = task::TaskManager::getInstance();
 	riseUpdateTask = task_man->createPeriodicTask(100, riseUpdateFunction, this);
@@ -71,13 +70,13 @@ void GDSU::loadMainView()
 	viewLabels["Left_6"] = new Label(10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "VIEW_1_LEFT_6", sceneGDSU);
 
 	viewLabels["Right_1"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 0, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_1", sceneGDSU);
-	viewLabels["Right_2"] = new Label(screen1.getX() - btn1.getX(), 40 + 90 * 0 + 30, btn2.getX(), btn2.getY(), "VIEW_1_RIGHT_1a", sceneGDSU);
-	viewLabels["Right_3"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 1, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_2", sceneGDSU);
-	viewLabels["Right_4"] = new Label(screen1.getX() - btn1.getX(), 40 + 90 * 1 + 30, btn2.getX(), btn2.getY(), "VIEW_1_RIGHT_2a", sceneGDSU);
-	viewLabels["Right_5"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 2, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_3", sceneGDSU);
-	viewLabels["Right_6"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 3, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_4", sceneGDSU);
-	viewLabels["Right_7"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 4, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_5", sceneGDSU);
-	viewLabels["Right_8"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_6", sceneGDSU);
+	viewLabels["Right_1s"] = new Label(screen1.getX() - btn1.getX(), 40 + 90 * 0 + 30, btn2.getX(), btn2.getY(), "VIEW_1_RIGHT_1s", sceneGDSU);
+	viewLabels["Right_2"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 1, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_2", sceneGDSU);
+	viewLabels["Right_2s"] = new Label(screen1.getX() - btn1.getX(), 40 + 90 * 1 + 30, btn2.getX(), btn2.getY(), "VIEW_1_RIGHT_2s", sceneGDSU);
+	viewLabels["Right_3"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 2, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_3", sceneGDSU);
+	viewLabels["Right_4"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 3, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_4", sceneGDSU);
+	viewLabels["Right_5"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 4, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_5", sceneGDSU);
+	viewLabels["Right_6"] = new Label(screen1.getX() - btn1.getX() - 10, 40 + 90 * 5, btn1.getX(), btn1.getY(), "VIEW_1_RIGHT_6", sceneGDSU);
 
 	viewLabels["Top_1"] = new Label(60 + 80 * 0, 10, btn1.getX(), btn1.getY(), "LABEL_GREEN", sceneGDSU);
 	viewLabels["Top_2"] = new Label(100 + 80 * 1, 10, btn3.getX(), btn3.getY(), "LABEL_GREEN", sceneGDSU);
@@ -121,17 +120,22 @@ void GDSU::loadMainView()
 	viewLabels["Right_1"]->addOption(0, 30, 20, sceneGDSU);
 	viewLabels["Right_1"]->addOption(30, 30, 20, sceneGDSU);
 	viewLabels["Right_1"]->addOption(60, 40, 20, sceneGDSU);
-	viewLabels["Right_1"]->selectOption(1);
+
+	viewLabels["Right_2"]->addOption(0, 50, 20, sceneGDSU);
+	viewLabels["Right_2"]->addOption(50, 50, 20, sceneGDSU);
+
+	viewLabels["Right_3"]->addOption(0, 30, 20, sceneGDSU);
+	viewLabels["Right_3"]->addOption(30, 30, 20, sceneGDSU);
+	viewLabels["Right_3"]->addOption(60, 40, 20, sceneGDSU);
+
+	viewLabels["Right_4"]->addOption(0, 29, 20, sceneGDSU);
+	viewLabels["Right_4"]->addOption(29, 24, 20, sceneGDSU);
+	viewLabels["Right_4"]->addOption(29 + 24, 25, 20, sceneGDSU);
+	viewLabels["Right_4"]->addOption(29 + 24 + 25, 23, 20, sceneGDSU);
 
 	viewLabels["Bottom_3"]->addOption(0, 50, 20, sceneGDSU);
 	viewLabels["Bottom_3"]->addOption(50, 50, 20, sceneGDSU);
 	viewLabels["Bottom_3"]->selectOption(1);
-
-	viewLabels["Right_6"]->addOption(0, 29, 20, sceneGDSU);
-	viewLabels["Right_6"]->addOption(29, 24, 20, sceneGDSU);
-	viewLabels["Right_6"]->addOption(29 + 24, 25, 20, sceneGDSU);
-	viewLabels["Right_6"]->addOption(29 + 24 + 25, 23, 20, sceneGDSU);
-	viewLabels["Right_6"]->selectOption(1);
 
 	// Hide
 	viewLabels["Top_5"]->setVisible(false);
@@ -186,12 +190,13 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 
 void GDSU::updateConfig(IMemberConfig config)
 {
-	if (config.general)
+	// General
+	if (config.general == GENERAL_READY)
 		commonLabels["Blackout"]->getBackground()->hide();
 	else
 		commonLabels["Blackout"]->getBackground()->show();
 
-
+	// Navegation
 	switch (config.nav)
 	{
 		case MSTG: getLabel("Top_3")->addText(sceneGDSU, "MTSG"); break;
@@ -199,16 +204,43 @@ void GDSU::updateConfig(IMemberConfig config)
 		case GTS: getLabel("Top_3")->addText(sceneGDSU, "GTS"); break;
 	};
 
+	// Gun
 	switch (config.gun)
 	{
 		case GUN: getLabel("Top_8")->addText(sceneGDSU, "Cn"); break;
 		case MGUN: getLabel("Top_8")->addText(sceneGDSU, "Cx"); break;
 	}
 
+	// Vision
+	getLabel("Right_1")->selectOption(-1);
+	getLabel("Right_2")->selectOption(-1);
+	switch (config.vision)
+	{
+		case DAYCAM: getLabel("Right_1")->selectOption(0); break;
+		case NIGHTCAM: getLabel("Right_2")->selectOption(0); break;
+	}
+
+	// Zoom
+	switch (config.zoom)
+	{
+		case N: getLabel("Right_3")->selectOption(0); break;
+		case W: getLabel("Right_3")->selectOption(1); break;
+		case VW: getLabel("Right_3")->selectOption(2); break;
+	}
+
+	// Screen
+	switch (config.screen)
+	{
+		case ZM: getLabel("Right_4")->selectOption(0); break;
+		case RT: getLabel("Right_4")->selectOption(1); break;
+		case FC: getLabel("Right_4")->selectOption(2); break;
+		case IR: getLabel("Right_4")->selectOption(3); break;
+	}
+
+	// Ammo
 	getLabel("Left_2")->selectOption(-1);
 	getLabel("Left_3")->selectOption(-1);
 	getLabel("Left_4")->selectOption(-1);
-
 	switch (config.ammo)
 	{
 	case AP1: 

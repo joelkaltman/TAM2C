@@ -9,6 +9,11 @@ public:
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2);
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3);
 
+	ELEM_TYPE getType() const override
+	{
+		return SWITCH;
+	}
+
 	void setState(int newState) override;
 	int getState() const override;
 

@@ -14,8 +14,10 @@ ApPanels::ApPanels(QWidget *parent)
 	: QWidget(parent)
  {
 	ui.setupUi(this);
+	
+	ui.AP_background->setPixmap(QPixmap(Config::getGUIPath("AP.png").c_str()));
 
-
+	uiElem[GDSU_SWITCH_1] = new Switch(ui.GDSU_switch_1, "AP_GDSU_switch1_1.png", "AP_GDSU_switch1_2.png");
 	uiElem[GDSU_BUTTON_LEFT_1] = new Button(ui.GDSU_btn_left_1, "AP_GDSU_button_vertical_pressed.png");
 	uiElem[GDSU_BUTTON_LEFT_2] = new Button(ui.GDSU_btn_left_2, "AP_GDSU_button_vertical_pressed.png");
 	uiElem[GDSU_BUTTON_LEFT_3] = new Button(ui.GDSU_btn_left_3, "AP_GDSU_button_vertical_pressed.png");
@@ -42,7 +44,8 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P1_SWITCH_1] = new Switch(ui.Panel_1_switch_1, "AP_panel1_switch1_1.png", "AP_panel1_switch1_2.png", "AP_panel1_switch1_3.png");
 	uiElem[AP_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "AP_panel1_switch2_1.png", "AP_panel1_switch2_2.png");
 	uiElem[AP_P1_SWITCH_3] = new Switch(ui.Panel_1_switch_3, "AP_panel1_switch3_1.png", "AP_panel1_switch3_2.png");
-	uiElem[AP_P1_BUTTON] = new Button(ui.Panel_1_button, "AP_panel1_red_pressed.png");
+	uiElem[AP_P1_BUTTON_1] = new Button(ui.Panel_1_button_1, "AP_panel1_red_pressed.png");
+	uiElem[AP_P1_LED_1] = new Led(ui.Panel_1_led_1, "AP_panel1_led1.png");
 
 	uiElem[AP_P2_SWITCH_1] = new Switch(ui.Panel_2_switch_1, "AP_panel2_switch1_2.png", "AP_panel2_switch1_1.png");
 	uiElem[AP_P2_SWITCH_2] = new Switch(ui.Panel_2_switch_2, "AP_panel2_switch2_2.png", "AP_panel2_switch2_1.png");
@@ -58,19 +61,14 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P2_LED_8] = new Led(ui.Panel_2_led_8, "AP_panel2_led8.png");
 	uiElem[AP_P2_LED_9] = new Led(ui.Panel_2_led_9, "AP_panel2_led9.png");
 	uiElem[AP_P2_LED_10] = new Led(ui.Panel_2_led_10, "AP_panel2_led10.png");
+	uiElem[AP_P2_BUTTON_1] = new Button(ui.Panel_2_button_1, "AP_panel2_button1.png");
 
 	for (auto& e : uiElem)
 		e.second->setId(e.first);
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
-	this->pgs_qt_widget->setGeometry(QRect(142, 290, 860, 560));
-
-	loadImages();
-}
-
-void ApPanels::loadImages() {
-	ui.AP_background->setPixmap(QPixmap(Config::getGUIPath("ApPanels.png").c_str()));
+	this->pgs_qt_widget->setGeometry(QRect(188, 290, 860, 560));
 }
 
 PGSQtWidget::PGSWidget* ApPanels::getPGSWidget() const
@@ -94,17 +92,34 @@ void ApPanels::addSubscriber(ISubscriber* sub)
 
 void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 {
-	for (auto& e : uiElem)
-		e.second->setInitialState();
-
-	if(config.general)
-		uiElem[AP_P2_LED_10]->setState(ON);
-	else
+	// GENERAL
+	if (config.general == GENERAL_OFF || config.general == GENERAL_BIT)
 	{
-		uiElem[AP_P2_LED_10]->setState(OFF);
+		for (auto& e : uiElem)
+			if (e.second->getType() == LED)
+				e.second->setState(OFF);
+
+		if (config.general == GENERAL_BIT)
+			uiElem[AP_P1_LED_1]->setState(ON);
+
 		return;
 	}
+	else if(elemLastChange == AP_P2_SWITCH_4)
+	{
+		uiElem[AP_P2_LED_10]->setState(ON);
 
+		for (auto& e : uiElem)
+			if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
+				e.second->setState(ON);
+
+		IElement::sleepUI(1000);
+
+		for (auto& e : uiElem)
+			if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
+				e.second->setState(OFF);
+	}
+
+	// GUN
 	if (config.gun == MGUN)
 	{
 		uiElem[AP_P2_LED_2]->setState(ON);
@@ -116,6 +131,7 @@ void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 		uiElem[AP_P2_LED_3]->setState(ON);
 	}
 
+	// NAVEGATION
 	switch (config.nav)
 	{
 		case MSTG:

@@ -39,8 +39,6 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
 	uiJtan.addSubscriber(this);
-
-	uiJtan.getUiElement(JTAN_P1_SWITCH_1)->setState(POS_1);
 }
 
 JTan::~JTan()
@@ -74,15 +72,36 @@ void JTan::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-IElement* JTan::getIElement(ELEM_ID elemId)
-{
-	return uiJtan.getUiElement(elemId);
-}
-
 void JTan::notify(ELEM_ID elem, int state)
 {
-	if (elem == JTAN_P1_SWITCH_1)
+	// General
+	if (elem == GDSU_SWITCH_1)
 		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
+
+	// GDSU
+	if (elem == GDSU_BUTTON_LEFT_2 && state == PRESSED)
+		(config.ammo == AP1) ? config.ammo = AP2 : config.ammo = AP1;
+
+	if (elem == GDSU_BUTTON_LEFT_3 && state == PRESSED)
+		(config.ammo == HP1) ? config.ammo = HP2 : config.ammo = HP1;
+
+	if (elem == GDSU_BUTTON_LEFT_4 && state == PRESSED)
+		(config.ammo == HE1) ? config.ammo = HE2 : config.ammo = HE1;
+
+	if (elem == GDSU_BUTTON_RIGHT_1 && state == PRESSED)
+		config.vision = DAYCAM;
+
+	if (elem == GDSU_BUTTON_RIGHT_2 && state == PRESSED)
+		config.vision = NIGHTCAM;
+
+	if (elem == GDSU_BUTTON_RIGHT_3 && state == PRESSED)
+	{
+		(config.zoom < VW) ? config.zoom = ZOOM(config.zoom + 1) : config.zoom = ZOOM(0);
+		camera->setZoomFactor(std::pow(2.0f, config.zoom));
+	}
+
+	if (elem == GDSU_BUTTON_RIGHT_4 && state == PRESSED)
+		(config.screen < IR) ? config.screen = SCREEN(config.screen + 1) : config.screen = SCREEN(0);
 
 	gdsu->updateConfig(config);
 	uiJtan.updateConfig(config, elem);

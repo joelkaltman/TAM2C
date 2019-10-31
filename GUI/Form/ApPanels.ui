@@ -26,7 +26,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>:/ApPanels/Multimedia/GUI/ApPanels.png</pixmap>
+    <pixmap>:/prefijoNuevo/Multimedia/GUI/ApPanels.png</pixmap>
    </property>
   </widget>
   <widget class="QPushButton" name="GDSU_btn_left_1">
@@ -35,7 +35,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>290</y>
      <width>39</width>
      <height>54</height>
@@ -46,6 +46,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -63,7 +67,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>382</y>
      <width>39</width>
      <height>54</height>
@@ -74,6 +78,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -91,7 +99,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>473</y>
      <width>39</width>
      <height>54</height>
@@ -102,6 +110,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -119,7 +131,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>662</y>
      <width>39</width>
      <height>54</height>
@@ -130,6 +142,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -147,7 +163,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>756</y>
      <width>39</width>
      <height>54</height>
@@ -158,6 +174,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -175,7 +195,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>46</x>
+     <x>88</x>
      <y>570</y>
      <width>39</width>
      <height>54</height>
@@ -186,6 +206,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -203,7 +227,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>382</y>
      <width>39</width>
      <height>54</height>
@@ -214,6 +238,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -231,7 +259,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>473</y>
      <width>39</width>
      <height>54</height>
@@ -242,6 +270,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -259,7 +291,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>662</y>
      <width>39</width>
      <height>54</height>
@@ -270,6 +302,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -287,7 +323,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>757</y>
      <width>39</width>
      <height>54</height>
@@ -298,6 +334,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -315,7 +355,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>290</y>
      <width>39</width>
      <height>54</height>
@@ -326,6 +366,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -343,7 +387,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1092</x>
      <y>570</y>
      <width>39</width>
      <height>54</height>
@@ -354,6 +398,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_vertical_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -371,7 +419,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>208</x>
+     <x>250</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -382,6 +430,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -399,7 +451,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>318</x>
+     <x>360</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -410,6 +462,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -427,7 +483,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>472</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -438,6 +494,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -455,7 +515,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>581</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -466,6 +526,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -483,7 +547,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>691</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -494,6 +558,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -511,7 +579,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>754</x>
+     <x>795</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -522,6 +590,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -539,7 +611,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>864</x>
+     <x>905</x>
      <y>902</y>
      <width>59</width>
      <height>34</height>
@@ -550,6 +622,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_horizontal_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -567,7 +643,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>37</x>
+     <x>80</x>
      <y>902</y>
      <width>53</width>
      <height>36</height>
@@ -578,6 +654,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_minus_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_minus_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -595,7 +675,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>101</x>
+     <x>144</x>
      <y>902</y>
      <width>53</width>
      <height>36</height>
@@ -606,6 +686,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_plus_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_plus_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -623,7 +707,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>959</x>
+     <x>1001</x>
      <y>901</y>
      <width>40</width>
      <height>38</height>
@@ -634,6 +718,10 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_circle_pressed.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_button_circle_pressed.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -729,7 +817,7 @@
     <pixmap>:/ApPanels/Multimedia/GUI/AP_panel1_switch3_1.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="Panel_1_button">
+  <widget class="QPushButton" name="Panel_1_button_1">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -1057,6 +1145,89 @@
    </property>
    <property name="pixmap">
     <pixmap>:/ApPanels/Multimedia/GUI/AP_panel2_led10.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GDSU_switch_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>204</y>
+     <width>57</width>
+     <height>103</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_switch1_1.png</normaloff>:/ApPanels/Multimedia/GUI/AP_GDSU_switch1_1.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>57</width>
+     <height>103</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/AP_panel2_switch1_1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Panel_1_led_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1386</x>
+     <y>347</y>
+     <width>55</width>
+     <height>57</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>:/prefijoNuevo/Multimedia/GUI/AP_panel1_led1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Panel_2_button_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>1383</x>
+     <y>826</y>
+     <width>95</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/prefijoNuevo/Multimedia/GUI/AP_panel2_button1.png</normaloff>:/prefijoNuevo/Multimedia/GUI/AP_panel2_button1.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>91</height>
+    </size>
+   </property>
+   <property name="pixmap" stdset="0">
+    <pixmap>:/ApPanels/Multimedia/GUI/AP_panel1_red.png</pixmap>
    </property>
   </widget>
  </widget>

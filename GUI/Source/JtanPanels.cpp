@@ -14,6 +14,9 @@ JtanPanels::JtanPanels(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	ui.JTAN_Background->setPixmap(QPixmap(Config::getGUIPath("JTAN.png").c_str()));
+
+	uiElem[GDSU_SWITCH_1] = new Switch(ui.GDSU_switch_1, "JTAN_GDSU_switch1_1.png", "JTAN_GDSU_switch1_2.png");
 	uiElem[GDSU_BUTTON_LEFT_1] = new Button(ui.GDSU_btn_left_1, "JTAN_GDSU_button_vertical1_pressed.png");
 	uiElem[GDSU_BUTTON_LEFT_2] = new Button(ui.GDSU_btn_left_2, "JTAN_GDSU_button_vertical1_pressed.png");
 	uiElem[GDSU_BUTTON_LEFT_3] = new Button(ui.GDSU_btn_left_3, "JTAN_GDSU_button_vertical1_pressed.png");
@@ -41,20 +44,15 @@ JtanPanels::JtanPanels(QWidget *parent)
 	uiElem[JTAN_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "JTAN_panel1_switch2_2.png", "JTAN_panel1_switch2_1.png");
 	uiElem[JTAN_P1_KNOB] = new Switch(ui.Panel_1_knob, "JTAN_panel1_knob_1.png", "JTAN_panel1_knob_2.png", "JTAN_panel1_knob_3");
 	uiElem[JTAN_P1_LED_1] = new Led(ui.Panel_1_led_1, "JTAN_panel1_led1.png");
+	uiElem[JTAN_P1_BUTTON_1] = new Button(ui.Panel_1_button_1, "JTAN_panel1_button1.png");
+	uiElem[JTAN_P1_BUTTON_2] = new Button(ui.Panel_1_button_2, "JTAN_panel1_button2.png");
 
 	for (auto& e : uiElem)
 		e.second->setId(e.first);
 
 	this->pgs_qt_widget = new PGSQtWidget::PGSWidget(this);
 	this->pgs_qt_widget->setObjectName(QStringLiteral("p3dQtWidget"));
-	this->pgs_qt_widget->setGeometry(QRect(162, 290, 850, 560));
-
-	loadImages();
-}
-
-void JtanPanels::loadImages()
-{
-	ui.JTAN_Background->setPixmap(QPixmap(Config::getGUIPath("JtanPanels.png").c_str()));
+	this->pgs_qt_widget->setGeometry(QRect(227, 290, 850, 560));
 }
 
 PGSQtWidget::PGSWidget* JtanPanels::getPGSWidget() const

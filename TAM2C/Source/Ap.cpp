@@ -19,7 +19,6 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 		0.0, 0.0, 1.0);
 
 	camera->setPerspectiveFovProjection(12.5, 860/560, 0.5, 50000.0, true);
-	camera->setZoomFactor(2.0);
 
 	cannon->clampPitch(MIN_ANGLE_RISE_PERISCOPE, MAX_ANGLE_RISE_PERISCOPE);
 
@@ -39,9 +38,6 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
 	uiAp.addSubscriber(this);
-
-	uiAp.getUiElement(AP_P2_SWITCH_1)->setState(POS_1);
-	uiAp.getUiElement(AP_P2_SWITCH_4)->setState(POS_1);
 }
 
 Ap::~Ap()
@@ -75,13 +71,26 @@ void Ap::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-IElement* Ap::getIElement(ELEM_ID elemId)
-{
-	return uiAp.getUiElement(elemId);
-}
-
 void Ap::notify(ELEM_ID elem, int state)
 {
+	// General
+	switch (config.general)
+	{
+	case GENERAL_OFF:
+		if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() == POS_2 && uiAp.getUiElement(AP_P1_SWITCH_1)->getState() == POS_2)
+			config.general = GENERAL_BIT;
+		break;
+	case GENERAL_BIT:
+		if (elem == AP_P2_SWITCH_4 && state == POS_2)
+			config.general = GENERAL_READY;
+		break;
+	case GENERAL_READY:
+		break;
+	}
+
+	if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() != POS_2 || uiAp.getUiElement(AP_P1_SWITCH_1)->getState() != POS_2 || uiAp.getUiElement(AP_P1_SWITCH_1)->getState() != POS_2)
+		config.general = GENERAL_OFF;
+
 	// GDSU
 	if (elem == GDSU_BUTTON_LEFT_2 && state == PRESSED)
 		(config.ammo == AP1) ? config.ammo = AP2 : config.ammo = AP1;
@@ -92,6 +101,21 @@ void Ap::notify(ELEM_ID elem, int state)
 	if (elem == GDSU_BUTTON_LEFT_4 && state == PRESSED)
 		(config.ammo == HE1) ? config.ammo = HE2 : config.ammo = HE1;
 
+	if (elem == GDSU_BUTTON_RIGHT_1 && state == PRESSED)
+		config.vision = DAYCAM;
+
+	if (elem == GDSU_BUTTON_RIGHT_2 && state == PRESSED)
+		config.vision = NIGHTCAM;
+
+	if (elem == GDSU_BUTTON_RIGHT_3 && state == PRESSED)
+	{
+		(config.zoom < VW) ? config.zoom = ZOOM(config.zoom + 1) : config.zoom = ZOOM(0);
+		camera->setZoomFactor(std::pow(2.0f, config.zoom));
+	}
+
+	if (elem == GDSU_BUTTON_RIGHT_4 && state == PRESSED)
+		(config.screen < IR) ? config.screen = SCREEN(config.screen + 1) : config.screen = SCREEN(0);
+
 	// Panel 2
 	if (elem == AP_P2_SWITCH_1)
 		config.gun = (state == POS_2) ? MGUN : GUN;
@@ -101,9 +125,6 @@ void Ap::notify(ELEM_ID elem, int state)
 
 	if (elem == AP_P2_SWITCH_2)
 		config.nav = (state == POS_2) ? GTS : STG;
-
-	if (elem == AP_P2_SWITCH_4)
-		config.general = (state == POS_2) ? GENERAL_READY : GENERAL_OFF;
 
 	gdsu->updateConfig(config);
 	uiAp.updateConfig(config, elem);

@@ -8,6 +8,11 @@ class Button : public IElement
 public:
 	Button(QPushButton* uiButton, const std::string& nameImage);
 
+	ELEM_TYPE getType() const override
+	{
+		return BUTTON;
+	}
+
 	void setState(int newState) override;
 	int getState() const override;
 

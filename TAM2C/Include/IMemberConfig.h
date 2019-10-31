@@ -3,6 +3,7 @@
 enum GENERAL_SYSTEM
 {
 	GENERAL_OFF,
+	GENERAL_BIT,
 	GENERAL_READY
 };
 
@@ -29,10 +30,34 @@ enum AMMO
 	HE2
 };
 
+enum VISION
+{
+	DAYCAM,
+	NIGHTCAM
+};
+
+enum ZOOM
+{
+	N,
+	W,
+	VW
+};
+
+enum SCREEN
+{
+	ZM,
+	RT,
+	FC,
+	IR
+};
+
 struct IMemberConfig
 {
 	GENERAL_SYSTEM general =	GENERAL_OFF;
 	NAV_SYSTEM nav =			MSTG;
-	GUN_SYSTEM gun =			MGUN;
+	GUN_SYSTEM gun =			GUN;
 	AMMO ammo =					AP1;
+	VISION vision =				DAYCAM;
+	ZOOM zoom =					N;
+	SCREEN screen =				RT;
 };

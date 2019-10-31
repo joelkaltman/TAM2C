@@ -19,9 +19,8 @@ public:
 
 	void rotate(double drift, double rise) override;
 
-	IElement* getIElement(ELEM_ID elemId) override;
-
 	void notify(ELEM_ID elem, int state) override;
+
 private:
 	friend class Cabin;
 

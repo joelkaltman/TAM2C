@@ -8,6 +8,11 @@ class Led : public IElement
 public:
 	Led(QLabel* uiLabel, const std::string& nameImage);
 
+	ELEM_TYPE getType() const override
+	{
+		return LED;
+	}
+
 	void setState(int newState) override;
 	int getState() const override;
 	void setInitialState() override;

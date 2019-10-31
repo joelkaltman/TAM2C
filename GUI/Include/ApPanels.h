@@ -27,8 +27,6 @@ public:
 	void updateConfig(IMemberConfig config, ELEM_ID elemLastChange);
 
 private:
-	void loadImages();
-
 	Ui::ApPanelsClass ui;
 
 	PGSQtWidget::PGSWidget* pgs_qt_widget;

@@ -14,6 +14,8 @@ class IElement : public QWidget
 public:
 	typedef std::pair<int, std::function<void()>> CBTime;
 
+	virtual ELEM_TYPE getType() const = 0;
+
 	virtual int getState() const = 0;
 
 	virtual void setState(int newState);
