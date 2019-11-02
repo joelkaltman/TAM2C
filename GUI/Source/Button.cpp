@@ -47,7 +47,7 @@ int Button::getState() const
 	return state;
 }
 
-void Button::setSubscriber(ISubscriber* subscriber)
+void Button::addSubscriber(ISubscriber* subscriber)
 {
-	this->subscriber = subscriber;
+	this->subscribers.push_back(subscriber);
 }

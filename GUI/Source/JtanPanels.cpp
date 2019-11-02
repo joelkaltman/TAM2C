@@ -71,7 +71,7 @@ IElement* JtanPanels::getUiElement(ELEM_ID id) const
 void JtanPanels::addSubscriber(ISubscriber* sub)
 {
 	for (auto& e : uiElem)
-		e.second->setSubscriber(sub);
+		e.second->addSubscriber(sub);
 }
 
 void JtanPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)

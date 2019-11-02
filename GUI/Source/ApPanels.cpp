@@ -87,7 +87,7 @@ IElement* ApPanels::getUiElement(ELEM_ID id) const
 void ApPanels::addSubscriber(ISubscriber* sub)
 {
 	for (auto& e : uiElem)
-		e.second->setSubscriber(sub);
+		e.second->addSubscriber(sub);
 }
 
 void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)

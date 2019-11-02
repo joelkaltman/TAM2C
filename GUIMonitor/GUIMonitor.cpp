@@ -1,9 +1,13 @@
 #include "GUIMonitor.h"
 
+#include <GUI/Include/Switch.h>
+
 #define STR_ENABLED "Enabled"
 #define STR_DISABLED "Disabled"
 #define STR_USABLE "Usable"
 #define STR_NOTUSABLE "Not usable"
+
+bool changedStateListInternally = false;
 
 std::string getStateStringByType(ELEM_TYPE type, int state)
 {
@@ -17,20 +21,22 @@ std::string getStateStringByType(ELEM_TYPE type, int state)
 	return "";
 }
 
-QStringList getStateItems(ELEM_TYPE type)
+QStringList getStateItems(IElement* elem)
 {
 	QStringList items;
-	if (type == BUTTON)
+	if (elem->getType() == BUTTON)
 	{
 		for (int i = 0; i < INVALID_BUTTON; i++)
 			items.push_back(QString(Definitons::buttonStateToString((BUTTON_STATE)i).c_str()));
 	}
-	else if (type == SWITCH)
+	else if (elem->getType() == SWITCH)
 	{
-		for (int i = 0; i < INVALID_SWITCH; i++)
+		int pos = dynamic_cast<Switch*>(elem)->getPositions();
+
+		for (int i = 0; i < INVALID_SWITCH && i < pos; i++)
 			items.push_back(QString(Definitons::switchStateToString((SWITCH_STATE)i).c_str()));
 	}
-	else if (type == LED)
+	else if (elem->getType() == LED)
 	{
 		for (int i = 0; i < INVALID_LED; i++)
 			items.push_back(QString(Definitons::ledStateToString((LED_STATE)i).c_str()));
@@ -45,7 +51,6 @@ GUIMonitor::GUIMonitor(QWidget *parent)
 	ui.setupUi(this);
 
 	// combobox elements
-
 	QStringList elemAp;
 	QStringList elemJtan;
 	for (int i = 0; i < ELEM_ID::INVALID_ID; i++)
@@ -92,15 +97,16 @@ GUIMonitor::GUIMonitor(QWidget *parent)
 	connect(ui.cmb_ap_usable, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbApUsableChanged(int)));
 	connect(ui.cmb_jtan_usable, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbJtanUsableChanged(int)));
 
+	// combobox state
+	connect(ui.cmb_ap_state, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbApStateChanged(int)));
+	connect(ui.cmb_jtan_state, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbJtanStateChanged(int)));
+
 	// add subscribers
 	apSub = new MySubscriber(ui.lbl_ap_last_action);
-	apSub->cbOnNotify = [&]() { updateCurrentAp(); };
+	apSub->cbOnNotify = [&]() { cmbApElementChanged(); };
 
 	jtanSub = new MySubscriber(ui.lbl_jtan_last_action);
-	jtanSub->cbOnNotify = [&]() { updateCurrentJtan(); };
-
-	ui.cmb_ap_gui_elem->setCurrentIndex(0);
-	ui.cmb_jtan_gui_elem->setCurrentIndex(0);
+	jtanSub->cbOnNotify = [&]() { cmbJtanElementChanged(); };
 }
 
 void GUIMonitor::setScene(Scene* scene)
@@ -112,8 +118,10 @@ void GUIMonitor::setScene(Scene* scene)
 
 	jtan = cabin->getMember(Cabin::MEMBER_ID::JTAN);
 	jtan->addSubscriberToUI(jtanSub);
-}
 
+	cmbApUsableChanged(0);
+	cmbJtanUsableChanged(0);
+}
 
 void MySubscriber::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 {
@@ -125,25 +133,24 @@ void MySubscriber::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 	cbOnNotify();
 }
 
-void GUIMonitor::updateCurrentAp()
-{
-	cmbApElementChanged(ui.cmb_ap_gui_elem->currentIndex());
-}
-
-void GUIMonitor::updateCurrentJtan()
-{
-	cmbJtanElementChanged(ui.cmb_jtan_gui_elem->currentIndex());
-}
-
 void GUIMonitor::cmbApElementChanged(int index)
 {
-	ELEM_ID id = indexElemAp[index];
+	int i = index;
+	if (index == -1)
+		i = ui.cmb_ap_gui_elem->currentIndex();
+
+	ELEM_ID id = indexElemAp[i];
 	IElement* elem = ap->getGUIElement(id);
 
-	QStringList items = getStateItems(elem->getType());
+	QStringList items = getStateItems(elem);
 
-	ui.cmb_ap_state->clear();
-	ui.cmb_ap_state->addItems(items);
+	if (index != -1 || ui.cmb_ap_state->count() == 0)
+	{
+		changedStateListInternally = true;
+		ui.cmb_ap_state->clear();
+		ui.cmb_ap_state->addItems(items);
+		changedStateListInternally = false;
+	}
 
 	ui.lbl_ap_current_state->setText(QString(getStateStringByType(elem->getType(), elem->getState()).c_str()));
 	(elem->getEnabled()) ? ui.lbl_ap_current_enabled->setText(STR_ENABLED) : ui.lbl_ap_current_enabled->setText(STR_DISABLED);
@@ -152,13 +159,22 @@ void GUIMonitor::cmbApElementChanged(int index)
 
 void GUIMonitor::cmbJtanElementChanged(int index)
 {
+	int i = index;
+	if (index == -1)
+		i = ui.cmb_ap_gui_elem->currentIndex();
+
 	ELEM_ID id = indexElemJtan[index];
 	IElement* elem = jtan->getGUIElement(id);
 
-	QStringList items = getStateItems(elem->getType());
+	QStringList items = getStateItems(elem);
 
-	ui.cmb_jtan_state->clear();
-	ui.cmb_jtan_state->addItems(items);
+	if (index != -1 || ui.cmb_jtan_state->count() == 0)
+	{
+		changedStateListInternally = true;
+		ui.cmb_jtan_state->clear();
+		ui.cmb_jtan_state->addItems(items);
+		changedStateListInternally = false;
+	}
 
 	ui.lbl_jtan_current_state->setText(QString(getStateStringByType(elem->getType(), elem->getState()).c_str()));
 	(elem->getEnabled()) ? ui.lbl_jtan_current_enabled->setText(STR_ENABLED) : ui.lbl_jtan_current_enabled->setText(STR_DISABLED);
@@ -167,47 +183,62 @@ void GUIMonitor::cmbJtanElementChanged(int index)
 
 void GUIMonitor::cmbApEnabledChanged(int index)
 {
-	ELEM_ID id = indexElemAp[index];
+	if (ui.cmb_ap_gui_elem->count() == 0)
+		return;
+
+	ELEM_ID id = indexElemAp[ui.cmb_ap_gui_elem->currentIndex()];
 	IElement* elem = ap->getGUIElement(id);
 
 	(index == 0) ? elem->setEnabled(true) : elem->setEnabled(false);
 
-	updateCurrentAp();
+	cmbApElementChanged();
 }
 
 void GUIMonitor::cmbJtanEnabledChanged(int index)
 {
-	ELEM_ID id = indexElemJtan[index];
+	if (ui.cmb_jtan_gui_elem->count() == 0)
+		return;
+
+	ELEM_ID id = indexElemJtan[ui.cmb_jtan_gui_elem->currentIndex()];
 	IElement* elem = jtan->getGUIElement(id);
 
 	(index == 0) ? elem->setEnabled(true) : elem->setEnabled(false);
 
-	updateCurrentJtan();
+	cmbJtanElementChanged();
 }
 
 void GUIMonitor::cmbApUsableChanged(int index)
 {
-	ELEM_ID id = indexElemAp[index];
+	if (ui.cmb_ap_gui_elem->count() == 0)
+		return;
+
+	ELEM_ID id = indexElemAp[ui.cmb_ap_gui_elem->currentIndex()];
 	IElement* elem = ap->getGUIElement(id);
 
 	(index == 0) ? elem->setUsable(true) : elem->setUsable(false);
 
-	updateCurrentAp();
+	cmbApElementChanged();
 }
 
 void GUIMonitor::cmbJtanUsableChanged(int index)
 {
-	ELEM_ID id = indexElemJtan[index];
+	if (ui.cmb_jtan_gui_elem->count() == 0)
+		return;
+
+	ELEM_ID id = indexElemJtan[ui.cmb_jtan_gui_elem->currentIndex()];
 	IElement* elem = jtan->getGUIElement(id);
 
 	(index == 0) ? elem->setUsable(true) : elem->setUsable(false);
 
-	updateCurrentJtan();
+	cmbJtanElementChanged();
 }
 
 void GUIMonitor::cmbApStateChanged(int index)
 {
-	ELEM_ID id = indexElemAp[index];
+	if (ui.cmb_ap_gui_elem->count() == 0 || changedStateListInternally)
+		return;
+
+	ELEM_ID id = indexElemAp[ui.cmb_ap_gui_elem->currentIndex()];
 	IElement* elem = ap->getGUIElement(id);
 
 	elem->setState(index);
@@ -215,7 +246,10 @@ void GUIMonitor::cmbApStateChanged(int index)
 
 void GUIMonitor::cmbJtanStateChanged(int index)
 {
-	ELEM_ID id = indexElemJtan[index];
+	if (ui.cmb_jtan_gui_elem->count() == 0 || changedStateListInternally)
+		return;
+
+	ELEM_ID id = indexElemJtan[ui.cmb_jtan_gui_elem->currentIndex()];
 	IElement* elem = jtan->getGUIElement(id);
 
 	elem->setState(index);

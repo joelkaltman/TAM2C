@@ -84,22 +84,16 @@ IElement* Ap::getGUIElement(ELEM_ID id)
 void Ap::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	// General
-	switch (config.general)
+	if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() == POS_2 && uiAp.getUiElement(AP_P1_SWITCH_1)->getState() == POS_2)
 	{
-	case GENERAL_OFF:
-		if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() == POS_2 && uiAp.getUiElement(AP_P1_SWITCH_1)->getState() == POS_2)
-			config.general = GENERAL_BIT;
-		break;
-	case GENERAL_BIT:
-		if (elem == AP_P2_SWITCH_4 && state == POS_2)
+		config.general = GENERAL_BIT;
+		if(uiAp.getUiElement(AP_P2_SWITCH_4)->getState() == POS_2)
 			config.general = GENERAL_READY;
-		break;
-	case GENERAL_READY:
-		break;
 	}
-
-	if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() != POS_2 || uiAp.getUiElement(AP_P1_SWITCH_1)->getState() != POS_2 || uiAp.getUiElement(AP_P1_SWITCH_1)->getState() != POS_2)
+	else
+	{
 		config.general = GENERAL_OFF;
+	}
 
 	// GDSU
 	if (elem == GDSU_BUTTON_LEFT_2 && state == PRESSED)

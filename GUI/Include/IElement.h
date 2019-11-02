@@ -20,7 +20,7 @@ public:
 	virtual void setState(int newState);
 	virtual void setInitialState();
 
-	virtual void setSubscriber(ISubscriber* subscriber);
+	virtual void addSubscriber(ISubscriber* subscriber);
 
 	void setCallback(int cbState, const std::function<void()>& cb, int delayMs = 0);
 
@@ -44,5 +44,5 @@ protected:
 
 	std::map<int, CBTime> callbacks;
 
-	ISubscriber* subscriber = nullptr;
+	std::vector<ISubscriber*> subscribers;
 };

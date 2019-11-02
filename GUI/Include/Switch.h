@@ -14,10 +14,12 @@ public:
 		return SWITCH;
 	}
 
+	int getPositions() const;
+
 	void setState(int newState) override;
 	int getState() const override;
 
-	void setSubscriber(ISubscriber* subscriber) override;
+	void addSubscriber(ISubscriber* subscriber) override;
 
 private slots:
 	void Pressed();

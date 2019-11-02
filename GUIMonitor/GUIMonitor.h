@@ -28,12 +28,9 @@ public:
 
 	void setScene(Scene* scene);
 
-	void updateCurrentAp();
-	void updateCurrentJtan();
-
 private slots:
-	void cmbApElementChanged(int index);
-	void cmbJtanElementChanged(int index);
+	void cmbApElementChanged(int index = -1); // on -1 update with current index
+	void cmbJtanElementChanged(int index = -1);
 
 	void cmbApEnabledChanged(int index);
 	void cmbJtanEnabledChanged(int index);

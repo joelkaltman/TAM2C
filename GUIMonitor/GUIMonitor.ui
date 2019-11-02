@@ -52,7 +52,7 @@
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>action</string>
+     <string/>
     </property>
     <property name="margin">
      <number>5</number>
@@ -117,7 +117,7 @@ color: rgb(255, 255, 255);</string>
      <item row="2" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Usability</string>
+        <string>Usable from GUI:</string>
        </property>
       </widget>
      </item>
@@ -184,7 +184,7 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>action</string>
+     <string/>
     </property>
     <property name="margin">
      <number>5</number>
@@ -233,7 +233,7 @@ color: rgb(255, 255, 255);</string>
      <item row="5" column="1">
       <widget class="QLabel" name="label_10">
        <property name="text">
-        <string>Usability</string>
+        <string>Usable from GUI:</string>
        </property>
       </widget>
      </item>

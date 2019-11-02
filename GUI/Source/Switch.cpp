@@ -56,7 +56,12 @@ int Switch::getState() const
 	return state;
 }
 
-void Switch::setSubscriber(ISubscriber* subscriber)
+int Switch::getPositions() const
 {
-	this->subscriber = subscriber;
+	return positions;
+}
+
+void Switch::addSubscriber(ISubscriber* subscriber)
+{
+	this->subscribers.push_back(subscriber);
 }

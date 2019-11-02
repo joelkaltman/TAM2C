@@ -2,8 +2,8 @@
 
 void IElement::setState(int newState)
 {
-	if (subscriber)
-		subscriber->notify(id, getType(), newState);
+	for (auto& sub : subscribers)
+		sub->notify(id, getType(), newState);
 
 	if (callbacks.find(newState) != callbacks.end())
 	{
@@ -49,7 +49,7 @@ void IElement::setId(ELEM_ID id)
 	this->id = id;
 }
 
-void IElement::setSubscriber(ISubscriber* subscriber)
+void IElement::addSubscriber(ISubscriber* subscriber)
 {
 }
 
