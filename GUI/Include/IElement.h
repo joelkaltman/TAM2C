@@ -17,7 +17,6 @@ public:
 	virtual ELEM_TYPE getType() const = 0;
 
 	virtual int getState() const = 0;
-
 	virtual void setState(int newState);
 	virtual void setInitialState();
 
@@ -25,8 +24,10 @@ public:
 
 	void setCallback(int cbState, const std::function<void()>& cb, int delayMs = 0);
 
+	bool getEnabled() const;
 	void setEnabled(bool enabled);
 
+	bool getUsable() const;
 	void setUsable(bool usable);
 
 	void setId(ELEM_ID id);

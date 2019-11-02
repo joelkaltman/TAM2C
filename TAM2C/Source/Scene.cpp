@@ -66,3 +66,8 @@ void Scene::end()
 	p3d->exitFromExecutionContext(context);
 	p3d::P3D::release();
 }
+
+Cabin* Scene::getMainCabin() const
+{
+	return cabin;
+}

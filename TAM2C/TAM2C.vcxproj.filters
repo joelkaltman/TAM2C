@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TAM2C.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\JoysticksManager.cpp">
       <Filter>Source Files\Cabin</Filter>
     </ClCompile>

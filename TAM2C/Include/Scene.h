@@ -21,6 +21,8 @@ public:
 	void init();
 	void end();
 
+	Cabin* getMainCabin() const;
+
 private:
 	friend class Config;
 

@@ -52,6 +52,11 @@ void Cabin::axisModified(int id, float drift, float rise)
 	members[mId]->rotate(drift, rise);
 }
 
+std::map<Cabin::MEMBER_ID, IMember*> Cabin::getMembers()
+{
+	return members;
+}
+
 IMember* Cabin::getMember(MEMBER_ID id)
 {
 	if (members.find(id) != members.end())

@@ -50,6 +50,10 @@ class IMember
 	 
 	 virtual void rotate(double drift, double rise) {};
 
+	 virtual void addSubscriberToUI(ISubscriber* sub) {};
+
+	 virtual IElement* getGUIElement(ELEM_ID id) { return nullptr; };
+
  protected:
 	friend class Cabin;
 
@@ -62,4 +66,5 @@ class IMember
 	p3d::Window* window = nullptr;
 
 	IMemberConfig config;
+
 };

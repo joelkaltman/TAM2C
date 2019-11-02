@@ -16,6 +16,7 @@ public:
 	Cabin(p3d::Scene3D* scene, p3d::Context* context);
 	~Cabin();
 
+	std::map<MEMBER_ID, IMember*> getMembers();
 	IMember* getMember(MEMBER_ID id);
 
 	void axisModified(int id, float deriva, float alza);

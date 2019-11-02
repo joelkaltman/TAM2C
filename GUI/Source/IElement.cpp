@@ -3,7 +3,7 @@
 void IElement::setState(int newState)
 {
 	if (subscriber)
-		subscriber->notify(id, newState);
+		subscriber->notify(id, getType(), newState);
 
 	if (callbacks.find(newState) != callbacks.end())
 	{
@@ -24,9 +24,19 @@ void IElement::setCallback(int cbState, const std::function<void()>& cb, int del
 	this->callbacks[cbState] = std::make_pair(delayMs, cb);
 }
 
+bool IElement::getEnabled() const
+{
+	return this->enabled;
+}
+
 void IElement::setEnabled(bool enabled)
 {
 	this->enabled = enabled;
+}
+
+bool IElement::getUsable() const
+{
+	return this->usable;
 }
 
 void IElement::setUsable(bool usable)

@@ -20,14 +20,14 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{8B4B2D44-8F37-4DC9-83B6-6E5559074A0A}</ProjectGuid>
+    <ProjectGuid>{7DEA2EAB-3D3F-45AD-A688-C8802B893CF9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TAM2C</RootNamespace>
+    <RootNamespace>testMonitor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -72,7 +72,6 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(DXSDK_DIR)Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -80,7 +79,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(DXSDK_DIR)Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -93,8 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_AFXDLL;_WINSOCKAPI_;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib/trunk;$(COMPGRAF_PROJECTS_DIR)TaskLib/trunk;$(COMPGRAF_PROJECTS_DIR)ComLib/trunk;$(COMPGRAF_PROJECTS_DIR)p3d;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget;$(COMPGRAF_PROJECTS_DIR)rapidjson\include;$(COMPGRAF_PROJECTS_DIR)SDL-1.2.13\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
@@ -103,7 +100,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(SolutionDir)Debug;$(COMPGRAF_PROJECTS_DIR)UtilsLib/trunk/Debug;$(COMPGRAF_PROJECTS_DIR)TaskLib/trunk/Debug;$(COMPGRAF_PROJECTS_DIR)ComLib/trunk/Debug;$(COMPGRAF_PROJECTS_DIR)p3d/Debug;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget\Debug;$(COMPGRAF_PROJECTS_DIR)SDL-1.2.13\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>p3dd.lib;network.lib;resources.lib;UtilsLibd.lib;TaskLibd.lib;ComLibd.lib;PGSWidgetd.lib;GUI.lib;SDL_Wrapper.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;SDL.lib;SDLMain.lib;SDL_mixer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>p3dd.lib;network.lib;resources.lib;UtilsLibd.lib;TaskLibd.lib;ComLibd.lib;PGSWidgetd.lib;GUI.lib;GUIMonitor.lib;TAM2C.lib;SDL_Wrapper.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;SDL.lib;SDLMain.lib;SDL_mixer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,27 +120,21 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_WINSOCKAPI_;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(SolutionDir);$(COMPGRAF_PROJECTS_DIR)UtilsLib/trunk;$(COMPGRAF_PROJECTS_DIR)TaskLib/trunk;$(COMPGRAF_PROJECTS_DIR)ComLib/trunk;$(COMPGRAF_PROJECTS_DIR)p3d;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget;$(COMPGRAF_PROJECTS_DIR)rapidjson\include;$(COMPGRAF_PROJECTS_DIR)SDL-1.2.13\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <EnableModules>false</EnableModules>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(SolutionDir)Release;$(COMPGRAF_PROJECTS_DIR)UtilsLib/trunk/Release;$(COMPGRAF_PROJECTS_DIR)TaskLib/trunk/Release;$(COMPGRAF_PROJECTS_DIR)ComLib/trunk/Release;$(COMPGRAF_PROJECTS_DIR)p3d/Release;$(COMPGRAF_PROJECTS_DIR)pgs_tools\branches\branch-migracion-p3d\PGSQtWidget\Release;$(COMPGRAF_PROJECTS_DIR)SDL-1.2.13\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>p3d.lib;network.lib;resources.lib;UtilsLib.lib;TaskLib.lib;ComLib.lib;PGSWidget.lib;GUI.lib;SDL_Wrapper.lib;qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;SDL.lib;SDLMain.lib;SDL_mixer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,26 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Ap.cpp" />
-    <ClCompile Include="Source\Cabin.cpp" />
-    <ClCompile Include="Source\Config.cpp" />
-    <ClCompile Include="Source\GDSU.cpp" />
-    <ClCompile Include="Source\JoysticksManager.cpp" />
-    <ClCompile Include="Source\JTan.cpp" />
-    <ClCompile Include="Source\LocalResourceManager.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Include\Ap.h" />
-    <ClInclude Include="Include\Cabin.h" />
-    <ClInclude Include="Include\Config.h" />
-    <ClInclude Include="Include\GDSU.h" />
-    <ClInclude Include="Include\IMember.h" />
-    <ClInclude Include="Include\IMemberConfig.h" />
-    <ClInclude Include="Include\JoysticksManager.h" />
-    <ClInclude Include="Include\Jtan.h" />
-    <ClInclude Include="Include\LocalResourceManager.h" />
-    <ClInclude Include="Include\Scene.h" />
+    <ClCompile Include="testMonitor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

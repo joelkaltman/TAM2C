@@ -53,6 +53,11 @@ Ap::~Ap()
 	uiAp.close();
 }
 
+void Ap::addSubscriberToUI(ISubscriber* sub)
+{
+	uiAp.addSubscriber(sub);
+}
+
 void Ap::rotate(double drift, double rise)
 {
 	trajTower->setFreeRotationVelocity(drift);
@@ -71,7 +76,12 @@ void Ap::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-void Ap::notify(ELEM_ID elem, int state)
+IElement* Ap::getGUIElement(ELEM_ID id)
+{
+	return uiAp.getUiElement(id);
+}
+
+void Ap::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	// General
 	switch (config.general)

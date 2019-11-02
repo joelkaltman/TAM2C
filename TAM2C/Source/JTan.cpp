@@ -54,6 +54,11 @@ JTan::~JTan()
 	uiJtan.close();
 }
 
+void JTan::addSubscriberToUI(ISubscriber* sub)
+{
+	uiJtan.addSubscriber(sub);
+}
+
 void JTan::rotate(double drift, double rise)
 {
 	trajDirection->setFreeRotationVelocity(drift);
@@ -72,7 +77,12 @@ void JTan::createCameraGDSU()
 	window->showCamera(camera);
 }
 
-void JTan::notify(ELEM_ID elem, int state)
+IElement* JTan::getGUIElement(ELEM_ID id)
+{
+	return uiJtan.getUiElement(id);
+}
+
+void JTan::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	// General
 	if (elem == GDSU_SWITCH_1)

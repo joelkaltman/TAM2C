@@ -7,5 +7,5 @@ class ISubscriber
 	public:
 		ISubscriber() = default;
 
-		virtual void notify(ELEM_ID elem, int state) = 0;
+		virtual void notify(ELEM_ID elem, ELEM_TYPE type, int state) = 0;
 };
