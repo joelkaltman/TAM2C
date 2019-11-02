@@ -3,7 +3,7 @@
 void IElement::setState(int newState)
 {
 	for (auto& sub : subscribers)
-		sub->notify(id, getType(), newState);
+		sub->notifyUIChanged(id, getType(), newState);
 
 	if (callbacks.find(newState) != callbacks.end())
 	{

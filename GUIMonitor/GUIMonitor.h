@@ -6,18 +6,35 @@
 
 #include <TAM2C/Include/Scene.h>
 
-class MySubscriber : public ISubscriber
+class MySubscriber : public ISubscriber, public IMemberSubscriber
 {
 public:
-	MySubscriber(QLabel* label) : myLabel(label) {}
+	MySubscriber(Ui::GUIMonitorClass* ui) : ui(ui) {}
 
-	void notify(ELEM_ID elem, ELEM_TYPE type, int state) override;
+	std::function<void()> cbOnUINotify;
 
-	std::function<void()> cbOnNotify;
-
-	QLabel* myLabel;
+	Ui::GUIMonitorClass* ui;
 };
 
+class ApSubscriber : public MySubscriber
+{
+ public:
+	ApSubscriber(Ui::GUIMonitorClass* ui) : MySubscriber(ui) {}
+
+	void notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state) override;
+
+	void notifyMemberConfigChanged(const IMemberConfig& config) override;
+};
+
+class JtanSubscriber : public MySubscriber
+{
+ public:
+	JtanSubscriber(Ui::GUIMonitorClass* ui) : MySubscriber(ui) {}
+
+	void notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state) override;
+
+	void notifyMemberConfigChanged(const IMemberConfig& config) override;
+};
 
 class GUIMonitor : public QWidget
 {

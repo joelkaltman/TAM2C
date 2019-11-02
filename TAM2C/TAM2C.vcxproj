@@ -182,6 +182,7 @@
     <ClInclude Include="Include\GDSU.h" />
     <ClInclude Include="Include\IMember.h" />
     <ClInclude Include="Include\IMemberConfig.h" />
+    <ClInclude Include="Include\IMemberSubscriber.h" />
     <ClInclude Include="Include\JoysticksManager.h" />
     <ClInclude Include="Include\Jtan.h" />
     <ClInclude Include="Include\LocalResourceManager.h" />

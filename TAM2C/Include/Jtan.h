@@ -19,11 +19,11 @@ public:
 
 	void rotate(double drift, double rise) override;
 
-	void notify(ELEM_ID elem, ELEM_TYPE type, int state) override;
+	void notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state) override;
 
 	IElement* getGUIElement(ELEM_ID id) override;
 
-	void addSubscriberToUI(ISubscriber* sub) override;
+	void addUISubscriber(ISubscriber* sub) override;
 
 private:
 	friend class Cabin;

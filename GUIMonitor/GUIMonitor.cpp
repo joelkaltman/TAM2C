@@ -102,11 +102,11 @@ GUIMonitor::GUIMonitor(QWidget *parent)
 	connect(ui.cmb_jtan_state, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbJtanStateChanged(int)));
 
 	// add subscribers
-	apSub = new MySubscriber(ui.lbl_ap_last_action);
-	apSub->cbOnNotify = [&]() { cmbApElementChanged(); };
+	apSub = new ApSubscriber(&ui);
+	apSub->cbOnUINotify = [&]() { cmbApElementChanged(); };
 
-	jtanSub = new MySubscriber(ui.lbl_jtan_last_action);
-	jtanSub->cbOnNotify = [&]() { cmbJtanElementChanged(); };
+	jtanSub = new JtanSubscriber(&ui);
+	jtanSub->cbOnUINotify = [&]() { cmbJtanElementChanged(); };
 }
 
 void GUIMonitor::setScene(Scene* scene)
@@ -114,23 +114,61 @@ void GUIMonitor::setScene(Scene* scene)
 	Cabin* cabin = scene->getMainCabin();
 
 	ap = cabin->getMember(Cabin::MEMBER_ID::AP);
-	ap->addSubscriberToUI(apSub);
+	ap->addUISubscriber(apSub);
+	ap->addMemberSubscriber(apSub);
 
 	jtan = cabin->getMember(Cabin::MEMBER_ID::JTAN);
-	jtan->addSubscriberToUI(jtanSub);
+	jtan->addUISubscriber(jtanSub);
+	jtan->addMemberSubscriber(jtanSub);
 
 	cmbApUsableChanged(0);
 	cmbJtanUsableChanged(0);
+
+	IMemberConfig initialConfig;
+	apSub->notifyMemberConfigChanged(initialConfig);
+	jtanSub->notifyMemberConfigChanged(initialConfig);
 }
 
-void MySubscriber::notify(ELEM_ID elem, ELEM_TYPE type, int state)
+void ApSubscriber::notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	std::string strElem = Definitons::idToString(elem);
 	std::string strState = getStateStringByType(type, state);
 
-	myLabel->setText(QString((strElem + " (" + strState + ")").c_str()));
+	ui->lbl_ap_last_action->setText(QString((strElem + " (" + strState + ")").c_str()));
 
-	cbOnNotify();
+	cbOnUINotify();
+}
+
+void JtanSubscriber::notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state)
+{
+	std::string strElem = Definitons::idToString(elem);
+	std::string strState = getStateStringByType(type, state);
+
+	ui->lbl_jtan_last_action->setText(QString((strElem + " (" + strState + ")").c_str()));
+
+	cbOnUINotify();
+}
+
+void ApSubscriber::notifyMemberConfigChanged(const IMemberConfig& config)
+{
+	ui->lbl_ap_info_general->setText(QString(MemberConfig::generalToString(config.general).c_str()));
+	ui->lbl_ap_info_navegation->setText(QString(MemberConfig::navToString(config.nav).c_str()));
+	ui->lbl_ap_info_gun->setText(QString(MemberConfig::gunToString(config.gun).c_str()));
+	ui->lbl_ap_info_ammo->setText(QString(MemberConfig::ammoToString(config.ammo).c_str()));
+	ui->lbl_ap_info_vision->setText(QString(MemberConfig::visionToString(config.vision).c_str()));
+	ui->lbl_ap_info_zoom->setText(QString(MemberConfig::zoomToString(config.zoom).c_str()));
+	ui->lbl_ap_info_screen->setText(QString(MemberConfig::screenToString(config.screen).c_str()));
+}
+
+void JtanSubscriber::notifyMemberConfigChanged(const IMemberConfig& config)
+{
+	ui->lbl_jtan_info_general->setText(QString(MemberConfig::generalToString(config.general).c_str()));
+	ui->lbl_jtan_info_navegation->setText(QString(MemberConfig::navToString(config.nav).c_str()));
+	ui->lbl_jtan_info_gun->setText(QString(MemberConfig::gunToString(config.gun).c_str()));
+	ui->lbl_jtan_info_ammo->setText(QString(MemberConfig::ammoToString(config.ammo).c_str()));
+	ui->lbl_jtan_info_vision->setText(QString(MemberConfig::visionToString(config.vision).c_str()));
+	ui->lbl_jtan_info_zoom->setText(QString(MemberConfig::zoomToString(config.zoom).c_str()));
+	ui->lbl_jtan_info_screen->setText(QString(MemberConfig::screenToString(config.screen).c_str()));
 }
 
 void GUIMonitor::cmbApElementChanged(int index)

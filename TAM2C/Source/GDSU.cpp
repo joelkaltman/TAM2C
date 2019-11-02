@@ -188,7 +188,7 @@ void GDSU::addGDSURotation(p3d::Sprite* sprite)
 	spriteRot->start();
 }
 
-void GDSU::updateConfig(IMemberConfig config)
+void GDSU::notifyMemberConfigChanged(const IMemberConfig& config)
 {
 	// General
 	if (config.general == GENERAL_READY)

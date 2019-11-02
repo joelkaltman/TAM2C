@@ -13,6 +13,7 @@
 
 // TAM2C
 #include <TAM2C/Include/IMemberConfig.h>
+#include <TAM2C/Include/IMemberSubscriber.h>
 
 class GDSU;
 
@@ -60,7 +61,7 @@ class Label
 	bool enabled = true;
 };
 
-class GDSU
+class GDSU : public IMemberSubscriber
 {
  public:
 	 GDSU(p3d::Scene2D* sceneGDSU);
@@ -70,7 +71,7 @@ class GDSU
 
 	 Label* getLabel(const std::string& labelName) const;
 
-	 void updateConfig(IMemberConfig config);
+	 void notifyMemberConfigChanged(const IMemberConfig& config) override;
 
 	 void updateOrientationLabels(float drift, float rise);
 

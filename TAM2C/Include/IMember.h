@@ -19,6 +19,7 @@
 // TAM2C
 #include <TAM2C/Include/GDSU.h>
 #include <TAM2C/Include/IMemberConfig.h>
+#include <TAM2C/Include/IMemberSubscriber.h>
 
 #define RELATIVE_DISTANCE_TOWER_X 0.0
 #define RELATIVE_DISTANCE_TOWER_Y 0.0
@@ -50,7 +51,11 @@ class IMember
 	 
 	 virtual void rotate(double drift, double rise) {};
 
-	 virtual void addSubscriberToUI(ISubscriber* sub) {};
+	 virtual void addUISubscriber(ISubscriber* sub) {};
+
+	 virtual void addMemberSubscriber(IMemberSubscriber* sub) {
+		 subscribers.push_back(sub);
+	 };
 
 	 virtual IElement* getGUIElement(ELEM_ID id) { return nullptr; };
 
@@ -67,4 +72,5 @@ class IMember
 
 	IMemberConfig config;
 
+	std::vector<IMemberSubscriber*> subscribers;
 };

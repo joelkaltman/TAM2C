@@ -38,7 +38,8 @@ JTan::JTan(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
-	uiJtan.addSubscriber(this);
+	addUISubscriber(this);
+	addMemberSubscriber(gdsu);
 }
 
 JTan::~JTan()
@@ -54,7 +55,7 @@ JTan::~JTan()
 	uiJtan.close();
 }
 
-void JTan::addSubscriberToUI(ISubscriber* sub)
+void JTan::addUISubscriber(ISubscriber* sub)
 {
 	uiJtan.addSubscriber(sub);
 }
@@ -82,7 +83,7 @@ IElement* JTan::getGUIElement(ELEM_ID id)
 	return uiJtan.getUiElement(id);
 }
 
-void JTan::notify(ELEM_ID elem, ELEM_TYPE type, int state)
+void JTan::notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	// General
 	if (elem == GDSU_SWITCH_1)
@@ -113,6 +114,8 @@ void JTan::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 	if (elem == GDSU_BUTTON_RIGHT_4 && state == PRESSED)
 		(config.screen < IR) ? config.screen = SCREEN(config.screen + 1) : config.screen = SCREEN(0);
 
-	gdsu->updateConfig(config);
 	uiJtan.updateConfig(config, elem);
+
+	for (auto& sub : subscribers)
+		sub->notifyMemberConfigChanged(config);
 }

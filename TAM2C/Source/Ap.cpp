@@ -37,7 +37,8 @@ Ap::Ap(p3d::Scene3D* scene, p3d::Scene2D* sceneGDSU) :
 	gdsu = new GDSU(sceneGDSU);
 	window->showScene2D(gdsu->sceneGDSU, 860 / 2, 560 / 2, 1, 860, 560);
 
-	uiAp.addSubscriber(this);
+	addUISubscriber(this);
+	addMemberSubscriber(gdsu);
 }
 
 Ap::~Ap()
@@ -53,7 +54,7 @@ Ap::~Ap()
 	uiAp.close();
 }
 
-void Ap::addSubscriberToUI(ISubscriber* sub)
+void Ap::addUISubscriber(ISubscriber* sub)
 {
 	uiAp.addSubscriber(sub);
 }
@@ -81,7 +82,7 @@ IElement* Ap::getGUIElement(ELEM_ID id)
 	return uiAp.getUiElement(id);
 }
 
-void Ap::notify(ELEM_ID elem, ELEM_TYPE type, int state)
+void Ap::notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state)
 {
 	// General
 	if (uiAp.getUiElement(GDSU_SWITCH_1)->getState() == POS_2 && uiAp.getUiElement(AP_P1_SWITCH_1)->getState() == POS_2)
@@ -130,6 +131,8 @@ void Ap::notify(ELEM_ID elem, ELEM_TYPE type, int state)
 	if (elem == AP_P2_SWITCH_2)
 		config.nav = (state == POS_2) ? GTS : STG;
 
-	gdsu->updateConfig(config);
 	uiAp.updateConfig(config, elem);
+
+	for (auto& sub : subscribers)
+		sub->notifyMemberConfigChanged(config);
 }
