@@ -1,7 +1,9 @@
 #include <TAM2C/Include/Scene.h>
 
+// UtilsLib
 #include <UtilsLib/Include/Exception.h>
 
+// TaskLib
 #include <TaskLib/Include/TaskManager.h>
 
 // p3d
@@ -15,17 +17,26 @@
 // TAM2C
 #include <TAM2C/Include/LocalResourceManager.h>
 
-void Scene::init()
+bool Scene::init(p3d::P3D::Platform platform)
 {
+	joystickMng = new JoysticksManager();
+	if (!joystickMng->openJoysticks())
+		return false;
+
+	if (!Config::load("../config.json"))
+		return false;
+
+	p3d::P3D::initialize(p3d::P3D::NetworkingMode::ONLY_LOCAL, platform);
+
 	p3d::P3D* p3d = p3d::P3D::getInstance();
 	p3d::ResourceManager* resource_manager = p3d->getResourceManager();
 
 	sceneDesc = p3d->loadSceneDescription(Config::getScenePath(Config::initData.scene), Config::getMultimediaResourcesPath());
 
 	resource_manager->loadResources(sceneDesc);
-
+	
 	LocalResourceManager::getInstance().loadResources(resource_manager);
-
+	
 	context = p3d->createExecutionContext();
 
 	scene3d = context->createScene3D();
@@ -33,9 +44,11 @@ void Scene::init()
 
 	cabin = new Cabin(scene3d, context);
 
-	joystickMng = new JoysticksManager(cabin);
+	joystickMng->init(cabin);
 
 	p3d->initRendering();
+
+	return true;
 }
 
 void Scene::end()

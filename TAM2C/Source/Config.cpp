@@ -2,6 +2,7 @@
 
 // stl
 #include <fstream>
+#include <iostream>
 
 // rapidjson
 #include <rapidjson/document.h>
@@ -14,13 +15,19 @@ std::string Config::Scenes = "";
 
 Config::InitData Config::initData = Config::InitData();
 
-Config::Config(const std::string& pathConfig)
+bool Config::load(const std::string& pathConfig)
 {
 	std::ifstream inStream(pathConfig);
 	rapidjson::IStreamWrapper isw(inStream);
 
 	rapidjson::Document configJson;
 	configJson.ParseStream(isw);
+
+	if (configJson.HasParseError())
+	{
+		std::cout << "Parse error while loading config.json" << std::endl;
+		return false;
+	}
 
 	rapidjson::Value& paths = configJson["paths"];
 	Config::MultimediaResourcesPath = paths["MultimediaResources"].GetString();
@@ -47,4 +54,6 @@ Config::Config(const std::string& pathConfig)
 	initData.cabinPosY = jscene["cabinPosY"].GetFloat();
 	initData.cabinAtX = jscene["cabinAtX"].GetFloat();
 	initData.cabinAtY = jscene["cabinAtY"].GetFloat();
+
+	return true;
 }

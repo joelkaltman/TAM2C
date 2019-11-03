@@ -21,13 +21,9 @@ extern "C" FILE * __cdecl __iob_func(void) { return _iob; }
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-
-	Config("../config.json");
-
-	p3d::P3D::initialize(p3d::P3D::NetworkingMode::ONLY_LOCAL, p3d::P3D::Platform::DIRECTX_11);
-
+	
 	Scene* scene = new Scene();
-	scene->init();
+	scene->init(p3d::P3D::Platform::DIRECTX_11);
 
 	GUIMonitor monitor;
 	monitor.show();

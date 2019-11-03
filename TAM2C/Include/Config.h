@@ -45,7 +45,7 @@ class Config
 		return Config::Scenes + path;
 	}
 
-	Config(const std::string& pathConfig);
+	static bool load(const std::string& pathConfig);
 
  private:
 	static std::string GUIPath;

@@ -22,11 +22,14 @@ public:
 		ROT_Z = 4
 	};
 
-	JoysticksManager(Cabin* cabin);
+	JoysticksManager() = default;
 	~JoysticksManager();
 
-private:
+	void init(Cabin* cabin);
+
 	bool openJoysticks();
+
+private:
 	void handleJoysticksEvent(SDL_Event &joystick_event);
 	static void joystickListenerFunction(const double_t& delta_time, void* instance);
 

@@ -4,6 +4,7 @@
 #include <math/Include/Vector3.h>
 
 // p3d
+#include <p3d/Include/P3D.h>
 #include <p3d/Include/Context.h>
 #include <p3d/Include/Scene3d.h>
 #include <p3d/Include/SceneDescription.h>
@@ -18,7 +19,7 @@ class Scene
 public:
 	Scene() = default;
 
-	void init();
+	bool init(p3d::P3D::Platform plataform);
 	void end();
 
 	Cabin* getMainCabin() const;

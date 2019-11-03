@@ -7,6 +7,7 @@
 // SDL
 #include <SDL_Wrapper/Include/SDLWrapper.h>
 #include <SDL_Wrapper/Include/SDLJoystickManager.h>
+#include <SDL_Wrapper/Include/MissingJoysticksException.h>
 
 // TAM2C
 #include <TAM2C/Include/Cabin.h>
@@ -14,25 +15,33 @@
 #define DEAD_ZONE 4000.0
 #define MAX 32767.0
 
-JoysticksManager::JoysticksManager(Cabin* cabin) : cabin(cabin)
+JoysticksManager::~JoysticksManager()
 {
-	openJoysticks();
+	joystick_listener->stop();
+}
+
+void JoysticksManager::init(Cabin* cabin)
+{
+	this->cabin = cabin;
 
 	task::TaskManager* task_man = task::TaskManager::getInstance();
 	joystick_listener = task_man->createPeriodicTask(100, joystickListenerFunction, this);
 	joystick_listener->start();
 }
 
-JoysticksManager::~JoysticksManager()
-{
-	joystick_listener->stop();
-}
-
 bool JoysticksManager::openJoysticks()
 {
 	SDLWrapper* sdl_wrapper = SDLWrapper::getInstance();
 
-	sdl_wrapper->initJoysticksManagers(2);
+	try
+	{
+		sdl_wrapper->initJoysticksManagers(2);
+	}
+	catch (MissingJoysticksException* e)
+	{
+		std::cout << "2 joysticks are needed to run the simulation." << std::endl;
+		return false;
+	}
 
 	SDLJoystickManager* joystickManager = sdl_wrapper->getJoystickManager(0);
 
