@@ -93,30 +93,34 @@ void ApPanels::addSubscriber(ISubscriber* sub)
 void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 {
 	// GENERAL
-	if (config.general == GENERAL_OFF || config.general == GENERAL_BIT)
+	if (config.general < GENERAL_READY)
 	{
 		for (auto& e : uiElem)
 			if (e.second->getType() == LED)
 				e.second->setState(OFF);
 
-		if (config.general == GENERAL_BIT)
+		if(config.general == GENERAL_BIT)
 			uiElem[AP_P1_LED_1]->setState(ON);
 
 		return;
 	}
-	else if(elemLastChange == AP_P2_SWITCH_4)
+	else
 	{
 		uiElem[AP_P2_LED_10]->setState(ON);
+		uiElem[AP_P1_LED_1]->setState(ON);
 
-		for (auto& e : uiElem)
-			if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
-				e.second->setState(ON);
+		if (elemLastChange == AP_P2_SWITCH_4)
+		{
+			for (auto& e : uiElem)
+				if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
+					e.second->setState(ON);
 
-		IElement::sleepUI(1000);
+			IElement::sleepUI(1000);
 
-		for (auto& e : uiElem)
-			if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
-				e.second->setState(OFF);
+			for (auto& e : uiElem)
+				if (e.first >= AP_P2_LED_1 && e.first <= AP_P2_LED_9)
+					e.second->setState(OFF);
+		}
 	}
 
 	// GUN
@@ -137,6 +141,9 @@ void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 		case MSTG:
 			uiElem[AP_P2_SWITCH_2]->setUsable(true);
 			uiElem[AP_P2_SWITCH_3]->setUsable(true);
+
+			uiElem[AP_P2_LED_8]->setState(OFF);
+			uiElem[AP_P2_LED_9]->setState(OFF);
 			break;
 		case STG:
 		{
@@ -145,12 +152,18 @@ void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 
 			uiElem[AP_P2_LED_8]->setState(ON);
 			uiElem[AP_P2_LED_9]->setState(ON);
+
+			uiElem[AP_P2_LED_6]->setState(OFF);
+			uiElem[AP_P2_LED_7]->setState(OFF);
 			break;
 		}
 		case GTS:
 		{
 			uiElem[AP_P2_SWITCH_2]->setUsable(false);
 			uiElem[AP_P2_SWITCH_3]->setUsable(false);
+
+			uiElem[AP_P2_LED_8]->setState(OFF);
+			uiElem[AP_P2_LED_9]->setState(OFF);
 
 			if (elemLastChange == AP_P2_SWITCH_2)
 			{
