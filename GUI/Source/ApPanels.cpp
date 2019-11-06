@@ -41,13 +41,13 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[GDSU_BUTTON_PLUS] = new Button(ui.GDSU_btn_plus, "AP_GDSU_button_plus_pressed.png");
 	uiElem[GDSU_BUTTON_CIRCLE] = new Button(ui.GDSU_btn_circle, "AP_GDSU_button_circle_pressed.png");
 
-	uiElem[AP_P1_SWITCH_1] = new Switch(ui.Panel_1_switch_1, "AP_panel1_switch1_1.png", "AP_panel1_switch1_2.png", "AP_panel1_switch1_3.png");
+	uiElem[AP_P1_SWITCH_1] = new Switch(ui.Panel_1_switch_1, { "AP_panel1_switch1_1.png", "AP_panel1_switch1_2.png", "AP_panel1_switch1_3.png" });
 	uiElem[AP_P1_SWITCH_2] = new Switch(ui.Panel_1_switch_2, "AP_panel1_switch2_1.png", "AP_panel1_switch2_2.png");
 	uiElem[AP_P1_SWITCH_3] = new Switch(ui.Panel_1_switch_3, "AP_panel1_switch3_1.png", "AP_panel1_switch3_2.png");
 	uiElem[AP_P1_BUTTON_1] = new Button(ui.Panel_1_button_1, "AP_panel1_red_pressed.png");
 	uiElem[AP_P1_LED_1] = new Led(ui.Panel_1_led_1, "AP_panel1_led1.png");
 
-	uiElem[AP_P2_SWITCH_1] = new Switch(ui.Panel_2_switch_1, "AP_panel2_switch1_2.png", "AP_panel2_switch1_1.png");
+	uiElem[AP_P2_SWITCH_1] = new Switch(ui.Panel_2_switch_1, { "", "AP_panel2_switch1_2.png", "", "AP_panel2_switch1_1.png" });
 	uiElem[AP_P2_SWITCH_2] = new Switch(ui.Panel_2_switch_2, "AP_panel2_switch2_2.png", "AP_panel2_switch2_1.png");
 	uiElem[AP_P2_SWITCH_3] = new Switch(ui.Panel_2_switch_3, "AP_panel2_switch3_2.png", "AP_panel2_switch3_1.png");
 	uiElem[AP_P2_SWITCH_4] = new Switch(ui.Panel_2_switch_4, "AP_panel2_switch4_2.png", "AP_panel2_switch4_1.png");
@@ -61,7 +61,7 @@ ApPanels::ApPanels(QWidget *parent)
 	uiElem[AP_P2_LED_8] = new Led(ui.Panel_2_led_8, "AP_panel2_led8.png");
 	uiElem[AP_P2_LED_9] = new Led(ui.Panel_2_led_9, "AP_panel2_led9.png");
 	uiElem[AP_P2_LED_10] = new Led(ui.Panel_2_led_10, "AP_panel2_led10.png");
-	uiElem[AP_P2_BUTTON_1] = new Button(ui.Panel_2_button_1, "AP_panel2_button1.png");
+	uiElem[AP_P2_BUTTON_LED] = new Led(ui.Panel_2_button_led, "AP_panel2_button_led.png");
 
 	for (auto& e : uiElem)
 		e.second->setId(e.first);
@@ -129,10 +129,15 @@ void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 		uiElem[AP_P2_LED_2]->setState(ON);
 		uiElem[AP_P2_LED_3]->setState(OFF);
 	}
-	else
+	else if(config.gun == GUN)
 	{
 		uiElem[AP_P2_LED_2]->setState(OFF);
 		uiElem[AP_P2_LED_3]->setState(ON);
+	}
+	else
+	{
+		uiElem[AP_P2_LED_2]->setState(OFF);
+		uiElem[AP_P2_LED_3]->setState(OFF);
 	}
 
 	// NAVEGATION
@@ -147,14 +152,27 @@ void ApPanels::updateConfig(IMemberConfig config, ELEM_ID elemLastChange)
 			break;
 		case STG:
 		{
-			uiElem[AP_P2_SWITCH_2]->setUsable(true);
-			uiElem[AP_P2_SWITCH_3]->setUsable(true);
+			uiElem[AP_P2_SWITCH_2]->setUsable(false);
+			uiElem[AP_P2_SWITCH_3]->setUsable(false);
 
 			uiElem[AP_P2_LED_8]->setState(ON);
 			uiElem[AP_P2_LED_9]->setState(ON);
 
 			uiElem[AP_P2_LED_6]->setState(OFF);
 			uiElem[AP_P2_LED_7]->setState(OFF);
+
+			if (elemLastChange == AP_P2_SWITCH_3)
+			{
+				for (int i = 0; i < 7; i++)
+				{
+					uiElem[AP_P2_BUTTON_LED]->setState(i % 2);
+					IElement::sleepUI(500);
+				}
+			}
+
+			uiElem[AP_P2_SWITCH_2]->setUsable(true);
+			uiElem[AP_P2_SWITCH_3]->setUsable(true);
+
 			break;
 		}
 		case GTS:

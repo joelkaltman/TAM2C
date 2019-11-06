@@ -19,6 +19,7 @@ enum NAV_SYSTEM
 
 enum GUN_SYSTEM
 {
+	NO_GUN,
 	GUN,
 	MGUN
 };
@@ -58,7 +59,7 @@ struct IMemberConfig
 {
 	GENERAL_SYSTEM general =	GENERAL_OFF;
 	NAV_SYSTEM nav =			MSTG;
-	GUN_SYSTEM gun =			GUN;
+	GUN_SYSTEM gun =			NO_GUN;
 	AMMO ammo =					AP1;
 	VISION vision =				DAYCAM;
 	ZOOM zoom =					N;
@@ -94,6 +95,7 @@ namespace MemberConfig
 	{
 		std::vector<std::string> strings =
 		{
+			"NO_GUN",
 			"GUN",
 			"MGUN"
 		};

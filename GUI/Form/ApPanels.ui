@@ -1198,10 +1198,7 @@
     <pixmap>:/prefijoNuevo/Multimedia/GUI/AP_panel1_led1.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="Panel_2_button_1">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <widget class="QLabel" name="Panel_2_button_led">
    <property name="geometry">
     <rect>
      <x>1383</x>
@@ -1210,24 +1207,8 @@
      <height>91</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-   </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/prefijoNuevo/Multimedia/GUI/AP_panel2_button1.png</normaloff>:/prefijoNuevo/Multimedia/GUI/AP_panel2_button1.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>95</width>
-     <height>91</height>
-    </size>
-   </property>
-   <property name="pixmap" stdset="0">
-    <pixmap>:/ApPanels/Multimedia/GUI/AP_panel1_red.png</pixmap>
    </property>
   </widget>
  </widget>

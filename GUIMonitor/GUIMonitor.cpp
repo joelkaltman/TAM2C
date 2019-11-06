@@ -63,7 +63,7 @@ GUIMonitor::GUIMonitor(QWidget *parent)
 			elemJtan.push_back(QString(Definitons::idToString((ELEM_ID)i).c_str()));
 			indexElemJtan[elemJtan.size() - 1] = (ELEM_ID)i;
 		}
-		else if (i <= AP_P2_BUTTON_1)
+		else if (i <= AP_P2_BUTTON_LED)
 		{
 			elemAp.push_back(QString(Definitons::idToString((ELEM_ID)i).c_str()));
 			indexElemAp[elemAp.size() - 1] = (ELEM_ID)i;

@@ -56,7 +56,7 @@ enum ELEM_ID
 	AP_P2_LED_8,
 	AP_P2_LED_9,
 	AP_P2_LED_10,
-	AP_P2_BUTTON_1,
+	AP_P2_BUTTON_LED,
 
 	JTAN_P1_SWITCH_1,
 	JTAN_P1_SWITCH_2,
@@ -80,6 +80,9 @@ enum SWITCH_STATE
 	POS_1,
 	POS_2,
 	POS_3,
+	POS_4,
+	POS_5,
+	POS_6,
 	INVALID_SWITCH
 };
 
@@ -181,7 +184,10 @@ namespace Definitons
 		{
 			"POS_1",
 			"POS_2",
-			"POS_3"
+			"POS_3",
+			"POS_4",
+			"POS_5",
+			"POS_6"
 		};
 		return strings[state];
 	}

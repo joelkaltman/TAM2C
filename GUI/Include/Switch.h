@@ -7,7 +7,7 @@ class Switch : public IElement
 	Q_OBJECT
 public:
 	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2);
-	Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3);
+	Switch(QPushButton* uiButton, const std::vector<std::string>& images);
 
 	ELEM_TYPE getType() const override
 	{
@@ -25,8 +25,7 @@ private slots:
 	void Pressed();
 
 private:
-	int positions;
 	SWITCH_STATE state;
-	std::string nameImages[3];
+	std::vector<std::string> nameImages;
 	QPushButton* uiButton;
 };

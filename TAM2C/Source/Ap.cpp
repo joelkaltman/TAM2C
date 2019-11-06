@@ -123,7 +123,10 @@ void Ap::notifyUIChanged(ELEM_ID elem, ELEM_TYPE type, int state)
 
 	// Panel 2
 	if (elem == AP_P2_SWITCH_1)
-		config.gun = (state == POS_2) ? MGUN : GUN;
+	{
+		if (state == POS_4) config.gun = MGUN;
+		else if (state == POS_2) config.gun = GUN;
+	}
 
 	if (elem == AP_P2_SWITCH_3)
 		config.nav = (state == POS_2) ? STG : MSTG;

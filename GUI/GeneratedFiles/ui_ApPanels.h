@@ -64,7 +64,7 @@ public:
     QLabel *Panel_2_led_10;
     QPushButton *GDSU_switch_1;
     QLabel *Panel_1_led_1;
-    QPushButton *Panel_2_button_1;
+    QLabel *Panel_2_button_led;
 
     void setupUi(QWidget *ApPanelsClass)
     {
@@ -382,16 +382,9 @@ public:
         Panel_1_led_1->setEnabled(true);
         Panel_1_led_1->setGeometry(QRect(1386, 347, 55, 57));
         Panel_1_led_1->setPixmap(QPixmap(QString::fromUtf8(":/prefijoNuevo/Multimedia/GUI/AP_panel1_led1.png")));
-        Panel_2_button_1 = new QPushButton(ApPanelsClass);
-        Panel_2_button_1->setObjectName(QString::fromUtf8("Panel_2_button_1"));
-        Panel_2_button_1->setEnabled(true);
-        Panel_2_button_1->setGeometry(QRect(1383, 826, 95, 91));
-        Panel_2_button_1->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0)"));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/prefijoNuevo/Multimedia/GUI/AP_panel2_button1.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Panel_2_button_1->setIcon(icon6);
-        Panel_2_button_1->setIconSize(QSize(95, 91));
-        Panel_2_button_1->setProperty("pixmap", QVariant(QPixmap(QString::fromUtf8(":/ApPanels/Multimedia/GUI/AP_panel1_red.png"))));
+        Panel_2_button_led = new QLabel(ApPanelsClass);
+        Panel_2_button_led->setObjectName(QString::fromUtf8("Panel_2_button_led"));
+        Panel_2_button_led->setGeometry(QRect(1383, 826, 95, 91));
 
         retranslateUi(ApPanelsClass);
 
@@ -444,7 +437,7 @@ public:
         Panel_2_led_10->setText(QString());
         GDSU_switch_1->setText(QString());
         Panel_1_led_1->setText(QString());
-        Panel_2_button_1->setText(QString());
+        Panel_2_button_led->setText(QString());
     } // retranslateUi
 
 };

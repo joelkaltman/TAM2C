@@ -3,10 +3,10 @@
 #include <TAM2C/Include/Config.h>
 
 Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2) :
-	uiButton(uiButton), state(POS_1), positions(2)
+	uiButton(uiButton), state(POS_1)
 {
-	nameImages[0] = nameImage1;
-	nameImages[1] = nameImage2;
+	this->nameImages.push_back(nameImage1);
+	this->nameImages.push_back(nameImage2);
 
 	setState(state);
 
@@ -15,16 +15,16 @@ Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::
 	initialState = state;
 }
 
-Switch::Switch(QPushButton* uiButton, const std::string& nameImage1, const std::string& nameImage2, const std::string& nameImage3) :
-	uiButton(uiButton), state(POS_1), positions(3)
+Switch::Switch(QPushButton* uiButton, const std::vector<std::string>& images) :
+	uiButton(uiButton), state(POS_1)
 {
-	nameImages[0] = nameImage1;
-	nameImages[1] = nameImage2;
-	nameImages[2] = nameImage3;
+	this->nameImages = images;
 
 	setState(state);
 
 	connect(uiButton, SIGNAL(pressed()), this, SLOT(Pressed()));
+
+	initialState = state;
 }
 
 void Switch::Pressed()
@@ -33,7 +33,7 @@ void Switch::Pressed()
 		return;
 
 	SWITCH_STATE newState = SWITCH_STATE(state + 1);
-	if (newState == INVALID_SWITCH || newState > positions - 1)
+	if (newState == INVALID_SWITCH || newState >= this->nameImages.size())
 		setState(0);
 	else
 		setState(newState);
@@ -41,13 +41,13 @@ void Switch::Pressed()
 
 void Switch::setState(int newState)
 {
-	if (newState < 0 || newState > positions - 1 || !enabled)
+	if (newState < 0 || newState >= this->nameImages.size() || !enabled)
 		return;
 
-	state = (SWITCH_STATE)newState;
+	state = (SWITCH_STATE)newState; 
 
-	uiButton->setIcon(QPixmap(Config::getGUIPath(nameImages[newState]).c_str()));
-	
+	 (nameImages[newState].empty()) ? uiButton->setIcon(QIcon()) : uiButton->setIcon(QPixmap(Config::getGUIPath(nameImages[newState]).c_str()));
+
 	IElement::setState(newState);
 }
 
@@ -58,7 +58,7 @@ int Switch::getState() const
 
 int Switch::getPositions() const
 {
-	return positions;
+	return this->nameImages.size();
 }
 
 void Switch::addSubscriber(ISubscriber* subscriber)
