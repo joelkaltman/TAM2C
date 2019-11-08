@@ -289,7 +289,9 @@ void GDSU::riseUpdateFunction(const double_t& delta_time, void* instance)
 	Label* labelRise = gdsu->commonLabels["Rise"];
 	Label* labelRiseIndicator = gdsu->commonLabels["RiseIndicator"];
 
-	gdsu->totalRise += gdsu->lastRise * 15;
+	// TODO: get label offset from cannon rotation
+	gdsu->totalRise += gdsu->lastRise * 30;
+
 	gdsu->totalRise = std::clamp(gdsu->totalRise, -labelRise->h / 2, labelRise->h / 4);
 
 	labelRiseIndicator->getBackground()->setFramePosition(labelRiseIndicator->x, labelRiseIndicator->y + gdsu->totalRise);
